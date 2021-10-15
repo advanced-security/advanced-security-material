@@ -1,0 +1,54 @@
+steps:
+    # Download the CodeQL CLI and query packs...
+    # Check out the repository ...
+
+    # Tasks prior to executing the build, e.g. restore NuGet dependencies...
+
+    # Initialize the CodeQL database.
+    # In this example, the CodeQL CLI has been downloaded and placed on the PATH.
+    # If no language is specified, a GitHub Apps or personal access token must be passed through stdin
+    # to autodetect the language.
+    - task: CmdLine@1
+        displayName: Initialize CodeQL database
+        inputs:
+            # Assumes the source code is checked out to the current working directory.
+            # Creates a database at `<current working directory>/db`
+            script: "codeql database init --language csharp --trace-process-level 3 --source-root . --begin-tracing db"
+
+    # Read the generated environment variables and values,
+    # and set them so they are available for subsequent commands
+    # in the build pipeline. This is done in PowerShell in this example.
+    - task: PowerShell@1
+        displayName: Set CodeQL environment variables
+        inputs:
+            targetType: inline
+            script: >
+                $json = Get-Content $(System.DefaultWorkingDirectory)/db/temp/tracingEnvironment/start-tracing.json | ConvertFrom-Json
+                $json.PSObject.Properties | ForEach-Object {
+                    $template = "##vso[task.setvariable variable="
+                    $template += $_.Name
+                    $template += "]"
+                    $template += $_.Value
+                    echo "$template"
+                }
+
+    # Execute the pre-defined build step. Note the `msbuildArgs` variable.
+    - task: VSBuild@1
+        inputs:
+            solution: '**/*.sln'
+            # Disable MSBuild shared compilation for C# builds.
+            msbuildArgs: /p:OutDir=$(Build.ArtifactStagingDirectory) /p:UseSharedCompilation=false
+            platform: Any CPU
+            configuration: Release
+            # Execute a clean build, in order to remove any existing build artifacts prior to the build.
+            clean: True
+        displayName: Visual Studio Build
+
+    - task: CmdLine@2
+        displayName: Finalize CodeQL database
+        inputs:
+            script: 'codeql database finalize db'
+
+    # Other tasks go here,
+    # e.g. `codeql database analyze`
+    # and `codeql github upload-results` ...
