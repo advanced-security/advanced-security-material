@@ -82,8 +82,8 @@ Note that this kind of depends on how you're running the builds (whether or not 
 just make sure to have the same category value for subsequent scans, so that Code Scannning can easily figure out what the basline analysis is to compare subsequent analyses.
 
 The `--ref` and `--commit` flag combinations can be one of the following:
-- `refs/pulls/<pull request number>/merge` + HEAD commit
-- `refs/heads/<branch name>` + MERGE commit
+- `refs/pulls/<pull request number>/merge` + MERGE commit
+- `refs/heads/<branch name>` + HEAD commit
   - ` curl -H "Accept: application/vnd.github.v3+json" \\n  -H "Authorization: token $GH_TOKEN" \\n  https://api.github.com/repos/<org-name>/<repo-name>/pulls/<pull-request-number> | jq '.merge_commit_sha'`
   - The merge commit is a commit created to make sure PR checks are ran; this commit doesn't exist in the actual source tree/`git log`.
 
