@@ -19,9 +19,6 @@ CODEQL_SARIF_CATEGORY=.github/workflows/codeql-analysis.yml:analyze/language:go
 
 # run a single language analysis for a PR
 
-# remove db
-rm -rf $CODEQL_DATABASE
-
 # get mergit commit sha
 GH_MERGE_COMMIT_SHA=$(curl -H "Accept: application/vnd.github.v3+json" -H "Authorization: token $GH_TOKEN" https://api.github.com/repos/$GH_ORG/$GH_REPO/pulls/$GH_PULL_REQUEST_NUMBER | jq '.merge_commit_sha' | sed -e 's/^"//' -e 's/"$//')
 
@@ -29,7 +26,7 @@ GH_MERGE_COMMIT_SHA=$(curl -H "Accept: application/vnd.github.v3+json" -H "Autho
 codeql --version
 
 # codeql database create
-codeql database create $CODEQL_DATABASE --language=$CODEQL_LANGUAGE
+codeql database create $CODEQL_DATABASE --language=$CODEQL_LANGUAGE --overwrite
 
 # codeql database analyze
 codeql database analyze $CODEQL_DATABASE $CODEQL_QUERY_SUITE --output=$CODEQL_SARIF_RESULTS --sarif-category=$CODEQL_SARIF_CATEGORY --format=sarif-latest
