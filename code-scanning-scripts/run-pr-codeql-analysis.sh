@@ -19,7 +19,7 @@ CODEQL_SARIF_CATEGORY=.github/workflows/codeql-analysis.yml:analyze/language:go
 
 # run a single language analysis for a PR
 
-# get mergit commit sha
+# get merge commit sha
 GH_MERGE_COMMIT_SHA=$(curl -H "Accept: application/vnd.github.v3+json" -H "Authorization: token $GH_TOKEN" https://api.github.com/repos/$GH_ORG/$GH_REPO/pulls/$GH_PULL_REQUEST_NUMBER | jq '.merge_commit_sha' | sed -e 's/^"//' -e 's/"$//')
 
 # check codeql --version
