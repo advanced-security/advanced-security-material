@@ -46,4 +46,4 @@ https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerab
   - [ ] Jenkins + CodeQL CLI: https://github.com/kllund/sample-pipeline-files/blob/main/Jenkinsfile-template-with-codeql-cli-bundle
 
 #### OSS Issue Tracking
-- [ ] GitHub Code Scanning + Jira: https://github.com/github/codescanning-jira-integration
+- [ ] GitHub Code Scanning + Jira: https://github.com/github/ghas-jira-integration
