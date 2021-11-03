@@ -10,4 +10,4 @@
   - [ ] GHES 3.1+: https://github.com/cmboling/get-secret-scanning-alerts-in-org-sample/tree/ghes/base-url-included
   - [ ] dotcom/GHEC: https://github.com/cmboling/get-secret-scanning-alerts-in-org-sample 
 - Other
-  - [ ] https://github.com/ThibaudLopez/GHAS/blob/main/tracking.js
+  - [ ] https://github.com/ThibaudLopez/GHAS
