@@ -102,6 +102,10 @@
 
 - [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF)
 
+### T-SQL
+
+- [TSQLLint](https://github.com/tsqllint/tsqllint) via [Codacy](https://github.com/codacy/codacy-analysis-cli-action) action
+
 ### Visualforce
 
 - [CodeScan](https://github.com/codescan-io/codescan-scanner-action)
