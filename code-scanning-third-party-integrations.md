@@ -132,6 +132,7 @@
 ### CloudFormation
 
 - [KICS](https://github.com/Checkmarx/kics)
+- [Action for CloudFormation Linter](https://github.com/ScottBrenner/cfn-lint-action)
 
 ### Docker
 
