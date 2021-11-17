@@ -18,7 +18,7 @@ jobs:
       # remove from the dictionary the languages that should not be considered
       run: |
         echo "::set-output name=languages::$(gh api repos/${GITHUB_REPOSITORY}/languages -q '[
-        {"C":"cpp", "C++":"cpp", "C#":"csharp", "Go":"go", "Java":"java", #"JavaScript":"javascript", 
+        {"C":"cpp", "C++":"cpp", "C#":"csharp", "Go":"go", "Java":"java", "JavaScript":"javascript", 
         "TypeScript":"javascript", "Python":"python", "Ruby":"ruby"}[keys[]]] | unique | . -[null]' )"
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
