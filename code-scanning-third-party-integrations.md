@@ -52,7 +52,7 @@
 ### Kotlin
 
 - [Detekt](https://github.com/detekt/detekt) (Code Quality)
-  - [Kotlin Example](https://github.com/octodemo/KotlinGoat/blob/master/.github/workflows/detekt-analysis-yml)
+  - [Kotlin Example](https://github.com/octodemo/KotlinGoat/blob/master/.github/workflows/detekt-analysis.yml)
 - [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF)
 
 ### Lightning (Aura and LWC)
