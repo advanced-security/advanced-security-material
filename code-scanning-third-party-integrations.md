@@ -54,6 +54,8 @@
 - [Detekt](https://github.com/detekt/detekt) (Code Quality)
   - [Kotlin Example](https://github.com/octodemo/KotlinGoat/blob/master/.github/workflows/detekt-analysis.yml)
 - [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF)
+- [ShiftLeft](https://github.com/ShiftLeftSecurity/scan-action)
+  - [Kotlin Example](https://github.com/octodemo/KotlinGoat/blob/master/.github/workflows/shiftleft-analysis.yml)  
 
 ### Lightning (Aura and LWC)
 
