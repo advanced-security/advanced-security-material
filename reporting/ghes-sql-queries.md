@@ -24,3 +24,16 @@ where
     from 
       code_scanning_alerts as c)
 ```
+
+#### Security overview config for code scanning
+```sql
+select 
+  r.repository_id, 
+  r.organization_id, 
+  r.name, 
+  r.ghas_enabled, 
+  r.last_push, 
+  r.risk_level 
+from 
+  repository_security_center_configs as r
+```
