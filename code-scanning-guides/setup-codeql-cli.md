@@ -29,7 +29,7 @@ Clone this repository and `cd` into it.
 The first thing we gotta do when it comes to CodeQL analysis is to create a CodeQL database. 
 When it comes to interpreted languages and Go, CodeQL will use an autobuild.sh script that will extract the source code and create a snapshot database. 
 When it comes to compiled languages, we require to build the source code in order to trace the build and create a snapshot database of it. 
-You can rely on the autobuild.sh script as well, or you can supply your own build instructions via `--comand` flag, which can be used when invoking the `codeql database create` command.
+You can rely on the autobuild.sh script as well, or you can supply your own build instructions via the `--command` flag, which can be used when invoking the `codeql database create` command.
 Please review this [list](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) of currently supported languages and frameworks.
 
 
