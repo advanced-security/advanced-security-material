@@ -1,6 +1,6 @@
 ### Getting started with the CodeQL CLI
 
-When you want to generate a CodeQL database locally and run the pre-compiled queries against, this is the way to go.
+When you want to generate a CodeQL database locally and run the pre-compiled queries against it, this is the way to go.
 
 First let's download the CodeQL bundle! Head over [here](https://github.com/github/codeql-action/releases ) and download the approprate bundle for your operating system.
 Once it's downloaded, untar the content to a CodeQL home folder and you can add CodeQL to your path if you'd like
@@ -14,9 +14,6 @@ Check to make sure you can use the CodeQL CLI
 ```
 codeql --version
 ```
-
-You can see in this example how the CodeQL CLI is used in a [workflow](https://github.com/advanced-security/javascript-codeql-cli-test-workflow/blob/main/.github/workflows/codeql-analysis.yml).
-Note that it always downloads the latest CodeQL bundle for Linux. In your case, choose the bundle that best fits your operating system.
 
 Now we need to use the CodeQL CLI on an actual repository. Let's start here with our [GHAS training material](https://github.com/ghas-bootcamp/ghas-bootcamp)
 There's multiple languages being used here, so for the purposes of this tutorial let's try to scan the Javascript portions of the codebase. 
@@ -41,9 +38,9 @@ CodeQL will create the `db` directory and will choose the autobuild.sh script fo
 CodeQL will also finalize the database at the specified `db` directory. Within your codeql database directory (in this case `db`) 
 you should notice a db-javascript directory which contains the db schemes and a src.zip which contains the source that was extracted.
 
-#### Importing the CodeQL database to Visual Studios
+#### Optional: Importing the CodeQL database to Visual Studios
 You can actually take this database and import it to your Visual Studios workspace. 
-To get started on that, please go to this repository and follow the instructions on how to setup the CodeQL starter workspace, as well as installing the CodeQL plugin.
+To get started on that, please go to this [repository](https://github.com/github/vscode-codeql-starter) and follow the instructions on how to setup the CodeQL starter workspace, as well as installing the CodeQL plugin.
 Once you have the CodeQL plugin installed, import the database you created in this step and try to run a javascript query against the database.
 
 
@@ -77,7 +74,7 @@ Failure to do so, in particular on a pull request, can cause confusion in that C
 This step is typically used when you want to see the SARIF in the Code Scanning alerts UI. It's typically used when you want to post results to the default branch of a repository for the first time (baseline analysis) or to a pull request to see any security alert annotations.
 
 Here are some advanced things to note:
-- When posting the analysis for the first time to a default analysis, make sure you define a `--sarif-category`. That way for the analyses for subsequent pull requests can also share the same category value. 
+- When posting the analysis for the first time to a default analysis, make sure you define a `--sarif-category`. That way  the analyses for subsequent pull requests can also share the same category value. 
 Note that this kind of depends on how you're running the builds (whether or not you've broken down a monorepo into separate analyses or you have multiple scans due to multiple languaages) but typically just starting out, 
 just make sure to have the same category value for subsequent scans, so that Code Scannning can easily figure out what the basline analysis is to compare subsequent analyses.
 
