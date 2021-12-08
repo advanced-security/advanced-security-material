@@ -25,7 +25,7 @@ where
       code_scanning_alerts as c)
 ```
 
-#### Security overview config for code scanning
+#### Security overview configs
 ```sql
 select 
   r.repository_id, 
