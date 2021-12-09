@@ -22,7 +22,7 @@ where
     select 
       max(c.check_run_id) 
     from 
-      code_scanning_alerts as c)
+      code_scanning_alerts as c);
 ```
 
 #### Security overview configs
@@ -35,7 +35,7 @@ select
   r.last_push, 
   r.risk_level 
 from 
-  repository_security_center_configs as r
+  repository_security_center_configs as r;
 ```
 
 #### List contributors of GHAS enabled repositories
