@@ -6,6 +6,10 @@ If at all possible use the available APIs and webhooks to get this data. The met
 
 The syntax to run this on the appliance is `echo '<sql query>;' | ghe-dbconsole -y` OR run `ghe-dbconsole -y` and a `mysql` prompt will come up for you to run some queries.
 
+If you want to port forward to a SQL client or to a third-party dashboard, here's some things you need:
+- The password when running `ghe-config secrets.mysql`
+- Then port forward via `ssh -L 127.0.0.1:3307:127.0.0.1:3307 -p122 ssh://user@ghes-url
+
 #### Latest code scanning records across enterprise
 ```sql
 select 
