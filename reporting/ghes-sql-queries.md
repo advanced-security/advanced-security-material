@@ -37,3 +37,22 @@ select
 from 
   repository_security_center_configs as r
 ```
+
+#### List contributors of GHAS enabled repositories
+```sql
+select 
+  r.owner_login as org_name,  
+  r.name as repo_name, 
+  u.login as gh_handle 
+from 
+  ghas_repository_contributions as grc, 
+  repositories as r, users as u 
+where 
+  u.id = grc.user_id 
+  and r.id = grc.repository_id;
+```
+
+
+#### Helper tables
+- github_enterprise.repositories
+- github_enterprise.users
