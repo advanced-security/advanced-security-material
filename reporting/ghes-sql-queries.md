@@ -6,7 +6,7 @@ If at all possible use the available APIs and webhooks to get this data. The met
 
 The syntax to run this on the appliance is `echo '<sql query>;' | ghe-dbconsole -y` OR run `ghe-dbconsole -y` and a `mysql` prompt will come up for you to run some queries.
 
-#### Latest code scanning records
+#### Latest code scanning records across enterprise
 ```sql
 select 
   r.id, 
@@ -25,6 +25,33 @@ where
       code_scanning_alerts as c);
 ```
 
+#### Code scanning records across enterprise
+```sql
+select * from code_scanning_alerts;
+```
+```
++----+---------------------+---------------------+---------------------+--------------+---------------+--------------+
+| id | check_annotation_id | created_at          | updated_at          | alert_number | repository_id | check_run_id |
++----+---------------------+---------------------+---------------------+--------------+---------------+--------------+
+|  1 |                   1 | 2021-12-06 19:07:52 | 2021-12-06 19:07:52 |           12 |             3 |            1 |
+|  2 |                   2 | 2021-12-06 19:23:01 | 2021-12-06 19:23:01 |           12 |             3 |            2 |
++----+---------------------+---------------------+---------------------+--------------+---------------+--------------+
+```
+
+#### Lookup code scanning check suites
+```sql
+select * from code_scanning_check_suites;
+```
+
+```
++----+----------------+---------------+----------------------------+----------------------------+-----------------+------------------------------------------+------------------+------------------------------------------+
+| id | check_suite_id | repository_id | created_at                 | updated_at                 | base_ref        | base_sha                                 | pull_request_ref | pull_request_sha                         |
++----+----------------+---------------+----------------------------+----------------------------+-----------------+------------------------------------------+------------------+------------------------------------------+
+|  1 |              1 |             3 | 2021-12-06 19:07:49.725371 | 2021-12-06 19:07:49.725371 | refs/heads/main | ce00909d5df0dbc22e8106de517d2e4aec7f5304 | refs/pull/1      | 8efd25c32a9a27abd498bfd19c5b33775c1cd26a |
+|  2 |              2 |             3 | 2021-12-06 19:22:59.875356 | 2021-12-06 19:22:59.875356 | refs/heads/main | ce00909d5df0dbc22e8106de517d2e4aec7f5304 | refs/pull/1      | cad3e08473f4427e0e68a3e0f01428fb4d25460d |
++----+----------------+---------------+----------------------------+----------------------------+-----------------+------------------------------------------+------------------+------------------------------------------+```
+```
+
 #### Security overview configs
 ```sql
 select 
@@ -41,15 +68,25 @@ from
 #### List contributors of GHAS enabled repositories
 ```sql
 select 
+  distinct u.login as gh_handle,
   r.owner_login as org_name,  
-  r.name as repo_name, 
-  u.login as gh_handle 
+  r.name as repo_name
 from 
   ghas_repository_contributions as grc, 
   repositories as r, users as u 
 where 
   u.id = grc.user_id 
   and r.id = grc.repository_id;
+```
+
+```
++-----------+------------+-------------------------+
+| gh_handle | org_name   | repo_name               |
++-----------+------------+-------------------------+
+| ghe-admin | elves      | urban-computing-machine |
+| ghe-admin | santa-foss | jubilant-octo-pancake   |
+| ghe-admin | santa-foss | fluffy-potato           |
++-----------+------------+-------------------------+
 ```
 
 #### Lookup a particular dependency vulnerability
