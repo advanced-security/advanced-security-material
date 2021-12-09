@@ -8,7 +8,7 @@ The syntax to run this on the appliance is `echo '<sql query>;' | ghe-dbconsole 
 
 If you want to port forward to a SQL client or to a third-party dashboard, here's some things you need:
 - The password when running `ghe-config secrets.mysql`
-- Then port forward via `ssh -L 127.0.0.1:3307:127.0.0.1:3307 -p122 ssh://user@ghes-url
+- Then port forward via `ssh -L 127.0.0.1:3307:127.0.0.1:3307 -p122 ssh://user@ghes-url`
 
 #### Latest code scanning records across enterprise
 ```sql
