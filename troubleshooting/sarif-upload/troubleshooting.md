@@ -49,4 +49,5 @@ A fatal error occurred: Error uploading SARIF to 'https://cmboling-0bd0debab4ff1
 
 ### Tools to rewrite SARIF
 - `jq`
-- https://github.com/microsoft/sarif-sdk/blob/main/docs/multitool-usage.md
+- [Microsoft's SARIF tool](https://github.com/microsoft/sarif-sdk/blob/main/docs/multitool-usage.md)
+- [Dr. House's SARIF CLI](https://github.com/hohn/sarif-cli)
