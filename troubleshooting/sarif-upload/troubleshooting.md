@@ -45,3 +45,8 @@ A fatal error occurred: Error uploading SARIF to 'https://cmboling-0bd0debab4ff1
 
 ### Test environments
 - GHES 3.2.1 + CodeQL CLI 2.7.2
+
+
+### Tools to rewrite SARIF
+- `jq`
+- https://github.com/microsoft/sarif-sdk/blob/main/docs/multitool-usage.md
