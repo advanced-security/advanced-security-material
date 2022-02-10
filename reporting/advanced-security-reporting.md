@@ -11,3 +11,4 @@
   - [ ] dotcom/GHEC: https://github.com/cmboling/get-secret-scanning-alerts-in-org-sample 
 - Other
   - [ ] https://github.com/ThibaudLopez/GHAS
+- Splunk integration
