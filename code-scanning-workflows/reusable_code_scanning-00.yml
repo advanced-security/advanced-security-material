@@ -1,25 +1,30 @@
 name: "Code Analysis"
 
+# this workflow can be stored in a centralized repo and called externally
+# jobs:
+#  code_analysis:
+#    uses: [REPO]/.github/workflows/code_analysis.yml@main
+
 on:
   workflow_dispatch: #for testing
-  workflow_call: #for composition
+  workflow_call:     #for composition
 
 jobs:
   detect-lang:
     runs-on: ubuntu-latest
     outputs:
       linguist_languages: ${{ steps.linguist_languages.outputs.languages }}
-      codeql_languages: ${{ steps.codeql_languages.outputs.languages }}
+      codeql_languages:   ${{ steps.codeql_languages.outputs.languages }}
     steps:
     - id: linguist_languages
       run: echo "::set-output name=languages::$(gh api repos/${GITHUB_REPOSITORY}/languages)"
     - id: codeql_languages
       # builds the list of languages which are both present in the repo and supported by CodeQL
-      # remove from the dictionary the languages that should not be considered
+      # remove from the dictionary the languages that should not be considered (e.g .-[null, "go"])
       run: |
         echo "::set-output name=languages::$(gh api repos/${GITHUB_REPOSITORY}/languages -q '[
         {"C":"cpp", "C++":"cpp", "C#":"csharp", "Go":"go", "Java":"java", "JavaScript":"javascript", 
-        "TypeScript":"javascript", "Python":"python", "Ruby":"ruby"}[keys[]]] | unique | . -[null]' )"
+        "TypeScript":"javascript", "Python":"python", "Ruby":"ruby"}[keys[]]] | unique -[null]')"
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
@@ -37,8 +42,8 @@ jobs:
       fail-fast: false
       matrix:
         language: ${{ fromJSON(needs.detect-lang.outputs.codeql_languages) }}
+        # eventually exclude languages
         exclude:
-          # eventually exclude languages
           - language: ruby
         
     steps:
