@@ -12,3 +12,4 @@
 - Other
   - [ ] https://github.com/ThibaudLopez/GHAS
 - Splunk integration
+  - [ ] https://github.com/splunk/github_app_for_splunk 
