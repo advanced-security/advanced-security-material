@@ -13,8 +13,8 @@
 - [ ] Javascript: https://www.youtube.com/watch?v=pYzfGaLTqC0
 
 #### CodeQL Resources: 
-- [ ] QL Tutorials: https://help.semmle.com/QL/learn-ql/beginner/ql-tutorials.html
-- [ ] CodeQL for VS Code: https://help.semmle.com/codeql/codeql-for-vscode/procedures/about-codeql-for-vscode.html
+- [ ] QL Tutorials: https://codeql.github.com/docs/writing-codeql-queries/ql-tutorials/
+- [ ] CodeQL for VS Code: https://codeql.github.com/docs/codeql-for-visual-studio-code/
 - [ ] VS Code starter workspace to use with the CodeQL VS extension: https://github.com/github/vscode-codeql-starter
 - [ ] CodeQL CTF: https://securitylab.github.com/ctf
 - [ ] Read about contributing to CodeQL Queries: https://github.com/github/codeql/blob/main/CONTRIBUTING.md
@@ -34,7 +34,7 @@
   - [ ] Configure code scanning: https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning
   - [ ] Configuring builds for Compiled Languages: https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages
   - [ ] Running additional queries: https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#running-additional-queries
-  - [ ] Built-in Queries: https://help.semmle.com/QL/ql-built-in-queries.html
+  - [ ] Built-in Queries: https://github.com/github/codeql, https://github.com/github/codeql-go
     - For example, js query suites: https://github.com/github/codeql/tree/master/javascript/ql/src/codeql-suites
 - [ ] Troubleshooting code scanning workflow:
 https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow
