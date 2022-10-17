@@ -53,8 +53,10 @@ In your logs, look for an exception with the output `[build-stderr]`
 
 It is best to use the [paths-ignore](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#specifying-directories-to-scan) feature to exclude the file opencv.js. It would look something like this:
 
+```yml
 paths-ignore:
   - '**/myfile.js'
+```
 
 In general, when a repository contains a huge JS file that is output of a compiler/bundler process, it is best to exclude it. As an example: opencv.js is from the OpenCV project, it which case it is the result of translating some C++ code to JS using Emscripten. This source code is unreadable and it wouldn't be helpful to get code scanning alerts in such files anyway.
 
