@@ -2,7 +2,8 @@
 * NOTE: This guide will focus on GitHub Actions but the concepts can be applied to the CodeQL CLI on other CI platforms.
 
 ## Language Specific Guidance
-* CSharp
+* [CSharp](.\compiled-languages-csharp.md)
+* [C++](.\compiled-languages-cpp.md)
 
 ## How CodeQL Tracer Works
 
