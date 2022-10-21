@@ -40,7 +40,7 @@ Option 2 - Use the [maven-settings-action](https://github.com/s4u/maven-settings
 
 Ensure you are compiling your java application using CodeQL tracing on a supported version of the JDK as found here: https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/
 
-## Fatal error compiling: error: invalid target release: ## 
+## Fatal error compiling: error: invalid target release: \## 
 
 Specify your [desired java version via the setup-java action](https://github.com/actions/setup-java#supported-version-syntax)
 ```yml
