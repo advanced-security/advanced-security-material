@@ -4,6 +4,7 @@
 ## Language Specific Guidance
 * [CSharp](compiled-languages-csharp.md)
 * [C++](compiled-languages-cpp.md)
+* [C++](compiled-languages-java.md)
 
 ## How CodeQL Tracer Works
 
