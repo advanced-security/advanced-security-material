@@ -1,6 +1,10 @@
 # Scanning an interpreted language with CodeQL
 * NOTE: This guide will focus on GitHub Actions but the concepts can be applied to the CodeQL CLI on other CI platforms.
 
+## Language Specific Guidance
+* [Python](interpreted-languages-python)
+
+
 # Troubleshooting
 
 ## [ERROR] Spawned process exited abnormally (code 1; tried to run: [/opt/hostedtoolcache/CodeQL/<version>/x64/codeql/javascript/tools/autobuild.sh])
