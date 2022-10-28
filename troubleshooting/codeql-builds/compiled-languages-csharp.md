@@ -1,9 +1,100 @@
 Scanning a C# application with CodeQL
 
+# Build Failures
+
+## [error]We were unable to automatically build your code. Please replace the call to the autobuild action with your custom build steps.
+
+<details>
+<summary>Expand for sample workflow failure output</summary>
+
+```
+  Exit code 1
+  Attempting to locate build script
+  Error: Could not auto-detect a suitable build method
+  Error: We were unable to automatically build your code. Please replace the call to the autobuild action with your custom build steps.  Failure invoking /opt/hostedtoolcache/CodeQL/0.0.0-20221010/x64/codeql/csharp/tools/autobuild.sh with arguments .
+  
+        Exit code 1 and error was:
+  
+        Error: Could not auto-detect a suitable build method
+  
+  CommandInvocationError: Failure invoking /opt/hostedtoolcache/CodeQL/0.0.0-20221010/x64/codeql/csharp/tools/autobuild.sh with arguments .
+  
+        Exit code 1 and error was:
+  
+        Error: Could not auto-detect a suitable build method
+  
+      at runTool (/home/runner/work/_actions/github/codeql-action/v2/lib/codeql.js:867:15)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5)
+      at async Object.runAutobuild (/home/runner/work/_actions/github/codeql-action/v2/lib/codeql.js:559:13)
+      at async runAutobuild (/home/runner/work/_actions/github/codeql-action/v2/lib/autobuild.js:97:5)
+      at async run (/home/runner/work/_actions/github/codeql-action/v2/lib/autobuild-action.js:71:17)
+      at async runWrapper (/home/runner/work/_actions/github/codeql-action/v2/lib/autobuild-action.js:88:9)
+```
+</details>
+
+
+This error indicates there is a scenario where our C# AutoBuilder is unable to build your code.  No sweat, check out some of the resources below to get you started:
+
+Ensure your required build tooling is installed your [runner](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)
+   - Windows 2019 runner 
+      - [Visual Studio 2019 Enterprise pre-installed](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md#visual-studio-enterprise-2019)
+	  - [.NET Framework Developer Pack](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md#net-framework)
+	  - [.NET Core SDK](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md#net-core-sdk)
+   - Windows 2022 runner 
+      - [Visual Studio 2022 Enterprise pre-installed](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md#visual-studio-enterprise-2022)
+	  - [.NET Framework Developer Pack](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md#net-framework)
+	  - [.NET Core SDK](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md#net-core-sdk)
+</details>
+
+### DotNet (.NET standard / core / )
+Using `dotnet` is best documented at: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+### .NET Framework Manual Build Steps on Windows Runners
+NOTE: if you require windows OS to build, ensure you are using a windows runner. 
+
+Example using `windows-latest`:
+- Note: The `-latest` runner images are the latest stable images that GitHub provides, and might not be the most recent version of the operating system available from the operating system vendor.
+```yml
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: windows-latest
+```
+
+Next, consider specifying your own build steps from an existing CI workflow:
+
+```yml
+    # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
+    # If this step fails, then you should remove it and run the build manually (see below)
+    #- name: Autobuild
+    #  uses: github/codeql-action/autobuild@v2
+
+
+	# Discover where the MSBuild tool is and automatically add it to the PATH environment variable
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+
+	# Download/installs a given version of NuGet.exe. Using this action will add nuget to your $PATH
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1
+
+    # CI build with best practices from: https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#specifying-build-commands
+    - name: .NET Build Steps
+	  run: |
+        nuget restore .\FullDotNetWebApp.sln -DisableParallelProcessing
+        msbuild .\FullDotNetWebApp.sln /p:UseSharedCompilation=false /t:rebuild /p:Platform="Any CPU" /p:Configuration="Debug" /p:MvcBuildViews=true
+     
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+```
+
+
+
+
+
 # Speed up C# Analysis
 
-- Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#the-build-takes-too-long)
-
+Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#the-build-takes-too-long).
 
 ## Optimization - Removing Unit Tests
 CodeQL will extract and analyze any code that is passed through the compiler.  Consider excluding any code you do not wish to include in a security scan to speed up and remove noise from this process.
@@ -40,12 +131,6 @@ With .NET we can employ a few mechanisms to remove test/demo code from CodeQL sc
 		env:
 		CODEQL_EXTRACTOR_CSHARP_OPTION_CIL: false
 	```
-	This requires CodeQL CLI v2.11.0+, for the short term (October 2022) - add this to ensure you run the latest version:
-	```yml
-		uses: github/codeql-action/init@v2
-				with:
-			tools: latest
-	```	
 
 	- Running low on disk using the default Actions runner? "You are running out of disk space.  The runner will stop working when the machine runs out of disk space."
 	
@@ -70,11 +155,11 @@ With .NET we can employ a few mechanisms to remove test/demo code from CodeQL sc
 
 ## Vertical Scaling - Throw hardware at the software problem.  
 
-Large applications can be compute/mem.ory/disk bound as the base Actions runners are small instances (2core/8GBram/14GB SSD).  See the [recommended hardware requirements for CodeQL](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql) based on Codebase size.
-	-  Setup a self hosted CI action runner in your infrastructure that has some more powerful specs that can handle your large application. 
-		- See [Adding a self-hosted runner to an organization.](https://docs.github.com/en/enterprise-cloud@latest/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)
-	- Enroll for access to the [Actions larger runners ](https://github.blog/2022-09-01-github-actions-introducing-the-new-larger-github-hosted-runners-beta/)
-	   - This allows for up to a 64 core machine with 256GB RAM
+Large applications can be compute/memory/disk bound as the base Actions runners are small instances (2core/8GBram/14GB SSD).  See the [recommended hardware requirements for CodeQL](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql) based on Codebase size.
+-   Setup a [self-hosted CI action runner](https://docs.github.com/en/enterprise-cloud@latest/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization) in your infrastructure that has some more powerful specs that can handle your large application. 
+- [Actions larger runners ](https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners)
+	   - This allows for up to a 64 core machine with 256GB RAM and 2040 GB of SSD storage
+
 		
 ## Horizontal Scaling - Continue to decompose your solution.  
 

@@ -48,9 +48,13 @@ alternatively we can further define limits
 ```
 
 ## Reviewing Results
-- [ ] Log viewing
-- [ ] Diagnostics Logs Mode
-- [ ] [Exit Codes](https://codeql.github.com/docs/codeql-cli/exit-codes/)
+
+Helpful Articles to understand how to review, troubleshoot, and debug logs:
+
+- [Viewing Code Scanning Logs](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs)
+- [Workflow verbose logging in debug mode](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts)
+- [Adding artifacts on every CodeQL Run](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts-using-a-workflow-flag)
+- [Exit Codes](https://codeql.github.com/docs/codeql-cli/exit-codes/)
 
 ## Optimizaitons
 - CodeQL Docs -  [The build takes too long](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)
