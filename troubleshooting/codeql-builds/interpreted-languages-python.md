@@ -1,4 +1,4 @@
-# Autobuild failures
+# Build Failures
 
 ## ERROR: In --require-hashes mode, all requirements must have their versions pinned with ==.
 
