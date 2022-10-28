@@ -50,7 +50,7 @@ If any custom tooling is required, consider pulling into your action via [custom
 
 
 ### DotNet (.NET standard / core / )
-Using `dotnet` is best documented at: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+Using `dotnet` is best documented at: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net.  The [actions/setup-dotnet](https://github.com/actions/setup-dotnet) action can assist in configuring proper build tools.
 
 ### .NET Framework Manual Build Steps on Windows Runners
 NOTE: if you require windows OS to build, ensure you are using a windows runner. 
@@ -65,6 +65,8 @@ jobs:
 ```
 
 Next, consider specifying your own build steps from an existing CI workflow:
+- The [microsoft/setup-msbuild](https://github.com/microsoft/setup-msbuild) and [Nuget/setup-nuget](https://github.com/nuget/setup-nuget) actions are popular tools to assist in this configuration
+
 
 ```yml
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).

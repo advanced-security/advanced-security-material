@@ -6,18 +6,26 @@
 * [C++](compiled-languages-cpp.md)
 * [Java](compiled-languages-java.md)
 
-## How CodeQL Tracer Works
-
 ## Autobuilder
 The autobuilder action (see [docs](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages#about-autobuild-for-codeql) )
  
 ## Build Customizations
 See common build configuration and specific compiler flags: [specifying build commands](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#specifying-build-commands)
 
-
 ## Common Problems
 
+### Autobuilder [error]We were unable to automatically build your code. Please replace the call to the autobuild action with your custom build steps.
+
+See [language specific guidance](#language-specific-guidance) for common resolutions to add custom build steps
+
+
 ### 401 due to private package server configuration
+
+Ensure network access from GitHub runners to your private registry is open
+   - For IP Whitelisting, consider using [Larger Runners with Static IP](https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners#networking-for-larger-runners)
+   - See Also: [Connecting Actions to a private network](https://docs.github.com/en/actions/using-github-hosted-runners/connecting-to-a-private-network)
+
+See [language specific guidance](#language-specific-guidance) for authentication options to popular package mangers 
 
 ### Out of Memory
 ex: 
