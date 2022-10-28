@@ -33,7 +33,7 @@ Scanning a C# application with CodeQL
 </details>
 
 
-This error indicates there is a scenario where our C# AutoBuilder is unable to build your code.  No sweat, check out some of the resources below to get you started:
+This error indicates there is a scenario where our [C# AutoBuilder](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages#c) is unable to build your code.  No sweat, check out some of the resources below to get you started:
 
 Ensure your required build tooling is installed your [runner](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)
    - Windows 2019 runner 
@@ -45,6 +45,9 @@ Ensure your required build tooling is installed your [runner](https://docs.githu
 	  - [.NET Framework Developer Pack](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md#net-framework)
 	  - [.NET Core SDK](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md#net-core-sdk)
 </details>
+
+If any custom tooling is required, consider pulling into your action via [custom script](https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners)
+
 
 ### DotNet (.NET standard / core / )
 Using `dotnet` is best documented at: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
