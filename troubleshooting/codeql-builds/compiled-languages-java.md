@@ -34,7 +34,7 @@ Option 2 - Use the [maven-settings-action](https://github.com/s4u/maven-settings
         servers: '[{"id": "central", "username": "${{ secrets.MAVEN_USERNAME }}", "password": "${{ secrets.MAVEN_CENTRAL_TOKEN }}"}]'
 ```
 
-# FAQ
+# Build Failures
 
 ## java.lang.IllegalArgumentException: Unsupported class file major version ##
 

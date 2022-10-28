@@ -72,12 +72,11 @@ Next, consider specifying your own build steps from an existing CI workflow:
     #- name: Autobuild
     #  uses: github/codeql-action/autobuild@v2
 
-
-	# Discover where the MSBuild tool is and automatically add it to the PATH environment variable
+    # Discover where the MSBuild tool is and automatically add it to the PATH environment variable
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1
 
-	# Download/installs a given version of NuGet.exe. Using this action will add nuget to your $PATH
+    # Download/installs a given version of NuGet.exe. Using this action will add nuget to your $PATH
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1
 
@@ -91,8 +90,28 @@ Next, consider specifying your own build steps from an existing CI workflow:
       uses: github/codeql-action/analyze@v2
 ```
 
+##  "You are running out of disk space.  The runner will stop working when the machine runs out of disk space."
+	
+Running low on disk using the default Actions runner? Try a few of these workarounds for a potential quick fix:
+			
+ Clean up large directories of [preinstalled software](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software) that you are potentially not using on the windows runners, add this to your “CodeQL” workflow:
 
+```yml			
+- name: Clean up some disks
+  run: |
+  rd C:\Android\android-sdk
+  docker system prune -af
+```
 
+ Specify the temp directory to store the CodeQL database - I have seen this resolve this specific problem with a Windows env (runs-on: windows-2019)
+ ```yml
+- name: Initialize CodeQL
+  uses: github/codeql-action/init@v2
+  with:
+  db-location: ‘C:\windows\temp\codeql-database’
+```
+			
+- See also: [Vertical Scaling](#vertical-scaling---throw-hardware-at-the-software-problem)
 
 
 # Speed up C# Analysis
@@ -134,26 +153,6 @@ With .NET we can employ a few mechanisms to remove test/demo code from CodeQL sc
 		env:
 		CODEQL_EXTRACTOR_CSHARP_OPTION_CIL: false
 	```
-
-	- Running low on disk using the default Actions runner? "You are running out of disk space.  The runner will stop working when the machine runs out of disk space."
-	
-	Try a few of these workarounds for a potential quick fix:
-			
-	- Clean up large directories of [preinstalled software](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software) that you are potentially not using on the windows runners, add this to your “CodeQL” workflow:
-		```yml			
-		- name: Clean up some disks
-		run: |
-		rd C:\Android\android-sdk
-		docker system prune -af
-		```
-
-	- Specify the temp directory to store the CodeQL database - I have seen this resolve this specific problem with a Windows env (runs-on: windows-2019)
-					  - name: Initialize CodeQL
-					   uses: github/codeql-action/init@v2
-					   with:
-					    db-location: ‘C:\windows\temp\codeql-database’
-			
-	- See also: Vertical Scaling section
 
 
 ## Vertical Scaling - Throw hardware at the software problem.  
