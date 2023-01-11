@@ -87,7 +87,7 @@ Next, consider specifying your own build steps from an existing CI workflow:
 
     # CI build with best practices from: https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#specifying-build-commands
     - name: .NET Build Steps
-	  run: |
+      run: |
         nuget restore .\FullDotNetWebApp.sln -DisableParallelProcessing
         msbuild .\FullDotNetWebApp.sln /p:UseSharedCompilation=false /t:rebuild /p:Platform="Any CPU" /p:Configuration="Debug" /p:MvcBuildViews=true
      
