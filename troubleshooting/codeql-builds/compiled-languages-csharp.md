@@ -120,6 +120,9 @@ Running low on disk using the default Actions runner? Try a few of these workaro
 
 Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#the-build-takes-too-long).
 
+## Optimization - Caching Dependencies
+ Depending on the number of dependencies, it may be faster to restore packages for your project using the Actions dependency cache. Projects with many large dependencies should see a performance increase as it cuts down the time required for downloading. Projects with fewer dependencies may not see a significant performance increase and may even see a slight decrease due to how NuGet installs cached dependencies. The performance varies from project to project. See [this article](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net#caching-dependencies) for configuring the NuGet dependency cache.
+
 ## Optimization - Removing Unit Tests
 CodeQL will extract and analyze any code that is passed through the compiler.  Consider excluding any code you do not wish to include in a security scan to speed up and remove noise from this process.
 
