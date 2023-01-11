@@ -53,7 +53,7 @@ If any custom tooling is required, consider pulling into your action via [custom
 Using `dotnet` is best documented at: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net.  The [actions/setup-dotnet](https://github.com/actions/setup-dotnet) action can assist in configuring proper build tools.
 
 #### NuGet Error NU1301
-This can indicate your custom package server is not configured which may fail the `dotnet restore` command.  For private package servers you can follow the follwing guidance to add authentication to package sources: [Setting up authentication for nuget feeds](https://github.com/actions/setup-dotnet#setting-up-authentication-for-nuget-feeds)
+This can indicate your custom package server is not configured which may fail the `dotnet restore` command.  For private package servers, the follwing guidance shows how to add package sources: [Setting up authentication for nuget feeds](https://github.com/actions/setup-dotnet#setting-up-authentication-for-nuget-feeds)
 
 ### .NET Framework Manual Build Steps on Windows Runners
 NOTE: if you require windows OS to build, ensure you are using a windows runner. 
