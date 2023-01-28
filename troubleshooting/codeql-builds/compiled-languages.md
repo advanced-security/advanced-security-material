@@ -64,5 +64,5 @@ Helpful Articles to understand how to review, troubleshoot, and debug logs:
 - [Adding artifacts on every CodeQL Run](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts-using-a-workflow-flag)
 - [Exit Codes](https://codeql.github.com/docs/codeql-cli/exit-codes/)
 
-## Optimizaitons
+## Optimizations
 - CodeQL Docs -  [The build takes too long](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)
