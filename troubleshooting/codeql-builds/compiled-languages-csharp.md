@@ -126,10 +126,10 @@ Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en
 ## Optimization - Caching Dependencies
  Depending on the number of dependencies, it may be faster to restore packages for your project using the Actions dependency cache. Projects with many large dependencies should see a performance increase as it cuts down the time required for downloading. Projects with fewer dependencies may not see a significant performance increase and may even see a slight decrease due to how NuGet installs cached dependencies. The performance varies from project to project. See [this article](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net#caching-dependencies) for configuring the NuGet dependency cache.
 
-## Optimization - Removing Unit Tests
-CodeQL will extract and analyze any code that is passed through the compiler.  Consider excluding any code you do not wish to include in a security scan to speed up and remove noise from this process.
+## Optimization - Removing Code From Scans
+CodeQL will extract and analyze any code that is passed through the compiler.  Consider excluding any code you do not wish to include in a security scan to speed up and remove noise from this process. This is commonly employed for unit tests, demo code, or code that would not benefit from being scanned (ex: DacPacs).
 
-With .NET we can employ a few mechanisms to remove test/demo code from CodeQL scans (e.g. you would want to run your unit test in another workflow ):
+With .NET we can employ a few mechanisms to remove code from CodeQL scans (e.g. you would want to run your unit test in another workflow ):
 - A [solution filter](https://docs.microsoft.com/en-us/visualstudio/msbuild/solution-filters?view=vs-2019) to only build required projects
 - An explicit [solution file that excludes projects](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-exclude-projects-from-a-build?view=vs-2022)
    - example from the Open Source project: [Identity Server](https://github.com/DuendeSoftware/IdentityServer/)
