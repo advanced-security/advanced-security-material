@@ -42,7 +42,12 @@ Ensure you are compiling your java application using CodeQL tracing on a support
 
 ## Fatal error compiling: error: invalid target release: \## 
 
-Specify your [desired java version via the setup-java action](https://github.com/actions/setup-java#supported-version-syntax)
+Alternative error:  
+```
+> error: invalid source release:
+```
+
+Resolution here is to specify your [desired java version via the setup-java action](https://github.com/actions/setup-java#supported-version-syntax)
 ```yml
  uses: actions/setup-java@v3
  with:
