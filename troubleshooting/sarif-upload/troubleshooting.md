@@ -66,10 +66,10 @@ First, review recommendedations per language to reduce the amount of code being 
 If there are many deep code paths highlighted in the SARIF, use `--max-path=0` (or 1) passed into the analyze step or `database analyze` cli command to get rid of the dataflow paths and reduce the SARIF size that way (NOTE this will impact all rules). 
 
 ```yml
-	    - name: Perform CodeQL Analysis
-	      uses: github/codeql-action/analyze@v2
-	      env: 
-         CODEQL_ACTION_EXTRA_OPTIONS: '{"database":{"interpret-results":["--max-paths", 1]}}'
+- name: Perform CodeQL Analysis
+  uses: github/codeql-action/analyze@v2
+  env: 
+     CODEQL_ACTION_EXTRA_OPTIONS: '{"database":{"interpret-results":["--max-paths", 1]}}'
 ```
 
 ## Tools to rewrite SARIF
