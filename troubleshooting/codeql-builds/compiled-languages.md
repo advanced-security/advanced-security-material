@@ -48,9 +48,9 @@ alternatively we can further define limits
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
       with: 
-      	# Increase Values seen in logs:
+        # Increase Values seen in logs:
         #2022-06-01T19:37:19.0200037Z   CODEQL_RAM: 119741
-	#2022-06-01T19:37:19.0200307Z   CODEQL_THREADS: 32
+        #2022-06-01T19:37:19.0200307Z   CODEQL_THREADS: 32
         ram: 64000
         threads: 16
 ```
