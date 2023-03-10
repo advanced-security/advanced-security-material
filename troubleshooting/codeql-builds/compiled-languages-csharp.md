@@ -55,7 +55,12 @@ Using `dotnet` is best documented at: https://docs.github.com/en/actions/automat
 #### NuGet Error NU1301
 This can indicate your custom package server is not configured which may fail the `dotnet restore` command.  For private package servers, the follwing guidance shows how to add package sources: [Setting up authentication for nuget feeds](https://github.com/actions/setup-dotnet#setting-up-authentication-for-nuget-feeds)
 
-### .NET Framework Manual Build Steps on Windows Runners
+### .NET Framework 
+
+#### NuGet Authentication
+Utilize the [nuget/setup-nuget](https://github.com/nuget/setup-nuget#basic) action to pass package key/source to nuget exe.
+
+#### Manual Build Steps on Windows Runners
 NOTE: if you require windows OS to build, ensure you are using a windows runner. 
 
 Example using `windows-latest`:
