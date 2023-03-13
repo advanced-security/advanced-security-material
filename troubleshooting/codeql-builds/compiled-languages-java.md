@@ -49,8 +49,8 @@ Alternative error:
 
 Resolution here is to specify your [desired java version via the setup-java action](https://github.com/actions/setup-java#supported-version-syntax)
 ```yml
- uses: actions/setup-java@v3
- with:
-     java-version: 17
-     distribution: 'microsoft'
+- uses: actions/setup-java@v3
+  with:
+    java-version: 17
+    distribution: 'microsoft'
 ```
