@@ -24,6 +24,7 @@ See [language specific guidance](#language-specific-guidance) for common resolut
 Ensure network access from GitHub runners to your private registry is open
    - For IP Whitelisting, consider using [Larger Runners with Static IP](https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners#networking-for-larger-runners)
    - See Also: [Connecting Actions to a private network](https://docs.github.com/en/actions/using-github-hosted-runners/connecting-to-a-private-network)
+   - Alertnatively, consider a self-hosted actions runner that will execute within your existing private network. See ["Hosting your own runners"](https://docs.github.com/en/actions/hosting-your-own-runners)
 
 See [language specific guidance](#language-specific-guidance) for authentication options to popular package mangers 
 
