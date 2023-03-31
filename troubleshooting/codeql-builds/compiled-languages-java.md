@@ -1,10 +1,10 @@
 
 # Private Package Registries
 
-## The codeql for java is failing when it tries to do mvn command and tries to access a artifactory repo where our pom.xml are stored.
+## The autobuild for java is failing when running Maven build command and a private package registry is needed - `status: 401 Unauthorized `
+- ex: artifactory where our pom.xml dependencies are stored
 
-Assuming the given package registry instance is publicly accessible:
-
+Assuming the given package registry instance is publicly accessible and needs credentials:
 
 Option 1 - Pass credentials via environment variable from Actions secrets and configure Maven settings to utilize those credentials (see sample [here](https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#yaml-example))
 
