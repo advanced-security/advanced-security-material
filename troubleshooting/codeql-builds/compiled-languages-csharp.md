@@ -136,6 +136,8 @@ The recommendation here is to ensure that passing /p:MvcBuildViews=true to your 
 
 For `Error ASPCONFIG: It is an error to use a section registered as allowDefinition='MachineToApplication' beyond application level.`,  change the locations of the obj and publish folder to not be located under the project folder of the website.
 
+For `Error ASPCONFIG: Could not load type 'X.Y.Z'`, ensure that you do not have excluded `.cshtml`, `.ashx`, `.ashx.cs`, `.aspx` or `.aspx.cs` files on disk in existing `Views` folders or the Root folder of your project!  You can show hidden files in your solution view to hunt these down and remove from these folders.  MvcBuildViews does not observe the file include from the csproj when compiling the application. You may have to hunt these down one by one, so adding `<MvcBuildViews>true</MvcBuildViews>` to your local .csproj may help you get this done on your local machine with Visual Studio.  The `Error List` view in Visual Studio will have a column that shows you the actual File name you need to delete.
+
 # Speed up C# Analysis
 
 Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#the-build-takes-too-long).
