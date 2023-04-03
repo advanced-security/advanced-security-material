@@ -129,6 +129,7 @@ This can manifest through a variety of errors
 - `error ASPPARSE`
 - `[error]C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\web.config(113,0): Error ASPCONFIG: Could not load type`
 - `Error ASPCONFIG: It is an error to use a section registered as allowDefinition='MachineToApplication' beyond application level.`
+- `(AfterBuildCompiler target) -> D:\a\Orchard\Orchard\src\Orchard.Web\Modules\Orchard.Glimpse\web.config(38): error ASPCONFIG: Could not load file or assembly 'System.Web.Mvc, Version=5.2.3, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)`
 
 The CodeQL compiler tracer used for `csharp` will auto inject the /p:MvcBuildViews=true flag.  This pre-compilation of Views gives us the ability to extract the generated code from those files, leading to (potentially) better error reporting and location information if a query does flag an issue. The lack of view information passing through CodeQL to the compiler will lead to an incomplete database, where important dataflow sources/sinks/taint-steps are not included in the analysis.
 
