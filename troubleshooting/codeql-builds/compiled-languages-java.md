@@ -24,7 +24,20 @@ ex `settings.xml`
     </server>
 ```
 
-Option 2 - Use the [maven-settings-action](https://github.com/s4u/maven-settings-action) to dynamically create/overrite a `settings.xml` that contains the credentials for your specified package manager.
+Option 2 - Use the GitHub https://github.com/actions/setup-java#maven-options action to generate maven's settings.xml on the fly and pass the values to Apache Maven GPG Plugin as well as Apache Maven Toolchains.
+
+```yml
+    - name: Set up Apache Maven Central
+      uses: actions/setup-java@v3
+      with: 
+        distribution: 'temurin'
+        java-version: '11'
+        server-id: maven # Value of the distributionManagement/repository/id field of the pom.xml
+        server-username: MAVEN_USERNAME # env variable for username in deploy
+        server-password: MAVEN_CENTRAL_TOKEN # env variable for token in deploy
+ ```
+
+Option 3 - Use the [maven-settings-action](https://github.com/s4u/maven-settings-action) to dynamically create/overrite a `settings.xml` that contains the credentials for your specified package manager.
 
 ```yml
 - if: matrix.language == 'java'
