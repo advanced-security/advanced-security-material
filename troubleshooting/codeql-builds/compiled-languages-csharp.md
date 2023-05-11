@@ -55,6 +55,16 @@ Using `dotnet` is best documented at: https://docs.github.com/en/actions/automat
 #### NuGet Error NU1301
 This can indicate your custom package server is not configured which may fail the `dotnet restore` command.  For private package servers, the follwing guidance shows how to add package sources: [Setting up authentication for nuget feeds](https://github.com/actions/setup-dotnet#setting-up-authentication-for-nuget-feeds)
 
+#### NuGet.targets(132,5): warning : Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured.
+
+Consider adding auth for your GitHub Packages hosted NuGet feed using the nuget CLI tooling.  Add this before the `autobuild` / custom build steps in your workflow.
+
+```yml 
+  - name: add nuget auth
+    run: dotnet nuget add source https://nuget.pkg.github.com/<org-goes-here>/index.json -n "GitHub" -u USERNAME -p "${{ secrets.GH_PACKAGES_READ_ONLY }}" --store-password-in-clear-text
+ ```
+
+
 ### .NET Framework 
 
 #### NuGet Authentication
