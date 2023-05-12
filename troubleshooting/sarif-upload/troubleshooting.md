@@ -44,6 +44,22 @@ codeql github upload-results --github-url=https://cmboling-0bd0debab4ff16db0.ghe
 A fatal error occurred: Error uploading SARIF to 'https://cmboling-0bd0debab4ff16db0.ghe-test.ninja/api/v3/repos/santa-foss/fluffy-potato/code-scanning/sarifs' from '/Users/cmboling/Desktop/jubilant-octo-pancake/results.sarif'. REASON: HTTP/1.1 403 Forbidden:::{"message":"Advanced Security must be enabled for this repository to use code scanning.","documentation_url":"https://docs.github.com/enterprise/3.2/rest/reference/code-scanning#upload-a-sarif-file"}
 ```
 
+:gift: posting SARIF when the SSL certificate is not trusted:
+```dotnetcli
+curl \
+  -X POST \
+  -k \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>"\
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/code-scanning/sarifs \
+  -d '{"commit_sha":"<SHA>","ref":"refs/heads/master","sarif":"<Base64_sarif>"}'
+```
+More information on the API can be found [here](https://docs.github.com/en/rest/code-scanning?apiVersion=2022-11-28#upload-an-analysis-as-sarif-data)
+
+### Test environments
+- GHES 3.2.1 + CodeQL CLI 2.7.2
+=======
 ## SARIF Parsing Errors
 
 ### Code Scanning could not process the submitted SARIF file: rejecting SARIF, as there are more runs than allowed (123 > 15)
