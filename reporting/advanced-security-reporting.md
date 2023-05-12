@@ -18,4 +18,5 @@
   - [ ] https://github.com/ThibaudLopez/GHAS
 - SIEM integrations
   - [ ] https://github.blog/2022-10-13-introducing-github-advanced-security-siem-integrations-for-security-professionals/
+  - [ ] https://github.blog/2023-03-10-introducing-github-vulnerability-management-integrations-for-security-professionals/
   - [ ] https://resources.github.com/security/integrating-github-advanced-security-with-third-party-platforms/

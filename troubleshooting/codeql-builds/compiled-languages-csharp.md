@@ -55,7 +55,22 @@ Using `dotnet` is best documented at: https://docs.github.com/en/actions/automat
 #### NuGet Error NU1301
 This can indicate your custom package server is not configured which may fail the `dotnet restore` command.  For private package servers, the follwing guidance shows how to add package sources: [Setting up authentication for nuget feeds](https://github.com/actions/setup-dotnet#setting-up-authentication-for-nuget-feeds)
 
-### .NET Framework Manual Build Steps on Windows Runners
+#### NuGet.targets(132,5): warning : Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured.
+
+Consider adding auth for your GitHub Packages hosted NuGet feed using the nuget CLI tooling.  Add this before the `autobuild` / custom build steps in your workflow.
+
+```yml 
+  - name: add nuget auth
+    run: dotnet nuget add source https://nuget.pkg.github.com/<org-goes-here>/index.json -n "GitHub" -u USERNAME -p "${{ secrets.GH_PACKAGES_READ_ONLY }}" --store-password-in-clear-text
+ ```
+
+
+### .NET Framework 
+
+#### NuGet Authentication
+Utilize the [nuget/setup-nuget](https://github.com/nuget/setup-nuget#basic) action to pass package key/source to nuget exe.
+
+#### Manual Build Steps on Windows Runners
 NOTE: if you require windows OS to build, ensure you are using a windows runner. 
 
 Example using `windows-latest`:
@@ -118,6 +133,21 @@ Running low on disk using the default Actions runner? Try a few of these workaro
 			
 - See also: [Vertical Scaling](#vertical-scaling---throw-hardware-at-the-software-problem)
 
+## MvcBuildViews target failures
+
+This can manifest through a variety of errors
+- `error ASPPARSE`
+- `[error]C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\web.config(113,0): Error ASPCONFIG: Could not load type`
+- `Error ASPCONFIG: It is an error to use a section registered as allowDefinition='MachineToApplication' beyond application level.`
+- `(AfterBuildCompiler target) -> D:\a\Orchard\Orchard\src\Orchard.Web\Modules\Orchard.Glimpse\web.config(38): error ASPCONFIG: Could not load file or assembly 'System.Web.Mvc, Version=5.2.3, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)`
+
+The CodeQL compiler tracer used for `csharp` will auto inject the /p:MvcBuildViews=true flag.  This pre-compilation of Views gives us the ability to extract the generated code from those files, leading to (potentially) better error reporting and location information if a query does flag an issue. The lack of view information passing through CodeQL to the compiler will lead to an incomplete database, where important dataflow sources/sinks/taint-steps are not included in the analysis.
+
+The recommendation here is to ensure that passing /p:MvcBuildViews=true to your CI build will compile even outside of CodeQL. Having a developer reivew this on their local machine is the best scenario. This can be on done on the specific web project by adding `<MvcBuildViews>true</MvcBuildViews>` to the local .csproj ( you will often find this defaulted to false).   The MVC full framework steps are listed [here](https://learn.microsoft.com/en-us/archive/blogs/jimlamb/turn-on-compile-time-view-checking-for-asp-net-mvc-projects-in-tfs-build-2010). There are a few different reasons why this can cause your project to fail compilation.
+
+For `Error ASPCONFIG: It is an error to use a section registered as allowDefinition='MachineToApplication' beyond application level.`,  change the locations of the obj and publish folder to not be located under the project folder of the website.  If you have bin/obj files checked into source then this could be a likely culprit: https://gunnarpeipman.com/aspnet-mvc-allowdefinition-machinetoapplication/.  You will find [various permutations of this recommendation](https://stackoverflow.com/questions/12778088/allowdefinition-machinetoapplication-error-setting-mvcbuildviewstrue-mvcbui) out there! 
+
+For `Error ASPCONFIG: Could not load type 'X.Y.Z'`, ensure that you do not have excluded `.cshtml`, `.ashx`, `.ashx.cs`, `.aspx` or `.aspx.cs` files on disk in existing `Views` folders or the Root folder of your project!  You can show hidden files in your solution view to hunt these down and remove from these folders.  MvcBuildViews does not observe the file include from the csproj when compiling the application. You may have to hunt these down one by one, so adding `<MvcBuildViews>true</MvcBuildViews>` to your local .csproj may help you get this done on your local machine with Visual Studio.  The `Error List` view in Visual Studio will have a column that shows you the actual File name you need to delete.
 
 # Speed up C# Analysis
 
@@ -126,10 +156,10 @@ Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en
 ## Optimization - Caching Dependencies
  Depending on the number of dependencies, it may be faster to restore packages for your project using the Actions dependency cache. Projects with many large dependencies should see a performance increase as it cuts down the time required for downloading. Projects with fewer dependencies may not see a significant performance increase and may even see a slight decrease due to how NuGet installs cached dependencies. The performance varies from project to project. See [this article](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net#caching-dependencies) for configuring the NuGet dependency cache.
 
-## Optimization - Removing Unit Tests
-CodeQL will extract and analyze any code that is passed through the compiler.  Consider excluding any code you do not wish to include in a security scan to speed up and remove noise from this process.
+## Optimization - Removing Code From Scans
+CodeQL will extract and analyze any code that is passed through the compiler.  Consider excluding any code you do not wish to include in a security scan to speed up and remove noise from this process. This is commonly employed for unit tests, demo code, or code that would not benefit from being scanned (ex: DacPacs).
 
-With .NET we can employ a few mechanisms to remove test/demo code from CodeQL scans (e.g. you would want to run your unit test in another workflow ):
+With .NET we can employ a few mechanisms to remove code from CodeQL scans (e.g. you would want to run your unit test in another workflow ):
 - A [solution filter](https://docs.microsoft.com/en-us/visualstudio/msbuild/solution-filters?view=vs-2019) to only build required projects
 - An explicit [solution file that excludes projects](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-exclude-projects-from-a-build?view=vs-2022)
    - example from the Open Source project: [Identity Server](https://github.com/DuendeSoftware/IdentityServer/)
