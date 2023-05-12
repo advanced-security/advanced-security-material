@@ -24,6 +24,7 @@ See [language specific guidance](#language-specific-guidance) for common resolut
 Ensure network access from GitHub runners to your private registry is open
    - For IP Whitelisting, consider using [Larger Runners with Static IP](https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners#networking-for-larger-runners)
    - See Also: [Connecting Actions to a private network](https://docs.github.com/en/actions/using-github-hosted-runners/connecting-to-a-private-network)
+   - Alternatively, consider a self-hosted actions runner that will execute within your existing private network. See ["Hosting your own runners"](https://docs.github.com/en/actions/hosting-your-own-runners)
 
 See [language specific guidance](#language-specific-guidance) for authentication options to popular package mangers 
 
@@ -48,9 +49,9 @@ alternatively we can further define limits
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
       with: 
-	    # Increase Values seen in logs:
+        # Increase Values seen in logs:
         #2022-06-01T19:37:19.0200037Z   CODEQL_RAM: 119741
-	    #2022-06-01T19:37:19.0200307Z   CODEQL_THREADS: 32
+        #2022-06-01T19:37:19.0200307Z   CODEQL_THREADS: 32
         ram: 64000
         threads: 16
 ```
@@ -64,5 +65,6 @@ Helpful Articles to understand how to review, troubleshoot, and debug logs:
 - [Adding artifacts on every CodeQL Run](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#creating-codeql-debugging-artifacts-using-a-workflow-flag)
 - [Exit Codes](https://codeql.github.com/docs/codeql-cli/exit-codes/)
 
-## Optimizaitons
+
+## Optimizations
 - CodeQL Docs -  [The build takes too long](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)

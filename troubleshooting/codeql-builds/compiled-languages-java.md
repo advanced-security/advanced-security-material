@@ -1,10 +1,10 @@
 
 # Private Package Registries
 
-## The codeql for java is failing when it tries to do mvn command and tries to access a artifactory repo where our pom.xml are stored.
+## The autobuild for java is failing when running Maven build command and a private package registry is needed - `status: 401 Unauthorized `
+- ex: artifactory where our pom.xml dependencies are stored
 
-Assuming the given package registry instance is publicly accessible:
-
+Assuming the given package registry instance is publicly accessible and needs credentials:
 
 Option 1 - Pass credentials via environment variable from Actions secrets and configure Maven settings to utilize those credentials (see sample [here](https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#yaml-example))
 
@@ -24,7 +24,20 @@ ex `settings.xml`
     </server>
 ```
 
-Option 2 - Use the [maven-settings-action](https://github.com/s4u/maven-settings-action) to dynamically create/overrite a `settings.xml` that contains the credentials for your specified package manager.
+Option 2 - Use the GitHub https://github.com/actions/setup-java#maven-options action to generate maven's settings.xml on the fly and pass the values to Apache Maven GPG Plugin as well as Apache Maven Toolchains.
+
+```yml
+    - name: Set up Apache Maven Central
+      uses: actions/setup-java@v3
+      with: 
+        distribution: 'temurin'
+        java-version: '11'
+        server-id: maven # Value of the distributionManagement/repository/id field of the pom.xml
+        server-username: MAVEN_USERNAME # env variable for username in deploy
+        server-password: MAVEN_CENTRAL_TOKEN # env variable for token in deploy
+ ```
+
+Option 3 - Use the [maven-settings-action](https://github.com/s4u/maven-settings-action) to dynamically create/overrite a `settings.xml` that contains the credentials for your specified package manager.
 
 ```yml
 - if: matrix.language == 'java'
@@ -34,6 +47,8 @@ Option 2 - Use the [maven-settings-action](https://github.com/s4u/maven-settings
         servers: '[{"id": "central", "username": "${{ secrets.MAVEN_USERNAME }}", "password": "${{ secrets.MAVEN_CENTRAL_TOKEN }}"}]'
 ```
 
+See also: [401 due to private package server configuration](compiled-languages.md#401-due-to-private-package-server-configuration)
+
 # Build Failures
 
 ## java.lang.IllegalArgumentException: Unsupported class file major version ##
@@ -42,10 +57,15 @@ Ensure you are compiling your java application using CodeQL tracing on a support
 
 ## Fatal error compiling: error: invalid target release: \## 
 
-Specify your [desired java version via the setup-java action](https://github.com/actions/setup-java#supported-version-syntax)
+Alternative error:  
+```
+> error: invalid source release:
+```
+
+Resolution here is to specify your [desired java version via the setup-java action](https://github.com/actions/setup-java#supported-version-syntax)
 ```yml
- uses: actions/setup-java@v3
- with:
-     java-version: 17
-     distribution: 'microsoft'
+- uses: actions/setup-java@v3
+  with:
+    java-version: 17
+    distribution: 'microsoft'
 ```
