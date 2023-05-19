@@ -70,6 +70,12 @@ Consider adding auth for your GitHub Packages hosted NuGet feed using the nuget 
 #### NuGet Authentication
 Utilize the [nuget/setup-nuget](https://github.com/nuget/setup-nuget#basic) action to pass package key/source to nuget exe.
 
+```yml
+- uses: nuget/setup-nuget@v1
+  with:
+    nuget-api-key: ${{ secrets.NuGetAPIKey }}
+```
+
 #### Manual Build Steps on Windows Runners
 NOTE: if you require windows OS to build, ensure you are using a windows runner. 
 
