@@ -1,7 +1,7 @@
 # Advanced Security Material
 A place for resources to help you understand and use GitHub Advanced Security (GHAS).  Browse the directories in this repository for resources and documentation.  To help you get started with GHAS, we've provided some introductory documentation in this file.
 
-## Get started
+## Get started with GitHub Advanced Security
 The following list of links are great resources to get you started on learning how to use, deploy, and manage GitHub Advanced Security in your environment.
 
 New to GitHub Advanced Security?  Start with [GitHub security features](https://docs.github.com/en/enterprise-cloud@latest/code-security/getting-started/github-security-features) :+1:
