@@ -10,6 +10,9 @@ Each section of this document represents a different capability of the GitHub se
 - [Secret scanning](#secret-scanning)
 - [Code scanning](#code-scanning)
 - [Supply-chain security](#supply-chain-security)
+  - [Dependabot alerts](#dependabot-alerts)
+  - [Dependabot security updates](#dependabot-updates)
+  - [Dependency review](#dependency-review-and-submission-api) 
 - [Security Overview](#security-overview)
 - [Administration](#administration)
 
@@ -108,7 +111,7 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 |Dart and Flutter (using Pub) support for updates|||||✅|✅|
 |[Automatically pause pull request activity after 90 days of inactivity](https://docs.github.com/en/enterprise-server@3.9/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)||||||✅|
 
-#### Dependency Review
+#### Dependency Review and submission API
 Dependency review helps you understand dependency changes and the security impact of these changes at every pull request.
 * [Dependency review docs](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)
 * [Dependency review API docs](https://docs.github.com/en/rest/dependency-graph/dependency-review?apiVersion=2022-11-28)
@@ -121,20 +124,27 @@ Dependency review helps you understand dependency changes and the security impac
 
 
 ## Security Overview
-|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |
-|------------------------------------------------------------|-----|-----|-----|-----|-----|
-|Security Overview - Docs|✅|✅|✅|✅|✅|
-|Organization view|☑️|✅|✅|✅|✅|
-|Enterprise view||☑️|☑️|✅|✅|
-|Organization-level Code Scanning Alert View||✅|✅|✅|✅|
-|Organization-level Dependabot Alert View||✅|✅|✅|✅|
-|Enterprse-level view of Dependabot alerts|||✅|✅|✅|
-|Enterprse-level view of code scanning alerts||||✅|✅|
-|Enterprse-level view of secret scanning alerts||||✅|✅|
-|Coverage and Risk Security Overview pages|||||☑️|
+Security overview provides high-level summaries of the security status of an organization or enterprise and makes it easy to identify repositories that require intervention.
+* [Security Overview documentation](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/about-security-overview)
+
+|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |
+|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|
+|[Security Overview](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/about-security-overview)|✅|✅|✅|✅|✅|✅|
+|Organization view|☑️|✅|✅|✅|✅|✅|
+|Enterprise view||☑️|☑️|✅|✅|✅|
+|Organization-level Code Scanning Alert View||✅|✅|✅|✅|✅|
+|Organization-level Dependabot Alert View||✅|✅|✅|✅|✅|
+|Enterprse-level view of Dependabot alerts|||✅|✅|✅|✅|
+|Enterprse-level view of code scanning alerts||||✅|✅|✅|
+|Enterprse-level view of secret scanning alerts||||✅|✅|✅|
+|Coverage and Risk Security Overview pages|||||☑️|☑️|
+|[Filter alerts by repo topic](https://docs.github.com/en/enterprise-server@3.9/code-security/security-overview/filtering-alerts-in-security-overview)||||||✅|
+|[Filter alerts by team](https://docs.github.com/en/enterprise-server@3.9/code-security/security-overview/filtering-alerts-in-security-overview)||||||✅|
+|[Enable GHAS features in security overview](https://docs.github.com/en/enterprise-server@3.9/code-security/security-overview/about-security-overview)||||||✅|
+
 
 ## Administration
-|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |
-|------------------------------------------------------------|-----|-----|-----|-----|-----|
-|Security Managers Role - Docs|✅|✅|✅|✅|✅|
-|Manage Security Managers role via the API||||✅|✅
+|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |
+|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|
+|[Security Managers Role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)|✅|✅|✅|✅|✅|✅|
+|[Manage Security Managers role via the API](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/security-managers?apiVersion=2022-11-28)||||✅|✅|✅|
