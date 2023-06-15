@@ -4,7 +4,9 @@ This document helps answer the question "is this GHAS feature available in my ve
 
 The following tables include notable feature releases for GitHub Advanced Security.  Each row represents a feature.  The columns in the row indicate the level of support for each **supported** Enterprise Server release.  Are your repositories hosted on github.com? All of these features are already available for you :+1:.
 
-Each section of this document represents a different capability of the GitHub security features.  Each row in the tables represent a different feature of GHAS.  The columns indicate if that feature is available in each version of GitHub Enterprise Server.  Cells with ☑️ indicate beta support. ✅ indicates full support.
+Each section of this document represents a different capability of the GitHub security features.  Each row in the tables represent a different feature of GHAS.  The columns indicate if that feature is available in each version of GitHub Enterprise Server.  
+
+Cells with ☑️ indicate beta support. ✅ indicates full support.
 
 #### Contents
 - [Secret scanning](#secret-scanning)
