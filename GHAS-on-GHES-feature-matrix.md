@@ -12,7 +12,7 @@ Each section of this document represents a different capability of the GitHub se
 - [Supply-chain security](#supply-chain-security)
   - [Dependabot alerts](#dependabot-alerts)
   - [Dependabot security updates](#dependabot-updates)
-  - [Dependency review](#dependency-review-and-submission-api) 
+  - [Dependency review and submission api](#dependency-review-and-submission-api) 
 - [Security Overview](#security-overview)
 - [Administration](#administration)
 
