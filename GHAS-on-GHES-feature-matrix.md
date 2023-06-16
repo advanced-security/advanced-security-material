@@ -4,10 +4,6 @@ This document helps answer the question "is this GHAS feature available in my ve
 
 The following tables include notable feature releases for GitHub Advanced Security.  Each row represents a feature.  The columns in the row indicate the level of support for each **supported** Enterprise Server release.  Are your repositories hosted on github.com? All of these features are already available for you :+1:.
 
-Each section of this document represents a different capability of the GitHub security features.  Each row in the tables represent a different feature of GHAS.  The columns indicate if that feature is available in each version of GitHub Enterprise Server.  
-
-Cells with ☑️ indicate beta support. ✅ indicates full support.
-
 #### Contents
 - [Secret scanning](#secret-scanning)
 - [Code scanning](#code-scanning)
@@ -17,6 +13,11 @@ Cells with ☑️ indicate beta support. ✅ indicates full support.
   - [Dependency review and submission api](#dependency-review-and-submission-api) 
 - [Security Overview](#security-overview)
 - [Administration](#administration)
+
+#### How do I read this document?
+Each section of this document represents a different capability of the GitHub security features.  Each row in the tables represent a different feature of GHAS.  The columns indicate if that feature is available in each version of GitHub Enterprise Server.  
+
+Cells with ☑️ indicate beta support. ✅ indicates full support.
 
 ## Release notes
 |Version  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9|
