@@ -126,26 +126,28 @@ Next, consider specifying your own build steps from an existing CI workflow:
 
 ##  "You are running out of disk space.  The runner will stop working when the machine runs out of disk space."
 	
-Running low on disk using the default Actions runner? Try a few of these workarounds for a potential quick fix:
-			
- Clean up large directories of [preinstalled software](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software) that you are potentially not using on the windows runners, add this to your “CodeQL” workflow:
+Running low on disk using the default Actions runner? 
 
-```yml			
-- name: Clean up some disks
-  run: |
-  rd C:\Android\android-sdk
-  docker system prune -af
-```
+GitHub also offers larger runners, which are available in larger disk configurations. For more information, see "[About larger runners.](https://docs.github.com/en/actions/using-github-hosted-runners/about-larger-runners#machine-specs-for-larger-runners)"
+- See also: [Vertical Scaling](#vertical-scaling---throw-hardware-at-the-software-problem)
 
- Specify the temp directory to store the CodeQL database - I have seen this resolve this specific problem with a Windows env (runs-on: windows-2019)
+Alternatively, try a few of these workarounds for a potential quick fix:
+
+Specify the OS Disk's (C:\) temp directory to store the CodeQL database.  There is a slower disk speed tradeoff compared to using the Data Disk (D:\)
  ```yml
 - name: Initialize CodeQL
   uses: github/codeql-action/init@v2
   with:
   db-location: ‘C:\windows\temp\codeql-database’
 ```
-			
-- See also: [Vertical Scaling](#vertical-scaling---throw-hardware-at-the-software-problem)
+
+Clean up large directories of [preinstalled software](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software) that you are not using on the windows runner OS Disk.  Add this to your “CodeQL” workflow:
+```yml			
+- name: Clean up some disks
+  run: |
+  rd C:\Android\android-sdk
+  docker system prune -af
+```
 
 ## MvcBuildViews target failures
 
