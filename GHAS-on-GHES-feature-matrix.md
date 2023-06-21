@@ -27,20 +27,20 @@ Cells with ☑️ indicate beta support. ✅ indicates full support.
 
 ## Secret scanning
 Secret scanning identifies plain text credentials inside your code repository.  Learn more about secret scanning
-* [Secret scanning documentation](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/about-secret-scanning)
-* [Secret scanning API documentation](https://docs.github.com/en/enterprise-cloud@latest/rest/secret-scanning?apiVersion=2022-11-28)
+* [Secret scanning documentation](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/about-secret-scanning)
+* [Secret scanning API documentation](https://docs.github.com/en/enterprise-server/rest/secret-scanning?apiVersion=2022-11-28)
 
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |
 |------------------------------------------------------------|-----|-----|-----|-----|-----|-----|
 |Partner pattern count|155|169|173|173|183|200|
-|[User defined (custom) patterns](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)|✅|✅|✅|✅|✅|✅|
-|[Enterprise level API for secret scanning](https://docs.github.com/en/enterprise-cloud@latest/rest/secret-scanning?apiVersion=2022-11-28#list-secret-scanning-alerts-for-an-enterprise)|✅|✅|✅|✅|✅|✅|
-|[Secret scanning push protection](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)||✅|✅|✅|✅|✅|
-|[Dry runs for secret scanning push protection (repo level)](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)||✅|✅|✅|✅|✅|
+|[User defined (custom) patterns](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)|✅|✅|✅|✅|✅|✅|
+|[Enterprise level API for secret scanning](https://docs.github.com/en/enterprise-server/rest/secret-scanning?apiVersion=2022-11-28#list-secret-scanning-alerts-for-an-enterprise)|✅|✅|✅|✅|✅|✅|
+|[Secret scanning push protection](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/protecting-pushes-with-secret-scanning)||✅|✅|✅|✅|✅|
+|[Dry runs for secret scanning push protection (repo level)](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)||✅|✅|✅|✅|✅|
 |[Secret scanning support for archived repos](https://github.blog/changelog/2022-02-16-secret-scanning-now-supports-archived-repositories/)||✅|✅|✅|✅|✅|
 |[Custom pattern events in the audit log](https://github.blog/changelog/2022-04-06-secret-scanning-custom-pattern-events-now-in-the-audit-log/)||✅|✅|✅|✅|✅|
 |[Push protection events in the audit log](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#secret_scanning_push_protection-category-actions)|||✅|✅|✅|✅|
-|[Push protection in the web editor](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui)|||✅|✅|✅|✅|
+|[Push protection in the web editor](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui)|||✅|✅|✅|✅|
 |[Enable secret scanning at the enterprise level](https://github.blog/changelog/2022-10-06-enable-secret-scanning-for-an-enterprise-with-one-click/)||||✅|✅|✅|
 |[Dry runs for secret scanning custom patterns (org level)](https://github.blog/changelog/2022-02-11-secret-scanning-dry-runs-for-repository-level-custom-pattern/)||||✅|✅|✅|
 |[Email notification for push protection bypass](https://github.blog/changelog/2022-07-27-secret-scanning-admins-now-receive-emails-when-contributors-bypass-a-push-protection-block/)||||✅|✅|✅|
@@ -63,11 +63,11 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 |[Ruby Support](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)|☑️|☑️|☑️|☑️|✅|✅|
 |[Apple M1 support for CodeQL](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)|☑️|☑️|☑️|☑️|✅|✅|
 |[Org-wide code scanning alerts via the REST API](https://docs.github.com/en/rest/code-scanning?apiVersion=2022-11-28#list-code-scanning-alerts-for-an-organization)||✅|✅|✅|✅|✅|
-|[Add comments when dismissing alerts](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)|||✅|✅|✅|✅|
+|[Add comments when dismissing alerts](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)|||✅|✅|✅|✅|
 |[Code scanning alert comments in the pull request conversation tab](https://github.blog/changelog/2022-06-02-users-can-view-and-comment-on-code-scanning-alerts-on-the-conversation-tab-in-a-pull-request/)||||✅|✅|✅|
 |[Users can publish CodeQL packs to the container registry](https://docs.github.com/en/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs)||||✅|✅|✅|
 |[CodeQL query filters to exclude individual queries](https://github.blog/changelog/2022-08-31-code-scanning-customize-your-codeql-analysis-using-query-filters/)||||✅|✅|✅|
-|[Enterprise-wide code scanning alerts via the REST API](https://docs.github.com/en/enterprise-cloud@latest/rest/code-scanning?apiVersion=2022-11-28#list-code-scanning-alerts-for-an-enterprise)||||✅|✅|✅|
+|[Enterprise-wide code scanning alerts via the REST API](https://docs.github.com/en/enterprise-server/rest/code-scanning?apiVersion=2022-11-28#list-code-scanning-alerts-for-an-enterprise)||||✅|✅|✅|
 |[Filter API results by severity](https://github.blog/changelog/2022-11-25-filter-code-scanning-api-results-by-alert-severity/)|||||✅|✅|
 |[Kotlin language support](https://github.blog/changelog/2022-11-28-codeql-code-scanning-launches-kotlin-analysis-support-beta/)|||||☑️|☑️|
 |[Default CodeQL setup](https://docs.github.com/en/enterprise-server@3.9/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)||||||✅|
@@ -84,14 +84,14 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 #### Dependabot Alerts
 Dependabot alerts tell you that your code depends on a package that is insecure.
 * [Dependabot alerts documentation](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
-* [Dependabot alerts API](https://docs.github.com/en/enterprise-cloud@latest/rest/dependabot/alerts?apiVersion=2022-11-28)
+* [Dependabot alerts API](https://docs.github.com/en/enterprise-server/rest/dependabot/alerts?apiVersion=2022-11-28)
 
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |
 |------------------------------------------------------------|-----|-----|-----|-----|-----|-----|
 |[Dependabot Alerts](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)|✅|✅|✅|✅|✅|✅|
-|[Go modules support](https://docs.github.com/en/enterprise-cloud@latest/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|✅|✅|✅|✅|✅|✅|
-|[Poetry support](https://docs.github.com/en/enterprise-cloud@latest/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|✅|✅|✅|✅|✅|✅|
-|[Cargo support](https://docs.github.com/en/enterprise-cloud@latest/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|||✅|✅|✅|✅|
+|[Go modules support](https://docs.github.com/en/enterprise-server/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|✅|✅|✅|✅|✅|✅|
+|[Poetry support](https://docs.github.com/en/enterprise-server/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|✅|✅|✅|✅|✅|✅|
+|[Cargo support](https://docs.github.com/en/enterprise-server/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|||✅|✅|✅|✅|
 |[Reopen dismissed alerts](https://github.blog/changelog/2022-03-07-reopen-dismissed-dependabot-alerts/)|||✅|✅|✅|✅|
 |[Dependabot alerts show vulnerable function calls](https://github.blog/2022-04-14-dependabot-alerts-now-surface-if-code-is-calling-vulnerability/)|||☑️|☑️|☑️|☑️|
 |[Dependabot Alert timeline](https://github.blog/changelog/2022-07-28-dependabot-alerts-timeline-of-events-on-the-alert-details-page/)||||✅|✅|✅|
@@ -128,11 +128,11 @@ Dependency review helps you understand dependency changes and the security impac
 
 ## Security Overview
 Security overview provides high-level summaries of the security status of an organization or enterprise and makes it easy to identify repositories that require intervention.
-* [Security Overview documentation](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/about-security-overview)
+* [Security Overview documentation](https://docs.github.com/en/enterprise-server/code-security/security-overview/about-security-overview)
 
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |
 |------------------------------------------------------------|-----|-----|-----|-----|-----|-----|
-|[Security Overview](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/about-security-overview)|✅|✅|✅|✅|✅|✅|
+|[Security Overview](https://docs.github.com/en/enterprise-server/code-security/security-overview/about-security-overview)|✅|✅|✅|✅|✅|✅|
 |Organization view|☑️|✅|✅|✅|✅|✅|
 |Enterprise view||☑️|☑️|✅|✅|✅|
 |Organization-level Code Scanning Alert View||✅|✅|✅|✅|✅|
@@ -149,5 +149,5 @@ Security overview provides high-level summaries of the security status of an org
 ## Administration
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |
 |------------------------------------------------------------|-----|-----|-----|-----|-----|-----|
-|[Security Managers Role](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)|✅|✅|✅|✅|✅|✅|
-|[Manage Security Managers role via the API](https://docs.github.com/en/enterprise-cloud@latest/rest/orgs/security-managers?apiVersion=2022-11-28)||||✅|✅|✅|
+|[Security Managers Role](https://docs.github.com/en/enterprise-server/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)|✅|✅|✅|✅|✅|✅|
+|[Manage Security Managers role via the API](https://docs.github.com/en/enterprise-server/rest/orgs/security-managers?apiVersion=2022-11-28)||||✅|✅|✅|
