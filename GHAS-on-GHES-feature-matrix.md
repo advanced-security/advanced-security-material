@@ -49,7 +49,7 @@ Secret scanning identifies plain text credentials inside your code repository.  
 |[View secret scanning enablement status at the org-level via API](https://github.blog/changelog/2021-08-24-secret-scanning-org-level-rest-api/)||||✅|✅|✅|
 |[Enable secret scanning at the enterprise level using the REST API](https://github.blog/changelog/2022-12-13-enable-secret-scanning-with-the-enterprise-level-rest-api/)|||||✅|✅|
 |[Add comment when dismissing a secret scanning alert in UI or API](https://github.blog/changelog/2022-09-29-secret-scanning-alerts-now-have-a-timeline-and-users-can-add-a-comment-when-resolving/)|||||✅|✅|
-|[Custom pattern creation at the enterprise level](https://docs.github.com/en/enterprise-server@3.9/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)||||||✅|
+|[Custom pattern creation at the enterprise level](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)||||||✅|
 
 
 ## Code scanning
@@ -71,11 +71,11 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 |[Enterprise-wide code scanning alerts via the REST API](https://docs.github.com/en/enterprise-server/rest/code-scanning?apiVersion=2022-11-28#list-code-scanning-alerts-for-an-enterprise)||||✅|✅|✅|
 |[Filter API results by severity](https://github.blog/changelog/2022-11-25-filter-code-scanning-api-results-by-alert-severity/)|||||✅|✅|
 |[Kotlin language support](https://github.blog/changelog/2022-11-28-codeql-code-scanning-launches-kotlin-analysis-support-beta/)|||||☑️|☑️|
-|[Default CodeQL setup](https://docs.github.com/en/enterprise-server@3.9/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)||||||✅|
-|[Default CodeQL setup via API](https://docs.github.com/en/enterprise-server@3.9/rest/code-scanning#update-a-code-scanning-default-setup-configuration)||||||✅|
-|["Enable all" functionality at the org level (API and UI)](https://docs.github.com/en/enterprise-server@3.9/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)||||||✅|
-|[Tool status page](https://docs.github.com/en/enterprise-server@3.9/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)||||||✅|
-|[View org-level enablement status via the API ](https://docs.github.com/en/enterprise-server@3.9/rest/repos/repos?apiVersion=2022-11-28#list-organization-repositories)||||||✅|
+|[Default CodeQL setup](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)||||||✅|
+|[Default CodeQL setup via API](https://docs.github.com/en/enterprise-server/rest/code-scanning#update-a-code-scanning-default-setup-configuration)||||||✅|
+|["Enable all" functionality at the org level (API and UI)](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)||||||✅|
+|[Tool status page](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)||||||✅|
+|[View org-level enablement status via the API ](https://docs.github.com/en/enterprise-server/rest/repos/repos?apiVersion=2022-11-28#list-organization-repositories)||||||✅|
 
 
 
@@ -103,8 +103,8 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 |[Receive alerts for vulnerable GitHub Actions](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)||||✅|✅|✅|
 |[Dependabot alert webhooks](https://github.blog/changelog/2022-10-06-new-dependabot-alerts-webhook/)||||✅|✅|✅|
 |[Dependabot alerts REST API endpoint for repository org and enterprise](https://docs.github.com/en/rest/dependabot/alerts?apiVersion=2022-11-28)|||||☑️|✅|
-|[Export SBOM from dependency graph](https://docs.github.com/en/enterprise-server@3.9/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)||||||✅|
-|[Dependabot can parse and update Gradle version catalogs in `settings.gradle`](https://docs.github.com/en/enterprise-server@3.9/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)||||||✅|
+|[Export SBOM from dependency graph](https://docs.github.com/en/enterprise-server/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)||||||✅|
+|[Dependabot can parse and update Gradle version catalogs in `settings.gradle`](https://docs.github.com/en/enterprise-server/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)||||||✅|
 
 
 #### Dependabot Updates
@@ -113,7 +113,7 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 |[Dependabot Updates](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)|☑️|✅|✅|✅|✅|✅|
 |Actions authors can automatically update dependencies within workflow files|||||✅|✅|
 |Dart and Flutter (using Pub) support for updates|||||✅|✅|
-|[Automatically pause pull request activity after 90 days of inactivity](https://docs.github.com/en/enterprise-server@3.9/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)||||||✅|
+|[Automatically pause pull request activity after 90 days of inactivity](https://docs.github.com/en/enterprise-server/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)||||||✅|
 
 #### Dependency Review and submission API
 Dependency review helps you understand dependency changes and the security impact of these changes at every pull request.
@@ -142,9 +142,9 @@ Security overview provides high-level summaries of the security status of an org
 |Enterprse-level view of code scanning alerts||||✅|✅|✅|
 |Enterprse-level view of secret scanning alerts||||✅|✅|✅|
 |Coverage and Risk Security Overview pages|||||☑️|☑️|
-|[Filter alerts by repo topic](https://docs.github.com/en/enterprise-server@3.9/code-security/security-overview/filtering-alerts-in-security-overview)||||||✅|
-|[Filter alerts by team](https://docs.github.com/en/enterprise-server@3.9/code-security/security-overview/filtering-alerts-in-security-overview)||||||✅|
-|[Enable GHAS features in security overview](https://docs.github.com/en/enterprise-server@3.9/code-security/security-overview/about-security-overview)||||||✅|
+|[Filter alerts by repo topic](https://docs.github.com/en/enterprise-server/code-security/security-overview/filtering-alerts-in-security-overview)||||||✅|
+|[Filter alerts by team](https://docs.github.com/en/enterprise-server/code-security/security-overview/filtering-alerts-in-security-overview)||||||✅|
+|[Enable GHAS features in security overview](https://docs.github.com/en/enterprise-server/code-security/security-overview/about-security-overview)||||||✅|
 
 
 ## Administration
