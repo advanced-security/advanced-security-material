@@ -30,7 +30,7 @@ New to GitHub Advanced Security?  Start with [GitHub security features](https://
 - [Dependabot Alerts](https://docs.github.com/en/enterprise-cloud@latest/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
 - [Dependabot Security Updates](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)
 - [GitHub Advisory Database](https://github.com/advisories)
-- [Dependabot Quicksatart Guide](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide)
+- [Dependabot Quickstart Guide](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide)
 
 ### Security Overview
 - [About Security Overview](https://docs.github.com/en/code-security/security-overview/about-the-security-overview)
