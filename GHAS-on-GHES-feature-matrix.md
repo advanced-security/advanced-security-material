@@ -21,6 +21,8 @@ Each section of this document represents a different capability of the GitHub se
 Cells with ☑️ indicate beta support. ✅ indicates full support.
 
 ## Release notes
+* [Releases of GitHub Enterprise Server](https://docs.github.com/en/enterprise-server/admin/all-releases#releases-of-github-enterprise-server)
+
 |Version  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9|
 |---------|-----|-----|-----|-----|-----|-----|
 |Release date| 2022-02-15	| 2022-05-10 | 2022-07-26	|2022-10-25	|2023-02-07 | 2023-06-08 |
