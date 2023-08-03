@@ -21,9 +21,12 @@ Each section of this document represents a different capability of the GitHub se
 Cells with ☑️ indicate beta support. ✅ indicates full support.
 
 ## Release notes
+* [Releases of GitHub Enterprise Server](https://docs.github.com/en/enterprise-server/admin/all-releases#releases-of-github-enterprise-server)
+
 |Version  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9|
 |---------|-----|-----|-----|-----|-----|-----|
-|Release date| Mar. 15 2022|  May 31 2022 |Aug. 16 2022 |Nov. 8 2022 |Mar. 7 2023 |Jun. 8 2023 (rc1) |
+|Release date| 2022-02-15	| 2022-05-10 | 2022-07-26	|2022-10-25	|2023-02-07 | 2023-06-08 |
+|Deprecation date | 2023-03-23 | 2023-06-29 | 2023-08-16 | 2023-11-08	| 2024-03-07 | 2024-06-29 |
 || [Release notes](https://docs.github.com/en/enterprise-server@3.4/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.5/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.6/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.7/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.8/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.9/admin/release-notes)|
 
 ## Secret scanning
@@ -59,7 +62,7 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |
 |------------------------------------------------------------|-----|-----|-----|-----|-----|-----|
-|CodeQL "toolcache" Installed Version|2.7.6|2.8.5|2.9.4|2.10.5|2.11.6|
+|[CodeQL "toolcache" Installed Version](https://docs.github.com/en/enterprise-server/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#provisioning-the-actions-for-code-scanning)|2.7.6|2.11.6|2.11.7|2.11.7|2.11.7|2.11.7|
 |[Language support: Python, Javascript, Java, Go, C/C++, C#, Typescript](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)|✅|✅|✅|✅|✅|✅|
 |[Ruby Support](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)|☑️|☑️|☑️|☑️|✅|✅|
 |[Apple M1 support for CodeQL](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)|☑️|☑️|☑️|☑️|✅|✅|
