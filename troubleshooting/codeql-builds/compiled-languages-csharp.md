@@ -165,6 +165,26 @@ For `Error ASPCONFIG: It is an error to use a section registered as allowDefinit
 
 For `Error ASPCONFIG: Could not load type 'X.Y.Z'`, ensure that you do not have excluded `.cshtml`, `.ashx`, `.ashx.cs`, `.aspx` or `.aspx.cs` files on disk in existing `Views` folders or the Root folder of your project!  You can show hidden files in your solution view to hunt these down and remove from these folders.  MvcBuildViews does not observe the file include from the csproj when compiling the application. You may have to hunt these down one by one, so adding `<MvcBuildViews>true</MvcBuildViews>` to your local .csproj may help you get this done on your local machine with Visual Studio.  The `Error List` view in Visual Studio will have a column that shows you the actual File name you need to delete.
 
+## MSB4216 - error MSB4216: Could not run the "GenerateResource" task because MSBuild could not create or connect to a task host with runtime "CLR4" and architecture "x64"
+
+```
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(3049,5): error MSB4216: Could not run the “GenerateResource” task because MSBuild could not create or connect to a task host with runtime “CLR4” and architecture “x64". Please ensure that (1) the requested runtime and/or architecture are available on the machine, and (2) that the required executable “C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\amd64\MSBuild.exe” exists and can be run.
+```
+
+```
+c:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(3162,5): error MSB4216: Could not run the "GenerateResource" task because MSBuild could not create or connect to a task host with runtime "CLR4" and architecture "x64". Please ensure that (1) the requested runtime and/or architecture are available on the machine, and (2) that the required executable "c:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\amd64\MSBuild.exe" exists and can be run.
+```
+
+Recommendations:
+ - If not using GitHub Actions - ensure the CodeQL process is given appropriate amount of RAM.  This scenario has been reproduced when running out of memory. It is recommended to leave the operating system at least 1.5 GB + 2% of total memory for a Windows CI machine. (example: if the machine has 64 GB RAM total memory pass 59.7 GB `61132` to CodeQL - see CodeQL action [getSystemReservedMemoryMegaBytes](https://github.com/github/codeql-action/blob/43750fe4fc4f068f04f2215206e6f6a29c78c763/src/util.ts#L160))
+ -  edit the `.csproj` that is failing and specify the `GenerateResourceMSBuildArchitecture` property as is done in a sample [here](https://github.com/XAMLMarkupExtensions/WPFLocalizeExtension/blob/cc4799a1336afba1adfd26212a778eac28a5f79c/src/WPFLocalizeExtension.csproj#L31-L32) as [explained in resgen discussion](https://github.com/dotnet/sdk/issues/346#issuecomment-257654120). 
+
+```xml
+        <!--Workaround for Error    MSB4216    Could not run the “GenerateResource” -->
+<GenerateResourceMSBuildArchitecture>CurrentArchitecture</GenerateResourceMSBuildArchitecture>
+```
+
+
 # Speed up C# Analysis
 
 Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#the-build-takes-too-long).
