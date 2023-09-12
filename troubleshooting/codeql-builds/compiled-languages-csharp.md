@@ -165,6 +165,19 @@ For `Error ASPCONFIG: It is an error to use a section registered as allowDefinit
 
 For `Error ASPCONFIG: Could not load type 'X.Y.Z'`, ensure that you do not have excluded `.cshtml`, `.ashx`, `.ashx.cs`, `.aspx` or `.aspx.cs` files on disk in existing `Views` folders or the Root folder of your project!  You can show hidden files in your solution view to hunt these down and remove from these folders.  MvcBuildViews does not observe the file include from the csproj when compiling the application. You may have to hunt these down one by one, so adding `<MvcBuildViews>true</MvcBuildViews>` to your local .csproj may help you get this done on your local machine with Visual Studio.  The `Error List` view in Visual Studio will have a column that shows you the actual File name you need to delete.
 
+To avoid building and scanning any view code in your project (potential false negatives in the scan as view engine code may not be evaluated for vulnerabilities) and to workaround the requirement that MvcBuildViews is automatically injected.  Consider this [community contributed suggestion](https://github.com/github/codeql/issues/11890#issuecomment-1496970164):
+
+```powershell
+tweaking the csproj file with powershell during the GitHub Action so that the hard-coded condition "gets fooled", basically. Something like this:
+
+$filePath = (Join-Path $pwd '\SUBFOLDER\YOURCSPROJFILE.csproj')
+$csproj = [xml](Get-Content $filePath)
+$buildTargetNode = $csproj.Project.Target | ? name -eq "MvcBuildViews"
+$buildTargetNode.SetAttribute("Condition", "'`$(MvcBuildViews)'=='false'")
+$csproj.Save($filePath)
+```
+
+
 ## MSB4216 - error MSB4216: Could not run the "GenerateResource" task because MSBuild could not create or connect to a task host with runtime "CLR4" and architecture "x64"
 
 ```
