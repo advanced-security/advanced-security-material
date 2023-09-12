@@ -168,7 +168,7 @@ For `Error ASPCONFIG: Could not load type 'X.Y.Z'`, ensure that you do not have 
 To avoid building and scanning any view code in your project (potential false negatives in the scan as view engine code may not be evaluated for vulnerabilities) and to workaround the requirement that MvcBuildViews is automatically injected.  Consider this [community contributed suggestion](https://github.com/github/codeql/issues/11890#issuecomment-1496970164):
 
 ```powershell
-tweaking the csproj file with powershell during the GitHub Action so that the hard-coded condition "gets fooled", basically. Something like this:
+# tweaking the csproj file with powershell during the GitHub Action so that the hard-coded condition "gets fooled", basically. Something like this:
 
 $filePath = (Join-Path $pwd '\SUBFOLDER\YOURCSPROJFILE.csproj')
 $csproj = [xml](Get-Content $filePath)
