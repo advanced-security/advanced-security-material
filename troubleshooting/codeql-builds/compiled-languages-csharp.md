@@ -202,8 +202,6 @@ Recommendations:
 
 Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#the-build-takes-too-long).
 
-## Optimization - Caching Dependencies
- Depending on the number of dependencies, it may be faster to restore packages for your project using the Actions dependency cache. Projects with many large dependencies should see a performance increase as it cuts down the time required for downloading. Projects with fewer dependencies may not see a significant performance increase and may even see a slight decrease due to how NuGet installs cached dependencies. The performance varies from project to project. See [this article](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net#caching-dependencies) for configuring the NuGet dependency cache.
 
 ## Optimization - Removing Code From Scans
 CodeQL will extract and analyze any code that is passed through the compiler.  Consider excluding any code you do not wish to include in a security scan to speed up and remove noise from this process. This is commonly employed for unit tests, demo code, or code that would not benefit from being scanned (ex: DacPacs).
@@ -217,9 +215,16 @@ With .NET we can employ a few mechanisms to remove code from CodeQL scans (e.g. 
 	  - [CodeQL yaml passes in a flag to build script](https://github.com/DuendeSoftware/IdentityServer/blob/44d8d5964edfae20c4be424c0b3a2ed5050c6fe9/.github/workflows/codeql-analysis.yml#L57) to use the CodeQL solution
 - Build in release mode - exclude test projects from that [build configuration](https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/ide/how-to-create-and-edit-configurations?view=vs-2015&redirectedfrom=MSDN#to-modify-a-solution-wide-build-configuration)
 
+## Optimizations - CodeQL Engine
+	- CodeQL will (by default) pull in source code from your dependencies using CIL extraction to assist in mapping out your data flows. While this can  improve the precision of the results, this can also lead to a large increase in database size.  You might consider disabling this feature for a quick scan but running a cron based scan with the option enabled.
+	```yml  
+		env:
+		CODEQL_EXTRACTOR_CSHARP_OPTION_CIL: false
+	```
+
 ## Optimizations - CodeQL Queries
 - Tweak your current codeql yml workflow in a few ways: 
-	- remove security-extended queries, the default query pack with smaller set of queries will complete faster
+	- remove security-extended queries, the default query pack `code-scanning` has a smaller set of optimized queries and will complete faster
 		- As of [v2.10.5](https://github.com/github/codeql-action/releases/tag/codeql-bundle-20220908) - Query Suite Counts
 			- code-scanning (default) - 49 queries
 			- security-extended - 66 queries
@@ -235,12 +240,10 @@ With .NET we can employ a few mechanisms to remove code from CodeQL scans (e.g. 
 			CODEQL_ACTION_EXTRA_OPTIONS: '{"database": {"run-queries": ["--off-heap-ram=0"]}}'
 		```
 
-	- CodeQL will (by default) pull in source code from your dependencies using CIL extraction to assist in mapping out your data flows. While this can drastically improve the precision of the results, this can also lead to a large increase in database size.  You might consider disabling this feature for a quick scan but running a cron based scan with the option enabled.
-	```yml  
-		env:
-		CODEQL_EXTRACTOR_CSHARP_OPTION_CIL: false
-	```
 
+## Optimization - Caching Dependencies with GitHub Actions
+  
+ Depending on the number of dependencies, it may be faster to restore packages for your project using the Actions dependency cache. Projects with many large dependencies should see a performance increase as it cuts down the time required for downloading. Projects with fewer dependencies may not see a significant performance increase and may even see a slight decrease due to how NuGet installs cached dependencies. The performance varies from project to project. See [this article](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net#caching-dependencies) for configuring the NuGet dependency cache.
 
 ## Vertical Scaling - Throw hardware at the software problem.  
 
