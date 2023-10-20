@@ -1,4 +1,7 @@
 ## SARIF Upload Errors
+
+For the latest information about troubleshooting SARIF errors, see "[Troubleshooting SARIF uploads](https://docs.github.com/en/code-security/code-scanning/troubleshooting-sarif-uploads)." If anything is missing, or you can see anything that can be improved, open an issue in [`docs-content`](https://github.com/github/docs-content/issues/new?template=improve-existing-docs.yml) with the details.
+
 * Test environment - GHES 3.2.1 + CodeQL CLI 2.7.2
 
 :gift: wrong ref:
