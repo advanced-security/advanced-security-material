@@ -216,11 +216,21 @@ With .NET we can employ a few mechanisms to remove code from CodeQL scans (e.g. 
 - Build in release mode - exclude test projects from that [build configuration](https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/ide/how-to-create-and-edit-configurations?view=vs-2015&redirectedfrom=MSDN#to-modify-a-solution-wide-build-configuration)
 
 ## Optimizations - CodeQL Engine
-	- CodeQL will (by default) pull in source code from your dependencies using CIL extraction to assist in mapping out your data flows. While this can  improve the precision of the results, this can also lead to a large increase in database size.  You might consider disabling this feature for a quick scan but running a cron based scan with the option enabled.
-	```yml  
-		env:
-		CODEQL_EXTRACTOR_CSHARP_OPTION_CIL: false
-	```
+- CodeQL will (by default) pull in source code from your dependencies using CIL extraction to assist in mapping out your data flows. While this can  improve the precision of the results, this can also lead to a large increase in database size.  You might consider disabling this feature for a quick scan but running a cron based scan with the option enabled.
+
+### GitHub Actions
+```yml  
+env:
+  CODEQL_EXTRACTOR_CSHARP_OPTION_CIL: false
+```
+### Azure DevOps Pipelines
+```yml  
+variables:  
+  # Disable CodeQL CSharp CIL mode
+  CODEQL_EXTRACTOR_CSHARP_OPTION_CIL: $(cil-extraction)
+```
+
+
 
 ## Optimizations - CodeQL Queries
 - Tweak your current codeql yml workflow in a few ways: 
