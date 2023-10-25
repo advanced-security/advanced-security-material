@@ -227,7 +227,7 @@ env:
 ```yml  
 variables:  
   # Disable CodeQL CSharp CIL mode
-  CODEQL_EXTRACTOR_CSHARP_OPTION_CIL: $(cil-extraction)
+  CODEQL_EXTRACTOR_CSHARP_OPTION_CIL: false
 ```
 
 
