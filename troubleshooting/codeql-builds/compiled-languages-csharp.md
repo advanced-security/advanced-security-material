@@ -257,7 +257,7 @@ variables:
 
 ## Vertical Scaling - Throw hardware at the software problem.  
 
-Large applications can be compute/memory/disk bound as the default hosted runners are small instances (2core/8GBram/14GB SSD). Generally, anything over 100k lines of code will benefit from bigger hardware.  See the [recommended hardware requirements for CodeQL](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql) based on Codebase size.
+Large applications can be compute/memory/disk bound as the default hosted runners are small instances (2core/8GBram/14GB SSD). Any repository approaching 100k lines of csharp code will benefit from bigger hardware.  See the [recommended hardware requirements for CodeQL](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql) based on Codebase size.
 -   On GitHub Actions, setup a [self-hosted CI action runner](https://docs.github.com/en/enterprise-cloud@latest/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization) in your infrastructure that has some more powerful specs that can handle your large application. 
     - [Actions larger runners ](https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners) allows for up to a 64 core machine with 256GB RAM and 2040 GB of SSD storage
 - On Azure DevOps Pipelines, setup a [self-hosted agent](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents) on your own hardware or Virtual Machine Scale Set agents.
