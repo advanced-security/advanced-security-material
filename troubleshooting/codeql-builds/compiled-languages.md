@@ -57,6 +57,14 @@ alternatively we can further define limits
         threads: 16
 ```
 
+### "CodeQL scanned 0 out of ... files in this job" or "No source code was seen during the build" or "failed with exit code 32"
+
+Helpful articles here are: 
+- [Troubleshooting: Error: "No source code was seen during the build"](https://docs.github.com/en/code-security/code-scanning/troubleshooting-code-scanning/no-source-code-seen-during-build) walks through the various reasons why this might occur.
+- [Build Customizations](#build-customizations) provides guidance for supported build steps per language / build engine.
+- [CodeQL Exit Codes - 32](https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/exit-codes#32)
+
+
 ## Reviewing Results
 
 Helpful Articles to understand how to review, troubleshoot, and debug logs:
