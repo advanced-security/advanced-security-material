@@ -62,7 +62,7 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |
 |------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|
-|[CodeQL "toolcache" Installed Version](https://docs.github.com/en/enterprise-server/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#provisioning-the-actions-for-code-scanning)|2.7.6|2.11.6|2.11.7|2.11.7|2.11.7|2.11.7|2.13.5|
+|[CodeQL "toolcache" Installed Version](https://docs.github.com/en/enterprise-server/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#provisioning-the-actions-for-code-scanning)|2.7.6|2.11.6|2.12.7|2.12.7|2.12.7|2.12.7|2.13.5|
 |[Language support: Python, Javascript, Java, Go, C/C++, C#, Typescript](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)|✅|✅|✅|✅|✅|✅|✅|
 |[Ruby Support](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)|☑️|☑️|☑️|☑️|✅|✅|✅|
 |[Apple M1 support for CodeQL](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)|☑️|☑️|☑️|☑️|✅|✅|✅|
