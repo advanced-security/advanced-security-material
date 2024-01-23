@@ -3,6 +3,7 @@
 
 ## Language Specific Guidance
 * [Python](interpreted-languages-python.md)
+* [JavaScript](interpreted-languages-javascript.md)
 
 
 # Troubleshooting
