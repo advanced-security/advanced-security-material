@@ -85,7 +85,13 @@ Utilize the [nuget/setup-nuget](https://github.com/nuget/setup-nuget#basic) acti
 ```
 
 #### Manual Build Steps on Windows Runners
-NOTE: if you require windows OS to build, ensure you are using a windows runner. 
+NOTE: if you require windows OS to build, ensure you are using a windows runner. Otherwise it will attempt to use Mono [from the ubuntu image](https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md#language-and-runtime).
+```
+Not using .NET Core because of incompatible project /home/runner/work/<...path...>.csproj
+Attempting to build using MSbuild
+
+Running mono ...
+```
 
 Example using `windows-latest`:
 - Note: The `-latest` runner images are the latest stable images that GitHub provides, and might not be the most recent version of the operating system available from the operating system vendor.
