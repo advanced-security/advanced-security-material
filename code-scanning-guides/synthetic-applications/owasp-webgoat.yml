@@ -14,8 +14,8 @@ permissions:
   security-events: write
 
 env:
-  # in the future, this flag will not be needed
-  CODEQL_EXTRACTOR_JAVA_RUN_ANNOTATION_PROCESSORS: true
+  # Lombok support is now included by default, this is no longer needed
+  # CODEQL_EXTRACTOR_JAVA_RUN_ANNOTATION_PROCESSORS: true
 
 jobs:
   analyze:
