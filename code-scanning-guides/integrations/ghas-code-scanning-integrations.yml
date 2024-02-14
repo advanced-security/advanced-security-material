@@ -1,0 +1,789 @@
+# NOTICE
+# This file shouldn't be shared with customers as it might contain confidencial 
+# information regarding the tools or GHAS.
+
+github:
+  codeql:
+    name: CodeQL
+    author: GitHub
+    url: https://github.com/github/codeql-action/
+    weights:
+      - open-source
+      - commercial
+    languages:
+      - C
+      - CPP
+      - CSharp
+      - Go
+      - Java
+      - JavaScript
+      - Python
+
+# This section defines the tools available for GHAS integration
+tools:
+  42crunch:
+    name: 42Crunch API Security Audit
+    author: 42crunch
+    url: https://github.com/42Crunch/api-security-audit-action
+    weights:
+      - free to use
+    technologies:
+      - OpenAPI
+
+  accurics:
+    name: Accurics
+    author: Accurics
+    url: https://github.com/accurics/accurics-action
+    weights:
+      - open-source
+      - commercial
+    technologies:
+      - Terraform
+      - Kubernetes
+
+  anchore:
+    name: Anchore
+    url: https://github.com/anchore/scan-action
+    weights:
+      - open-source
+      - free to use
+    technologies:
+      - Docker
+      - Windows Containers
+
+  bandit:
+    name: Bandit (OSSAR)
+    url: https://github.com/github/ossar-action
+    weights:
+      - open-source
+      - free to use
+    languages:
+      - Python
+
+  binskim:
+    name: BinSkim (OSSAR)
+    url: https://github.com/github/ossar-action
+    weights:
+      - open-source
+      - free to use
+    technologies:
+      - Binaries Analysis
+
+  bridgecrew:
+    name: Bridgecrew (Checkov)
+    author: Bridgecrew
+    url: https://github.com/bridgecrewio/checkov
+    weights:
+      - open-source
+      - commercial
+    technologies:
+      - Azure Resource Manager Templates
+      - CloudFormation
+      - Kubernetes
+      - Terraform
+      - Docker
+    examples:
+      Terraform: https://github.com/octodemo/advance-security-terraform/blob/master/.github/workflows/bridgecrew-action.yml
+
+  # TODO: Gather Breakman support data
+  # breakman:
+  #   name: Breakman
+  #   url: 
+  #   examples:
+  #     Ruby: 
+  #   languages:
+  #     - Ruby
+
+  cfn-lint:
+    name: cfn-lint
+    url: https://github.com/aws-cloudformation/cfn-lint
+    weights:
+      - open-source
+      - free to use
+    technologies:
+      - CloudFormation
+
+  cfnnag:
+    name: cfn-nag
+    url: https://github.com/stelligent/cfn_nag
+    weights:
+      - open-source
+      - free-to-use
+    technologies:
+      - CloudFormation
+
+  checkmarx:
+    name: Checkmarx
+    url: https://checkmarx.com
+    author: Checkmarx
+    weights:
+      - commercial
+      - competitor
+    # https://checkmarx.atlassian.net/wiki/spaces/KC/pages/2070577987/9.3.0+Supported+Code+Languages+and+Frameworks
+    languages:
+      - CSharp
+      - Java
+      - JSP
+      - JavaScript
+      - TypeScript
+      - VBScript
+      - PL/SQL
+      - Visual Basic
+      - ASP
+      - C
+      - CPP
+      - PHP
+      - Apex
+      - Ruby
+      - Perl
+      - Objective C
+      - Swift
+      - Python
+      - Groovy
+      - Scala
+      - Go
+      - Kotlin
+      - Cobol
+    technologies:
+      - Mobile
+
+  checkstyle:
+    name: Checkstyle
+    url: https://checkstyle.sourceforge.io/
+    types: [ quality ]
+    weights:
+      - open-source
+      - free to use
+    languages:
+      - Java
+
+  clanganalyzer:
+    name: Clang Analyzer
+    url: https://clang-analyzer.llvm.org/
+    weights:
+      - open-source
+      - free to use
+    languages:
+      - C
+      - CPP
+
+  codacy:
+    name: Codacy
+    author: Codacy
+    url: https://github.com/codacy/codacy-analysis-cli-action
+    types: [ aggregator ]
+    weights:
+      - open-source
+      - free to use
+    urls:
+      aggregator: https://docs.codacy.com/getting-started/supported-languages-and-tools/
+    languages:
+      - Apex
+      - C
+      - CSharp
+      - CPP
+      - CoffeeScript
+      - Crystal
+      # - CSS
+      - Elixir
+      - Go
+      - Groovy
+      - Java
+      - JavaScript
+      # - JSON
+      - JSP
+      - Kotlin
+      - Less
+      # - Markdown
+      - Objective C
+      - PHP
+      - PL/SQL
+      - PostgreSQL
+      - PowerShell
+      - Python
+      - Ruby
+      # - Sass
+      - Scala
+      - Shell
+      - Swift
+      - T-SQL
+      - TypeScript
+      - Velocity
+      - Visual Basic
+      - Visualforce
+      # - XML
+      # - XSL
+    technologies:
+      - CloudFormation
+      - Azure Resource Manager Templates
+      - Docker
+      - Kubernetes
+      # - Serverless Framework
+
+  coverity:
+    name: Coverity
+    author: Synopsys
+    url: https://www.synopsys.com/software-integrity/security-testing/static-analysis-sast.html
+    weights:
+      - commercial
+      - competitor
+    # https://www.synopsys.com/content/dam/synopsys/sig-assets/datasheets/SAST-Coverity-datasheet.pdf
+    languages:
+      - Apex
+      - C
+      - CPP
+      - CSharp
+      - CUDA
+      - Java
+      - JavaScript
+      - PHP
+      - Python
+      # - .NET Core
+      - ASP.NET
+      - Objective C
+      - Go
+      - JSP
+      - Ruby
+      - Swift
+      - Fortran
+      - Scala
+      - VB.NET
+      # - iOS
+      # - Android
+      - TypeScript
+      - Kotlin
+    technologies:
+      - Mobile
+
+  codescan:
+    name: "CodeScan"
+    author: CodeScan
+    url: https://github.com/codescan-io/codescan-scanner-action
+    weights:
+      - commercial
+      - competitor
+    languages:
+      - JavaScript
+      - Apex
+      - Visualforce
+      - Lightning (Aura and LWC)
+      - Salesforce Metadata
+    technologies:
+      - Terraform
+  
+  security-code-scan:
+    name: "SecurityCodeScan"
+    url: https://security-code-scan.github.io/
+    weights:
+      - open-source
+      - free to use
+    languages:
+      - CSharp
+      - VB.NET
+    examples:
+      workflow: https://github.com/marketplace/actions/securitycodescan
+
+  defensecode:
+    name: DefenseCode ThunderScan
+    author: DefenseCode
+    url: https://www.defensecode.com/thunderscan-sast/
+    weights:
+      - commercial
+      - competitor
+    languages:
+      - CSharp
+      - Java
+      - Kotlin
+      - PHP
+      - Python
+      - Ruby
+      - Go
+      - JavaScript
+      - TypeScript
+      - Groovy
+      - C
+      - CPP
+      - VB.NET
+      - Visual Basic
+      - VBScript
+      - ASP
+      - Objective C
+      - Swift
+      - ColdFusion
+      - PL/SQL
+      - Cobol
+      - ABAP
+      - Apex
+      - ASP.NET
+      - JSP
+      # - HTML/HTML5
+      # - SQL
+      # - XML
+      - Xamarin
+    technologies:
+       - Mobile
+
+  detekt:
+    name: "Detekt"
+    url: https://github.com/detekt/detekt
+    types: [ quality ]
+    weights:
+      - open-source
+      - free to use
+    languages:
+      - Kotlin
+    examples:
+      Kotlin: https://github.com/octodemo/KotlinGoat/blob/master/.github/workflows/detekt-analysis.yml
+
+  devshim:
+    name: DevSkim
+    author: Microsoft
+    url: https://github.com/microsoft/DevSkim
+    types: [ linter ]
+    weights:
+      - open-source
+      - free to use
+    # https://github.com/Microsoft/DevSkim/wiki/
+    languages:
+      - C
+      - Objective C
+      - CPP
+      - CSharp
+      - Cobol
+      - Go
+      - Java
+      - JavaScript
+      - TypeScript
+      - PHP
+      - PowerShell
+      - Python
+      - Ruby
+      - Rust
+      - SQL
+      - Swift
+      - Visual Basic
+
+  eslint:
+    name: ESLint (OSSAR)
+    url: https://github.com/github/ossar-action
+    weights:
+      - open-source
+      - free to use
+    languages:
+      - JavaScript
+
+  flawfinder:
+    name: Flawfinder
+    url: https://github.com/david-a-wheeler/flawfinder
+    weights:
+      - open-source
+      - free to use
+    languages:
+      - C
+      - CPP
+
+  fortify:
+    name: Fortify
+    url: https://www.microfocus.com/en-us/cyberres/application-security/static-code-analyzer
+    author: Micro Focus
+    weights:
+      - commercial
+      - competitor
+    # https://www.microfocus.com/en-us/fortify-languages
+    languages:
+      - ABAP
+      # - BSP
+      - ActionScript
+      - Apex
+      - ASP.NET
+      - CSharp
+      - Classic
+      - ASP
+      - Cobol
+      - ColdFusion
+      - Go
+      # - HTML
+      - Java
+      - JavaScript
+      - JSP
+      - Kotlin
+      - MXML (Flex)
+      - Objective C
+      - C
+      - CPP
+      - PHP
+      - PL/SQL
+      - Python
+      - Ruby
+      - Swift
+      - T-SQL
+      - VB.NET
+      - VBScript
+      - Visual Basic
+      # - XML
+
+  gosec:
+    name: GoSec
+    url: https://github.com/securego/gosec
+    weights:
+      - open-source
+      - free to use
+    languages:
+      - Go
+
+  kics:
+    name: KICS
+    author: Checkmarx
+    url: https://github.com/Checkmarx/kics
+    weights:
+      - open-source
+      - free to use
+      - competitor
+    examples:
+      # workflow: https://github.com/Checkmarx/kics/blob/master/examples/github/kics-docker-runner-sarif.yaml
+    technologies:
+      - Terraform
+      - Kubernetes
+      - Docker
+      - Ansible
+      - CloudFormation
+
+  kubesec:
+    name: Kubesec
+    url: https://github.com/controlplaneio/kubesec-action
+    weights:
+      - open-source
+      - free to use
+    examples:
+      Terraform: https://github.com/controlplaneio/kubesec-action#using-kubesec-with-github-code-scanning
+    technologies:
+      - Terraform
+
+  njsscan:
+    name: njsscan
+    url: https://github.com/ajinabraham/njsscan
+    weights:
+      - open-source
+      - free to use
+    languages:
+      - JavaScript
+
+  mobsf:
+    name: MobSF
+    url: https://github.com/MobSF/Mobile-Security-Framework-MobSF
+    weights:
+      - open-source
+      - free to use
+    examples:
+      Mobile-iOS: https://github.com/octodemo/advance-security-mobile-ios
+      Mobile-Android: https://github.com/octodemo/advance-security-mobile-android
+    technologies:
+      - Mobile
+    languages:
+      - Kotlin
+      - Swift
+      - Objective C
+      - Java
+
+  owaspzap:
+    name: OWASP Zap
+    url: https://owasp.org/www-project-zap/
+    weights:
+      - open-source
+      - free to use
+    examples:
+      workflow: https://github.com/octodemo/dast-test/blob/main/.github/workflows/zap.yml
+    technologies:
+      - Dynamic Analysis
+
+  pmd:
+    name: PMD
+    url: https://github.com/pmd/pmd
+    weights:
+      - open-source
+      - free to use
+    examples:
+      PL/SQL: https://github.com/Moose0621/sql-project/blob/master/.github/workflows/pmd-plsql.yml
+      Apex: https://github.com/Moose0621/apex-recipes/blob/main/.github/workflows/pmd-apex.yml 
+    languages:
+      - Java
+      - JavaScript
+      - Apex
+      - Visualforce
+      - Modelica
+      - PL/SQL
+      - Apache Velocity
+      # - XSL
+      - Scala
+
+  prefast:
+    name: PREfast
+    author: Microsoft
+    url: https://docs.microsoft.com/en-us/cpp/build/reference/analyze-code-analysis?view=msvc-160
+    types: [ quality ]
+    weights:
+      - open-source
+      - free to use
+    languages:
+      - C
+      - CPP
+
+  prisma:
+    name: Prisma Cloud IaC Scan
+    author: Palo Alto Prisma Cloud
+    url: https://github.com/prisma-cloud-shiftleft/iac-scan-action
+    weights:
+      # - open-source
+      # - free to use
+      - commercial
+    technologies:
+      - Terraform
+      - CloudFormation
+      - Kubernetes
+
+  psalm:
+    name: psalm
+    url: https://github.com/psalm/psalm-github-security-scan
+    weights:
+      - open-source
+      - free to use
+    examples:
+      PHP: https://github.com/psalm/psalm-github-security-scan#psalm-github-security-scan
+    languages:
+      - PHP
+
+  psscriptanalyzer:
+    name: PSScriptAnalyzer
+    url: https://github.com/PowerShell/PSScriptAnalyzer
+    weights:
+      - open-Source
+      - free to use
+    urls:
+      issue: https://github.com/PowerShell/PSScriptAnalyzer/issues/1581
+    examples:
+      PowerShell: https://github.com/microsoft/psscriptanalyzer-action/blob/main/workflow.yml
+    languages:
+      - PowerShell
+
+  roslyn:
+    name: Roslyn
+    author: Microsoft
+    url: https://github.com/dotnet/roslyn-analyzers
+    weights:
+      - open-source
+      - free to use
+    examples:
+      Ruby: https://github.com/arthurnn/code-scanning-rubocop#action-installation
+    languages:
+      - CSharp
+      - Visual Basic
+      # - .NET
+
+  rubocop:
+    name: Rubocop
+    url: https://github.com/arthurnn/code-scanning-rubocop
+    weights:
+      - open-source
+      - free to use
+    examples:
+      Ruby: https://github.com/arthurnn/code-scanning-rubocop#action-installation
+    languages:
+      - Ruby
+
+  semgrep:
+    name: Semgrep
+    author: Semgrep
+    url: https://semgrep.dev/
+    weights:
+      - open-source
+      - commercial
+      - competitor
+    # https://semgrep.dev/docs/language-support/
+    languages:
+      - Go
+      - Java
+      - JavaScript
+      - Python
+      - Ruby
+      - TypeScript
+      # - JSX
+      # - TSX
+
+  shiftleft:
+    name: ShiftLeft Security Scan
+    author: ShiftLeft
+    url: https://github.com/ShiftLeftSecurity/scan-action
+    types: [ aggregator ]
+    weights:
+      - open-source
+      # - free to use?
+      - commercial product
+    urls:
+      aggregator: https://github.com/ShiftLeftSecurity/sast-scan#bundled-tools
+    examples:
+      workflow: https://github.com/octodemo/advance-security-php/blob/main/.github/workflows/shiftleft-analysis.yml
+      PHP: https://github.com/octodemo/advance-security-php
+    languages:
+      - Apex
+      - Bash
+      - Go
+      - Java
+      - JSP
+      - JavaScript
+      - PL/SQL
+      - Python
+      - PHP
+      # - Rust (Dependency and Licence scan alone)
+      - Visualforce
+      - Apache Velocity
+    technologies:
+      - Terraform
+      - Ansible
+      - Kubernetes
+
+  stackhawk:
+    name: StackHawk HawkScan
+    author: StackHawk
+    url: https://docs.stackhawk.com/hawkscan/
+    weights:
+      - commercial
+    technologies:
+      - Dynamic Analysis
+
+  snyk-iac:
+    name: Snyk Infrastructure as Code
+    author: Snyk
+    url: https://github.com/snyk/actions/tree/master/iac
+    weights:
+      - open-source
+      - free to use
+      - commercial
+      - competitor
+    technologies:
+      - Terraform
+
+  snyk-container:
+    name: Snyk Container
+    author: Snyk
+    url: https://github.com/snyk/actions/tree/master/docker
+    weights:
+      - open-source
+      - free to use
+      - commercial
+      - competitor
+    technologies:
+      - Docker
+
+  spotbugs:
+    name: SpotBugs
+    url: https://github.com/spotbugs/spotbugs
+    weights:
+      - open-source
+      - free to use
+    languages:
+      - Java
+
+  trivy:
+    name: Trivy
+    author: Aqua Security
+    url: https://github.com/aquasecurity/trivy-action
+    weights:
+      - open-source
+      - commercial product
+    example:
+      Docker: https://github.com/aquasecurity/trivy-action#using-trivy-with-github-code-scanning
+    technologies:
+      - Docker
+      - Kubernetes
+      - Terraform
+
+  tfsec:
+    name: TFSec
+    author: Aqua Security (joined in July 2021)
+    url: https://github.com/tfsec/tfsec
+    weights:
+      - open-source
+      - free to use
+    examples:
+      workflow: https://github.com/tfsec/tfsec/blob/master/.github/workflows/tfsec.yml
+      Terraform: https://github.com/octodemo/advance-security-terraform/blob/master/.github/workflows/tfsec-action.yml
+    technologies:
+      - Terraform
+
+  veracode:
+    name: Veracode
+    author: Veracode
+    url: https://veracode.com/
+    weights:
+      - commercial
+      - competitor
+    # https://help.veracode.com/r/r_supported_table
+    languages:
+      - Java
+      - CSharp
+      - VB.NET
+      - ASP.NET
+      - C
+      - CPP
+      # - C/C++ (Red Hat Enterprise Linux, CentOS, OpenSUSE Linux)
+      # - C/C++ (Solaris)
+      # - C/C++ (Windows)
+      - JavaScript
+      - TypeScript
+      - PHP
+      - Scala
+      - Groovy
+      - Kotlin
+      - Ruby
+      - Apex
+      - PL/SQL
+      - T-SQL
+      - ASP
+      - ColdFusion
+      - Perl
+      - Python
+      - Go
+      - Xamarin
+      - PhoneGap/Cordova
+      - Ionic
+      - Titanium
+      # - React Native
+      - Cobol
+      # - RPG
+      - Visual Basic
+
+  # xanitizer:
+  #   name: Xanitizer
+  #   url: https://www.xanitizer.com/xanitizer-technology/
+
+
+
+# ---------- Global Variables ----------
+
+weight_threshold: 2
+tools_full_list: false
+
+# This section defines the weights used to 
+weights:
+  opensource:
+    name: open-source
+    weight: 5
+  freetouse:
+    name: free to use
+    weight: 5
+  commercial:
+    name: commercial
+    weight: 3
+  competitor:
+    name: competitor
+    weight: -3
+
+# Tool types
+types:
+  security:
+    name: "Security"
+  quality:
+    name: "Code Quality"
+  aggregator:
+    name: "Tool Aggregator"
+    description: "A tool that uses multiple Open Source tools to find security/quality issues"
