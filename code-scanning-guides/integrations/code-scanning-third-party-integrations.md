@@ -150,6 +150,8 @@ changes and not directly in this file.
 - [DevSkim](https://github.com/microsoft/DevSkim) by Microsoft
 - [Fortify](https://www.microfocus.com/en-us/cyberres/application-security/static-code-analyzer) by Micro Focus
   - Commercial Requirement for Private Repositories
+- [Puma Scan | Server Edition](https://pumasecurity.io/server-edition/) by Puma Security
+  - Commercial Requirement ([workflow example](https://github.com/pumasecurity/puma-prey/blob/6f87f3022c6976ede4145e0eccd830bfb3f4688f/.github/workflows/main.yaml#L45C1-L57C47))
 - [Roslyn](https://github.com/dotnet/roslyn-analyzers) by Microsoft
 - [Veracode](https://veracode.com/)
   - Commercial Requirement for Private Repositories
@@ -194,6 +196,12 @@ changes and not directly in this file.
 
 - [Codacy](https://github.com/codacy/codacy-analysis-cli-action)
   - [Open Source Tool Aggregator](https://docs.codacy.com/getting-started/supported-languages-and-tools/)
+
+### DART
+- [Dart/Flutter analyzer to SARIF](https://github.com/advanced-security/dart-analyzer-sarif)
+- [Horusec Dart | Horusec](https://docs.horusec.io/docs/cli/analysis-tools/open-source-horusec-engine/horusec-dart/)
+  - GitHub Action ([Installation | Horusec](https://docs.horusec.io/docs/cli/installation/#github-actions))
+  - [Workflow Sample](https://github.com/octodemo/flutter-samples/blob/main/.github/workflows/horusec.yml)
 
 ### Elixir
 - [credo](https://github.com/rrrene/credo)
@@ -457,6 +465,8 @@ changes and not directly in this file.
 - [DevSkim](https://github.com/microsoft/DevSkim) by Microsoft
 - [Fortify](https://www.microfocus.com/en-us/cyberres/application-security/static-code-analyzer) by Micro Focus
   - Commercial Requirement for Private Repositories
+- [Python linting Code Scanning Action](https://github.com/marketplace/actions/python-lint-code-scanning-action) by GitHub Field Services
+  - Wraps FOSS linters, type checkers
 - [Semgrep](https://semgrep.dev/)
   - Commercial Requirement for Private Repositories
 - [ShiftLeft Security Scan](https://github.com/ShiftLeftSecurity/scan-action) by ShiftLeft
