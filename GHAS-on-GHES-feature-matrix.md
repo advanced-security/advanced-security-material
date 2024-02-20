@@ -90,7 +90,7 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 |[Choose which language to enable or disable in CodeQL default setup](https://docs.github.com/en/enterprise-server@3.10/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning)|||||||✅|✅|✅|
 |[Filter code scanning alerts by `path` and `language`](https://docs.github.com/en/enterprise-server@3.10/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)|||||||✅|✅|✅|
 |[CodeQL supports C# 11](https://github.com/github/roadmap/issues/598)|||||||✅|✅|✅|
-|[CodeQL supports Swift programming language](https://github.blog/changelog/2023-06-01-codeql-code-scanning-now-supports-swift-beta/)|||||||☑️|☑️|
+|[CodeQL supports Swift programming language](https://github.blog/changelog/2023-06-01-codeql-code-scanning-now-supports-swift-beta/)|||||||☑️|☑️|☑️|
 |[Default setup automatically adds new repo languages](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|
 |[Choose query suite with default setup](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|
 |[Weekly scan with default setup](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|
@@ -161,7 +161,7 @@ Security overview provides high-level summaries of the security status of an org
 |------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|
 |[Security Overview](https://docs.github.com/en/enterprise-server/code-security/security-overview/about-security-overview)|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |Organization view|☑️|✅|✅|✅|✅|✅|✅|✅|✅|
-|Enterprise view||☑️|☑️|✅|✅|✅|✅|✅|
+|Enterprise view||☑️|☑️|✅|✅|✅|✅|✅|✅|
 |Organization-level Code Scanning Alert View||✅|✅|✅|✅|✅|✅|✅|✅|
 |Organization-level Dependabot Alert View||✅|✅|✅|✅|✅|✅|✅|✅|
 |Enterprse-level view of Dependabot alerts|||✅|✅|✅|✅|✅|✅|✅|
@@ -175,7 +175,7 @@ Security overview provides high-level summaries of the security status of an org
 
 ## Administration
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12 |
-|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|
+|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|
 |[Security Managers Role](https://docs.github.com/en/enterprise-server/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Manage Security Managers role via the API](https://docs.github.com/en/enterprise-server/rest/orgs/security-managers?apiVersion=2022-11-28)||||✅|✅|✅|✅|✅|✅|
 
