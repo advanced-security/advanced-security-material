@@ -61,6 +61,7 @@ Secret scanning identifies plain text credentials inside your code repository.  
 |[Validity checks for GitHub Tokens](https://docs.github.com/en/enterprise-server@3.12/code-security/secret-scanning/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)||||||||✅|✅|
 |[Secret scanning scans issues](https://docs.github.com/en/enterprise-server@3.12/code-security/secret-scanning/about-secret-scanning#about-secret-scanning)||||||||✅|✅|
 |[Push protection metrics in security overview](https://docs.github.com/en/enterprise-server@3.12/code-security/security-overview/assessing-code-security-risk)||||||||✅|✅|
+|[Non-provider patterns](https://github.blog/changelog/2023-11-06-secret-scanning-expands-detection-to-include-non-provider-patterns-beta/)|||||||||☑️|
 
 ## Code scanning
 Code scanning is a feature that you use to analyze the code in a GitHub repository to find security vulnerabilities and coding errors. Any problems identified by the analysis are shown in GitHub.
@@ -96,6 +97,8 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 |[Weekly scan with default setup](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|
 |[CodeQL supports custom model packs](https://codeql.github.com/docs/codeql-for-visual-studio-code/using-the-codeql-model-editor/)||||||||✅|✅|
 |[CodeQL supports Java code using Project Lombok ](https://docs.github.com/en/enterprise-server@3.11/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)||||||||✅|✅|
+|[Default setup automatically includes all CodeQL supported languages](https://github.blog/changelog/2023-10-23-code-scanning-default-setup-automatically-includes-all-codeql-supported-languages/)|||||||||✅|
+
 
 
 
@@ -178,6 +181,8 @@ Security overview provides high-level summaries of the security status of an org
 |------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|
 |[Security Managers Role](https://docs.github.com/en/enterprise-server/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Manage Security Managers role via the API](https://docs.github.com/en/enterprise-server/rest/orgs/security-managers?apiVersion=2022-11-28)||||✅|✅|✅|✅|✅|✅|
+|[Licensing for committers only after the migration date](https://docs.github.com/en/enterprise-server@3.12/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security) |||||||||✅|
+
 
 # Dependencies
 This section calls out the dependencies required to enable GitHub Advanced Security on GitHub Enterprise Server.
