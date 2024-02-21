@@ -1,0 +1,127 @@
+# For most projects, this workflow file will not need changing; you simply need
+# to commit it to your repository.
+#
+# You may wish to alter this file to override the set of languages analyzed,
+# or to provide custom queries or build logic.
+#
+# ******** NOTE ********
+# We have attempted to detect the languages in your repository. Please check
+# the `language` matrix defined below to confirm you have the correct set of
+# supported CodeQL languages.
+#
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "main" ]
+  schedule:
+    - cron: '20 21 * * 3'
+
+jobs:
+  analyze:
+    name: Analyze
+    # Runner size impacts CodeQL analysis time. To learn more, please see:
+    #   - https://gh.io/recommended-hardware-resources-for-running-codeql
+    #   - https://gh.io/supported-runners-and-hardware-resources
+    #   - https://gh.io/using-larger-runners
+    # Consider using larger runners for possible analysis time improvements.
+    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+    timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'go', 'java', 'javascript', 'python' ]
+        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby', 'swift' ]
+        # Use only 'java' to analyze code written in Java, Kotlin or both
+        # Use only 'javascript' to analyze code written in JavaScript, TypeScript or both
+        # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Install Java if necessary
+    - if: matrix.language == 'java'
+      name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'adopt'
+        java-version: '15'
+    
+    # Initialize the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      run: |
+        gh extensions install github/gh-codeql
+        gh codeql set-version latest 
+        gh codeql pack download codeql/${{ matrix.language }}-queries
+      env:
+        GH_TOKEN: ${{ github.token }}
+
+    # Create a CodeQL database and start tracing for compiled languages
+    - name: Create CodeQL Database
+      run: |
+        gh codeql database init --begin-tracing --language=${{ matrix.language }} --source-root=${{ env.GITHUB_WORKSPACE }} ${{ matrix.language }}-db
+      env:
+        GH_TOKEN: ${{ github.token }}
+
+    - if: matrix.language == 'java'
+      name: Build Java Code
+      run: |
+        source ../${{ matrix.language }}-db/temp/tracingEnvironment/start-tracing.sh
+        mvn clean install
+      working-directory: ./storage-service
+
+    - if: matrix.language == 'go'
+      name: Build Go Code
+      run: |
+        source ../${{ matrix.language }}-db/temp/tracingEnvironment/start-tracing.sh
+        go build
+      working-directory: ./gallery-service
+
+    - name: Traceless Database Build (Python/JS)
+      if: contains(fromJSON('["javascript", "python"]'), ${{ matrix.language }})
+      run: |
+        gh codeql database trace-command --index-traceless-dbs ${{ matrix.language }}-db
+      env:
+        GH_TOKEN: ${{ github.token }}
+
+    # Finalize the database
+    - name: Finalize database
+      run: |
+        gh codeql database finalize ${{ matrix.language }}-db
+      env:
+        GH_TOKEN: ${{ github.token }}
+
+    # The --sarif-category must be set for each language's database
+    - name: Analyze database
+      run: |
+        gh codeql database analyze \
+        --format="sarif-latest" \
+        --sarif-category="codeql-scan:${{ matrix.language }}" \
+        --output=${{ matrix.language }}-db.sarif \
+        -j=0 \
+        --sarif-add-query-help --sarif-add-snippets \
+        ${{matrix.language}}-db
+      env:
+        GH_TOKEN: ${{ github.token }}
+
+    # Upload the CodeQL scan results
+    - name: Upload results
+      run: |
+        echo ${{ github.token }} | \
+        gh codeql github upload-results \
+        --sarif=${{ matrix.language }}-db.sarif \
+        --repository=$GITHUB_REPOSITORY \
+        --ref=$GITHUB_REF \
+        --commit=$GITHUB_SHA \
+        --github-auth-stdin
+      env:
+        GH_TOKEN: ${{ github.token }}
