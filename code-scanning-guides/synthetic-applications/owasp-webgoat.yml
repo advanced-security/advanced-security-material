@@ -13,10 +13,6 @@ permissions:
   contents: read
   security-events: write
 
-env:
-  # Lombok support is now included by default, this is no longer needed
-  # CODEQL_EXTRACTOR_JAVA_RUN_ANNOTATION_PROCESSORS: true
-
 jobs:
   analyze:
     name: Analyze
@@ -28,34 +24,34 @@ jobs:
         language: [ 'java', 'javascript' ]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     # WebGoat requires Java/JDK 17
     - name: Set up JDK 17
       if: matrix.language == 'java'
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
         java-version: 17
         architecture: x64
 
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
+      uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
         # [optional] enabled extended queries
         # queries: +security-extended,security-and-quality
         # [optional] Field Config - standard packs, extensions, and extra packs
-        config-file: advanced-security/codeql-queries/config/codeql.yml@main
+        config-file: GitHubSecurityLab/CodeQL-Community-Packs/configs/synthetics.yml@main
 
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+      uses: github/codeql-action/autobuild@v3
 
     # Run the Analysis
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+      uses: github/codeql-action/analyze@v3
 
     # Submit Maven Dependency Tree to GitHub
     - name: Maven Dependency Tree Dependency Submission
       if: matrix.language == 'java'
-      uses: advanced-security/maven-dependency-submission-action@v3.0.2
+      uses: advanced-security/maven-dependency-submission-action@v3
