@@ -58,8 +58,11 @@ alternatively we can further define limits
 ```
 
 ### "CodeQL scanned 0 out of ... files in this job" or "No source code was seen during the build" or "failed with exit code 32"
+For compiled languages, CodeQL operates by tracing compiler commands for each file to construct a database representation of the codebase. However, some build engines utilize background daemons to compile applications, and these delegated compiler calls to a daemon may go undetected by the CodeQL tracer, resulting in little or no code being detected.
 
-Helpful articles here are: 
+Additionally, CodeQL will only trace and scan files that pass through a compiler within the build systems. Files pulled from a cache, rather than processed by the build systems, won't be included in the CodeQL database. To ensure a comprehensive representation of the codebase, it's essential to disable build caching and shared compilation. Refer to your build system's recommended flags, as described here: [specifying build commands](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#specifying-build-commands).
+
+Other helpful articles: 
 - [Troubleshooting: Error: "No source code was seen during the build"](https://docs.github.com/en/code-security/code-scanning/troubleshooting-code-scanning/no-source-code-seen-during-build) walks through the various reasons why this might occur.
 - [Build Customizations](#build-customizations) provides guidance for supported build steps per language / build engine.
 - [CodeQL Exit Codes - 32](https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/exit-codes#32)
