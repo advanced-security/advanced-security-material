@@ -6,6 +6,7 @@
 * [C++](compiled-languages-cpp.md)
 * [Java](compiled-languages-java.md)
 * [Go](compiled-languages-go.md)
+* [Swift](compiled-languages-swift.md)
 
 ## Autobuilder
 The autobuilder action (see [docs](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages#about-autobuild-for-codeql) )
