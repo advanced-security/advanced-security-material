@@ -76,12 +76,14 @@ Alternatively, consider adding auth for your GitHub Packages hosted NuGet feed u
 ### .NET Framework 
 
 #### NuGet Authentication
-Utilize the [nuget/setup-nuget](https://github.com/nuget/setup-nuget#basic) action to pass package key/source to nuget exe.
+Since you are unable to use the [nuget/setup-nuget](https://github.com/nuget/setup-nuget#basic) action to pass package key/source to nuget exe for restore, instead fallback to the nuget sources commands.  You can update a source (by name) to include credentials via the `nuget sources Update` command or add a new source with `nuget sources Add`
 
 ```yml
-- uses: nuget/setup-nuget@v1
-  with:
-    nuget-api-key: ${{ secrets.NuGetAPIKey }}
+      - name: NuGet Restore
+        run: |
+          nuget sources Add -Name "SourceName" -Source "https://url.to.your/source" -UserName "any" -Password "${{ secrets.NUGET_PACKAGES_PAT }}"
+          nuget sources Update -Name "SourceName" -UserName "any" -Password "${{ secrets.NUGET_PACKAGES_PAT }}"
+          nuget restore
 ```
 
 #### Manual Build Steps on Windows Runners
