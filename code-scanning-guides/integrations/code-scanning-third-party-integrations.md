@@ -496,8 +496,10 @@ changes and not directly in this file.
   - Commercial Requirement for Private Repositories
 
 ### Rust
-
+- [Clippy](https://github.com/rust-lang/rust-clippy) + [Clippy SARIF](https://github.com/psastras/sarif-rs/tree/main/clippy-sarif#example-1)
 - [DevSkim](https://github.com/microsoft/DevSkim) by Microsoft
+- [Semgrep](https://semgrep.dev/)
+  - Commercial Requirement for Private Repositories
 
 ### SQL
 
