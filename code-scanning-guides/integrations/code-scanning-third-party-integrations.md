@@ -516,6 +516,8 @@ changes and not directly in this file.
   - [Open Source Tool Aggregator](https://docs.codacy.com/getting-started/supported-languages-and-tools/)
 - [Coverity](https://www.synopsys.com/software-integrity/security-testing/static-analysis-sast.html) by Synopsys
   - Commercial Requirement for Private Repositories
+- [Semgrep](https://semgrep.dev/)
+  - Commercial Requirement for Private Repositories
 - [SpotBugs with FindSecBugs](https://github.com/marketplace/actions/spotbugs-with-findsecbugs)
 - [Veracode](https://veracode.com/)
   - Commercial Requirement for Private Repositories
