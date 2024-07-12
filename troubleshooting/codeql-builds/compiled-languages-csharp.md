@@ -176,7 +176,7 @@ For `Error ASPCONFIG: Could not load type 'X.Y.Z'`, ensure that you do not have 
 
 To avoid building and scanning any view engine generated code in your project (potential false negatives in the scan as view engine code may not be evaluated for vulnerabilities) and to workaround the requirement that MvcBuildViews is automatically injected.  
 
-- Utilize `build-mode: none` - this will not invoke the build targets.  See [comparison] (https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes).
+- Utilize `build-mode: none` - this will not invoke the build targets.  See [comparison](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes).
 
 - If using `manual` or `autobuild` with GitHub Actions, plug in this step before `CodeQL-Init`: https://github.com/felickz/codeql-tracer-netframework?tab=readme-ov-file#codeql-tracer-netframework
 
