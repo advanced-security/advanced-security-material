@@ -27,43 +27,46 @@ Cells with ☑️ indicate beta support. ✅ indicates full support.
 ## Release notes
 * [Releases of GitHub Enterprise Server](https://docs.github.com/en/enterprise-server/admin/all-releases#releases-of-github-enterprise-server)
 
-|Version  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9| 3.10|3.11|3.12|3.13|
-|---------|-----|-----|-----|-----|-----|-----|----|----|----|----|
-|Release date| 2022-02-15	| 2022-05-10 | 2022-07-26	|2022-10-25	|2023-02-07 | 2023-06-08 | 	2023-08-08 | 2023-11-14 | 2024-02-13 | 2024-06-18
-|Deprecation date | 2023-03-23 | 2023-06-29 | 2023-08-16 | 2023-11-08	| 2024-03-07 | 2024-06-29 | 2024-08-29	| 2024-12-05 | 2025-03-05| 2025-07-18
-|| [Release notes](https://docs.github.com/en/enterprise-server@3.4/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.5/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.6/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.7/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.8/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.9/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.10/admin/release-notes) | [Release notes](https://docs.github.com/en/enterprise-server@3.11/admin/release-notes) | [Release notes](https://docs.github.com/en/enterprise-server@3.12/admin/release-notes) | [Release Notes](https://docs.github.com/en/enterprise-server@3.13/admin/release-notes)|
+|Version  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9| 3.10|3.11|3.12|3.13|3.14|
+|---------|-----|-----|-----|-----|-----|-----|----|----|----|----|----|
+|Release date| 2022-02-15	| 2022-05-10 | 2022-07-26	|2022-10-25	|2023-02-07 | 2023-06-08 | 	2023-08-08 | 2023-11-14 | 2024-02-13 | 2024-06-18 | 2024-08-06
+|Deprecation date | 2023-03-23 | 2023-06-29 | 2023-08-16 | 2023-11-08	| 2024-03-07 | 2024-06-29 | 2024-08-29	| 2024-12-05 | 2025-03-05| 2025-07-18 | 2025-08-27
+|| [Release notes](https://docs.github.com/en/enterprise-server@3.4/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.5/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.6/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.7/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.8/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.9/admin/release-notes)|[Release notes](https://docs.github.com/en/enterprise-server@3.10/admin/release-notes) | [Release notes](https://docs.github.com/en/enterprise-server@3.11/admin/release-notes) | [Release notes](https://docs.github.com/en/enterprise-server@3.12/admin/release-notes) | [Release Notes](https://docs.github.com/en/enterprise-server@3.13/admin/release-notes)| [Release Notes](https://docs.github.com/en/enterprise-server@3.14/admin/release-notes#3.14.0)
 
 ## Secret scanning
 Secret scanning identifies plain text credentials inside your code repository.  Learn more about secret scanning
 * [Secret scanning documentation](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/about-secret-scanning)
 * [Secret scanning API documentation](https://docs.github.com/en/enterprise-server/rest/secret-scanning?apiVersion=2022-11-28)
 
-|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 | 3.10 | 3.11 | 3.12 |3.13|
-|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|[Partner pattern count](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/secret-scanning-patterns)|155|169|173|173|183|200|218|233|249|274|
-|[User defined (custom) patterns](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Enterprise level API for secret scanning](https://docs.github.com/en/enterprise-server/rest/secret-scanning?apiVersion=2022-11-28#list-secret-scanning-alerts-for-an-enterprise)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Secret scanning push protection](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/protecting-pushes-with-secret-scanning)||✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Dry runs for secret scanning push protection (repo level)](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)||✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Secret scanning support for archived repos](https://github.blog/changelog/2022-02-16-secret-scanning-now-supports-archived-repositories/)||✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Custom pattern events in the audit log](https://github.blog/changelog/2022-04-06-secret-scanning-custom-pattern-events-now-in-the-audit-log/)||✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Push protection events in the audit log](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#secret_scanning_push_protection-category-actions)|||✅|✅|✅|✅|✅|✅|✅|✅|
-|[Push protection in the web editor](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui)|||✅|✅|✅|✅|✅|✅|✅|✅|
-|[Enable secret scanning at the enterprise level](https://github.blog/changelog/2022-10-06-enable-secret-scanning-for-an-enterprise-with-one-click/)||||✅|✅|✅|✅|✅|✅|✅|
-|[Dry runs for secret scanning custom patterns (org level)](https://github.blog/changelog/2022-02-11-secret-scanning-dry-runs-for-repository-level-custom-pattern/)||||✅|✅|✅|✅|✅|✅|✅|
-|[Email notification for push protection bypass](https://github.blog/changelog/2022-07-27-secret-scanning-admins-now-receive-emails-when-contributors-bypass-a-push-protection-block/)||||✅|✅|✅|✅|✅|✅|✅|
-|[Custom links in push protection notification](https://github.blog/changelog/2022-08-24-secret-scanning-admins-can-now-provide-a-link-to-display-when-a-push-is-blocked/)||||✅|✅|✅|✅|✅|✅|✅|
-|[View secret scanning enablement status at the org-level via API](https://github.blog/changelog/2021-08-24-secret-scanning-org-level-rest-api/)||||✅|✅|✅|✅|✅|✅|✅|
-|[Enable secret scanning at the enterprise level using the REST API](https://github.blog/changelog/2022-12-13-enable-secret-scanning-with-the-enterprise-level-rest-api/)|||||✅|✅|✅|✅|✅|✅|
-|[Add comment when dismissing a secret scanning alert in UI or API](https://github.blog/changelog/2022-09-29-secret-scanning-alerts-now-have-a-timeline-and-users-can-add-a-comment-when-resolving/)|||||✅|✅|✅|✅|✅|✅|
-|[Custom pattern creation at the enterprise level](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)||||||✅|✅|✅|✅|✅|
-|[Custom pattern alert metrics](https://docs.github.com/en/enterprise-server@3.12/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)|||||||✅|✅|✅|✅|
-|[Validity checks for GitHub Tokens](https://docs.github.com/en/enterprise-server@3.12/code-security/secret-scanning/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)||||||||✅|✅|✅|
-|[Secret scanning scans issues](https://docs.github.com/en/enterprise-server@3.12/code-security/secret-scanning/about-secret-scanning#about-secret-scanning)||||||||✅|✅|✅|
-|[Push protection metrics in security overview](https://docs.github.com/en/enterprise-server@3.12/code-security/security-overview/assessing-code-security-risk)||||||||✅|✅|✅|
-|[Non-provider patterns](https://github.blog/changelog/2023-11-06-secret-scanning-expands-detection-to-include-non-provider-patterns-beta/)|||||||||☑️|☑️|
-| [User-space secret scanning](https://docs.github.com/en/enterprise-server@3.13/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)||||||||||✅|
-
+|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 | 3.10 | 3.11 | 3.12 |3.13| 3.14|
+|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+|[Partner pattern count](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/secret-scanning-patterns)|155|169|173|173|183|200|218|233|249|274|274|
+|[User defined (custom) patterns](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Enterprise level API for secret scanning](https://docs.github.com/en/enterprise-server/rest/secret-scanning?apiVersion=2022-11-28#list-secret-scanning-alerts-for-an-enterprise)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Secret scanning push protection](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/protecting-pushes-with-secret-scanning)||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Dry runs for secret scanning push protection (repo level)](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Secret scanning support for archived repos](https://github.blog/changelog/2022-02-16-secret-scanning-now-supports-archived-repositories/)||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Custom pattern events in the audit log](https://github.blog/changelog/2022-04-06-secret-scanning-custom-pattern-events-now-in-the-audit-log/)||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Push protection events in the audit log](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#secret_scanning_push_protection-category-actions)|||✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Push protection in the web editor](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui)|||✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Enable secret scanning at the enterprise level](https://github.blog/changelog/2022-10-06-enable-secret-scanning-for-an-enterprise-with-one-click/)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Dry runs for secret scanning custom patterns (org level)](https://github.blog/changelog/2022-02-11-secret-scanning-dry-runs-for-repository-level-custom-pattern/)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Email notification for push protection bypass](https://github.blog/changelog/2022-07-27-secret-scanning-admins-now-receive-emails-when-contributors-bypass-a-push-protection-block/)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Custom links in push protection notification](https://github.blog/changelog/2022-08-24-secret-scanning-admins-can-now-provide-a-link-to-display-when-a-push-is-blocked/)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[View secret scanning enablement status at the org-level via API](https://github.blog/changelog/2021-08-24-secret-scanning-org-level-rest-api/)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Enable secret scanning at the enterprise level using the REST API](https://github.blog/changelog/2022-12-13-enable-secret-scanning-with-the-enterprise-level-rest-api/)|||||✅|✅|✅|✅|✅|✅|✅|
+|[Add comment when dismissing a secret scanning alert in UI or API](https://github.blog/changelog/2022-09-29-secret-scanning-alerts-now-have-a-timeline-and-users-can-add-a-comment-when-resolving/)|||||✅|✅|✅|✅|✅|✅|✅|
+|[Custom pattern creation at the enterprise level](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)||||||✅|✅|✅|✅|✅|✅|
+|[Custom pattern alert metrics](https://docs.github.com/en/enterprise-server@3.12/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)|||||||✅|✅|✅|✅|✅|
+|[Validity checks for GitHub Tokens](https://docs.github.com/en/enterprise-server@3.12/code-security/secret-scanning/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)||||||||✅|✅|✅|✅|
+|[Secret scanning scans issues](https://docs.github.com/en/enterprise-server@3.12/code-security/secret-scanning/about-secret-scanning#about-secret-scanning)||||||||✅|✅|✅|✅|
+|[Push protection metrics in security overview](https://docs.github.com/en/enterprise-server@3.12/code-security/security-overview/assessing-code-security-risk)||||||||✅|✅|✅|✅|
+|[Non-provider patterns](https://github.blog/changelog/2023-11-06-secret-scanning-expands-detection-to-include-non-provider-patterns-beta/)|||||||||☑️|☑️|☑️|
+| [User-space secret scanning](https://docs.github.com/en/enterprise-server@3.13/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)||||||||||✅|✅|
+| [Push Protection Bypass](https://docs.github.com/en/enterprise-server@3.14/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection) |||||||||||☑️|
+| [Detect secrets leaked in discussions and in pull request titles, bodies, and comments](https://docs.github.com/en/enterprise-server@3.14/code-security/secret-scanning/about-secret-scanning) |||||||||||☑️|
+| Push protection on file upload |||||||||||☑️|
+| Audit log events for non-provider patterns |||||||||||✅|
 ## Code scanning
 Code scanning is a feature that you use to analyze the code in a GitHub repository to find security vulnerabilities and coding errors. Any problems identified by the analysis are shown in GitHub.
 * [Code scanning documentation](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)
