@@ -146,17 +146,17 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 |Actions authors can automatically update dependencies within workflow files|||||✅|✅|✅|✅|✅|✅|✅|✅|
 |Dart and Flutter (using Pub) support for updates|||||✅|✅|✅|✅|✅|✅|✅|✅|
 |[Automatically pause pull request activity after 90 days of inactivity](https://docs.github.com/en/enterprise-server/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)||||||✅|✅|✅|✅|✅|✅|✅|
-|[Grouped updates](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)|||||||✅|✅|✅|✅|✅|✅|
+|[Grouped version updates](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)|||||||✅|✅|✅|✅|✅|✅|
 |[Open pull requests for Swift and Gradle dependencies](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)||||||||✅|✅|✅|✅|✅|
 |[REST API displays enablement status for Dependabot updates](https://docs.github.com/en/enterprise-server@3.11/rest/repos/repos)||||||||✅|✅|✅|✅|✅|
-|[Dependabot supports `devcontainer.json` files](https://docs.github.com/en/enterprise-server@3.13/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#dev-containers)|||||||||||✅|✅|
-|[Viewing Dependabot job logs](https://docs.github.com/en/enterprise-server@3.12/code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs)|||||||||✅|✅|✅|
-|[Dependabot access to Cargo private registries](https://docs.github.com/en/enterprise-server@3.14/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot#about-configuring-private-registries-for-dependabot)|||||||||||✅|
-|Dependabot pauses scheduled jobs after 15 failures.|||||||||||✅|
+|[Dependabot supports `devcontainer.json` files](https://docs.github.com/en/enterprise-server@3.13/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#dev-containers)||||||||||✅|✅|✅|
+|[Viewing Dependabot job logs](https://docs.github.com/en/enterprise-server@3.12/code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs)||||||||||✅|✅|✅|
+|[Dependabot access to Cargo private registries](https://docs.github.com/en/enterprise-server@3.14/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot#about-configuring-private-registries-for-dependabot)||||||||||||✅|
+|Dependabot pauses scheduled jobs after 15 failures.||||||||||||✅|
 |[Dependabot grouped security updates](https://docs.github.com/en/enterprise-server@3.14/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)||||||||||||✅|
 |[Private registry support for target-branch configuration](https://docs.github.com/en/enterprise-server@3.14/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)||||||||||||✅|
 
-#### Dependency Review and submission API
+#### Dependency Graph, Dependency Review and snapshot submission API
 Dependency review helps you understand dependency changes and the security impact of these changes at every pull request.
 * [Dependency review docs](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)
 * [Dependency review API docs](https://docs.github.com/en/rest/dependency-graph/dependency-review?apiVersion=2022-11-28)
@@ -168,35 +168,40 @@ Dependency review helps you understand dependency changes and the security impac
 |[Dependency Submission API](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)||||✅|✅|✅|✅|✅|✅|✅|✅|
 |[Dependency Review supports transitive dependencies](https://docs.github.com/en/enterprise-server@3.11/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#best-practices-for-using-the-dependency-review-api-and-the-dependency-submission-api-together)||||||||✅|✅|✅|✅|
 |[Dependency Review supports dependencies from Dependency Submission API](https://docs.github.com/en/enterprise-server@3.11/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)||||||||✅|✅|✅|✅|
+|SBOM generated for a package now includes the package URL for more packages|||||||||||✅|
 
 ## Security Overview
 Security overview provides high-level summaries of the security status of an organization or enterprise and makes it easy to identify repositories that require intervention.
 * [Security Overview documentation](https://docs.github.com/en/enterprise-server/code-security/security-overview/about-security-overview)
 
-|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10| 3.11 |3.12|3.13|
-|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|----|
-|[Security Overview](https://docs.github.com/en/enterprise-server/code-security/security-overview/about-security-overview)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|Organization view|☑️|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|Enterprise view||☑️|☑️|✅|✅|✅|✅|✅|✅|✅|
-|Organization-level Code Scanning Alert View||✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|Organization-level Dependabot Alert View||✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|Enterprse-level view of Dependabot alerts|||✅|✅|✅|✅|✅|✅|✅|✅|
-|Enterprse-level view of code scanning alerts||||✅|✅|✅|✅|✅|✅|✅|
-|Enterprse-level view of secret scanning alerts||||✅|✅|✅|✅|✅|✅|✅|
-|Coverage and Risk Security Overview pages|||||☑️|☑️|✅|✅|✅|✅|
-|[Filter alerts by repo topic](https://docs.github.com/en/enterprise-server/code-security/security-overview/filtering-alerts-in-security-overview)||||||✅|✅|✅|✅|✅|
-|[Filter alerts by team](https://docs.github.com/en/enterprise-server/code-security/security-overview/filtering-alerts-in-security-overview)||||||✅|✅|✅|✅|✅|
-|[Enable GHAS features in security overview](https://docs.github.com/en/enterprise-server/code-security/security-overview/about-security-overview)||||||✅|✅|✅|✅|✅|
-|[Enterprise-level security coverage and risk dashboards](https://docs.github.com/en/enterprise-server@3.10/code-security/security-overview/about-security-overview#about-security-overview-for-enterprises)|||||||✅|✅|✅|✅|
-|[Enablement trends dashboard is available](https://docs.github.com/en/enterprise-server@3.13/code-security/security-overview/assessing-adoption-code-security#viewing-enablement-trends-for-an-organization-beta)||||||||||✅| 
+|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10| 3.11 |3.12|3.13|3.14|
+|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|-----|----|----|----|----|
+|[Security Overview](https://docs.github.com/en/enterprise-server/code-security/security-overview/about-security-overview)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|Organization view|☑️|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|Enterprise view||☑️|☑️|✅|✅|✅|✅|✅|✅|✅|✅|
+|Organization-level Code Scanning Alert View||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|Organization-level Dependabot Alert View||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|Enterprse-level view of Dependabot alerts|||✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|Enterprse-level view of code scanning alerts||||✅|✅|✅|✅|✅|✅|✅|✅|
+|Enterprse-level view of secret scanning alerts||||✅|✅|✅|✅|✅|✅|✅|✅|
+|Coverage and Risk Security Overview pages|||||☑️|☑️|✅|✅|✅|✅|✅|
+|[Filter alerts by repo topic](https://docs.github.com/en/enterprise-server/code-security/security-overview/filtering-alerts-in-security-overview)||||||✅|✅|✅|✅|✅|✅|
+|[Filter alerts by team](https://docs.github.com/en/enterprise-server/code-security/security-overview/filtering-alerts-in-security-overview)||||||✅|✅|✅|✅|✅|✅|
+|[Enable GHAS features in security overview](https://docs.github.com/en/enterprise-server/code-security/security-overview/about-security-overview)||||||✅|✅|✅|✅|✅|✅|
+|[Enterprise-level security coverage and risk dashboards](https://docs.github.com/en/enterprise-server@3.10/code-security/security-overview/about-security-overview#about-security-overview-for-enterprises)|||||||✅|✅|✅|✅|✅|
+|[Enablement trends dashboard is available](https://docs.github.com/en/enterprise-server@3.13/code-security/security-overview/assessing-adoption-code-security#viewing-enablement-trends-for-an-organization-beta)||||||||||✅|✅|
+|[Enterprise level secret scanning metrics and enablement trend dashboards](https://docs.github.com/en/enterprise-server@3.14/code-security/security-overview/viewing-security-insights)|||||||||||✅|
+|[Security overview dashboard group by tool](https://docs.github.com/en/enterprise-server@3.14/code-security/security-overview/viewing-security-insights#viewing-the-security-overview-dashboard-for-your-organization)|||||||||||✅|
+|Security overview dashboard filter by security tool|||||||||||☑️|
+
 
 ## Administration
-|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12 |3.13|
-|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|----|
-|[Security Managers Role](https://docs.github.com/en/enterprise-server/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Manage Security Managers role via the API](https://docs.github.com/en/enterprise-server/rest/orgs/security-managers?apiVersion=2022-11-28)||||✅|✅|✅|✅|✅|✅|✅|
-|[Licensing for committers only after the migration date](https://docs.github.com/en/enterprise-server@3.12/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security) |||||||||✅|✅|
-
+|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12 |3.13|3.14|
+|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|----|----|
+|[Security Managers Role](https://docs.github.com/en/enterprise-server/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Manage Security Managers role via the API](https://docs.github.com/en/enterprise-server/rest/orgs/security-managers?apiVersion=2022-11-28)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Licensing for committers only after the migration date](https://docs.github.com/en/enterprise-server@3.12/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security) |||||||||✅|✅|✅|
+|[Create and assign custom organization roles](https://docs.github.com/en/enterprise-server@3.14/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles)|||||||||||✅|
 
 # Dependencies
 This section calls out the dependencies required to enable GitHub Advanced Security on GitHub Enterprise Server.
