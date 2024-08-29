@@ -67,44 +67,47 @@ Secret scanning identifies plain text credentials inside your code repository.  
 | [Detect secrets leaked in discussions and in pull request titles, bodies, and comments](https://docs.github.com/en/enterprise-server@3.14/code-security/secret-scanning/about-secret-scanning) |||||||||||☑️|
 | Push protection on file upload |||||||||||☑️|
 | Audit log events for non-provider patterns |||||||||||✅|
+
 ## Code scanning
 Code scanning is a feature that you use to analyze the code in a GitHub repository to find security vulnerabilities and coding errors. Any problems identified by the analysis are shown in GitHub.
 * [Code scanning documentation](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)
 * [Code scanning API documentation](https://docs.github.com/en/rest/code-scanning?apiVersion=2022-11-28)
 
-|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12|3.13|
-|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|----|
-|[CodeQL "toolcache" Installed Version](https://docs.github.com/en/enterprise-server/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#provisioning-the-actions-for-code-scanning)|2.7.6|2.11.6|2.12.7|2.12.7|2.12.7|2.12.7|2.13.5|2.14.6|2.15.5|2.16.5|
-|[Language support: Python, Javascript, Java, Go, C/C++, C#, Typescript](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Ruby Support](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)|☑️|☑️|☑️|☑️|✅|✅|✅|✅|✅|✅|
-|[Apple M1 support for CodeQL](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)|☑️|☑️|☑️|☑️|✅|✅|✅|✅|✅|✅|
-|[Org-wide code scanning alerts via the REST API](https://docs.github.com/en/rest/code-scanning?apiVersion=2022-11-28#list-code-scanning-alerts-for-an-organization)||✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Add comments when dismissing alerts](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)|||✅|✅|✅|✅|✅|✅|✅|✅|
-|[Code scanning alert comments in the pull request conversation tab](https://github.blog/changelog/2022-06-02-users-can-view-and-comment-on-code-scanning-alerts-on-the-conversation-tab-in-a-pull-request/)||||✅|✅|✅|✅|✅|✅|✅|
-|[Users can publish CodeQL packs to the container registry](https://docs.github.com/en/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs)||||✅|✅|✅|✅|✅|✅|✅|
-|[CodeQL query filters to exclude individual queries](https://github.blog/changelog/2022-08-31-code-scanning-customize-your-codeql-analysis-using-query-filters/)||||✅|✅|✅|✅|✅|✅|✅|
-|[Enterprise-wide code scanning alerts via the REST API](https://docs.github.com/en/enterprise-server/rest/code-scanning?apiVersion=2022-11-28#list-code-scanning-alerts-for-an-enterprise)||||✅|✅|✅|✅|✅|✅|✅|
-|[Filter API results by severity](https://github.blog/changelog/2022-11-25-filter-code-scanning-api-results-by-alert-severity/)|||||✅|✅|✅|✅|✅|✅|
-|[Kotlin language support](https://github.blog/changelog/2022-11-28-codeql-code-scanning-launches-kotlin-analysis-support-beta/)|||||☑️|☑️|☑️|☑️|☑️|☑️|
-|[Default CodeQL setup](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)||||||✅|✅|✅|✅|✅|
-|[Default CodeQL setup via API](https://docs.github.com/en/enterprise-server/rest/code-scanning#update-a-code-scanning-default-setup-configuration)||||||✅|✅|✅|✅|✅|
-|["Enable all" functionality at the org level (API and UI)](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)||||||✅|✅|✅|✅|✅|
-|[Tool status page](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)||||||✅|✅|✅|✅|✅|
-|[View org-level enablement status via the API ](https://docs.github.com/en/enterprise-server/rest/repos/repos?apiVersion=2022-11-28#list-organization-repositories)||||||✅|✅|✅|✅|✅|
-|[CodeQL default setup supports compiled languages](https://docs.github.com/en/enterprise-server@3.10/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages)|||||||✅|✅|✅|✅|
-|[Choose which language to enable or disable in CodeQL default setup](https://docs.github.com/en/enterprise-server@3.10/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning)|||||||✅|✅|✅|✅|
-|[Filter code scanning alerts by `path` and `language`](https://docs.github.com/en/enterprise-server@3.10/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)|||||||✅|✅|✅|✅|
-|[CodeQL supports C# 11](https://github.com/github/roadmap/issues/598)|||||||✅|✅|✅|✅|
-|[CodeQL supports Swift programming language](https://github.blog/changelog/2023-06-01-codeql-code-scanning-now-supports-swift-beta/)|||||||☑️|☑️|☑️|☑️|
-|[Default setup automatically adds new repo languages](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|✅|
-|[Choose query suite with default setup](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|✅|
-|[Weekly scan with default setup](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|✅|
-|[CodeQL supports custom model packs](https://codeql.github.com/docs/codeql-for-visual-studio-code/using-the-codeql-model-editor/)||||||||✅|✅|✅|
-|[CodeQL supports Java code using Project Lombok ](https://docs.github.com/en/enterprise-server@3.11/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)||||||||✅|✅|✅|
-|[Default setup automatically includes all CodeQL supported languages](https://github.blog/changelog/2023-10-23-code-scanning-default-setup-automatically-includes-all-codeql-supported-languages/)|||||||||✅|✅|
-|[CodeQL threat models for detecting relevant alerts](https://docs.github.com/en/enterprise-server@3.13/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)||||||||||✅|
-
-
+|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12|3.13|3.14|
+|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|----|----|
+|[CodeQL "toolcache" Installed Version](https://docs.github.com/en/enterprise-server/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#provisioning-the-actions-for-code-scanning)|2.7.6|2.11.6|2.12.7|2.12.7|2.12.7|2.12.7|2.13.5|2.14.6|2.15.5|2.16.5|[2.17.6](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.17.6/)|
+|[Language support: Python, Javascript, Java, Go, C/C++, C#, Typescript](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Ruby Support](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)|☑️|☑️|☑️|☑️|✅|✅|✅|✅|✅|✅|✅|
+|[Apple M1 support for CodeQL](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)|☑️|☑️|☑️|☑️|✅|✅|✅|✅|✅|✅|✅|
+|[Org-wide code scanning alerts via the REST API](https://docs.github.com/en/rest/code-scanning?apiVersion=2022-11-28#list-code-scanning-alerts-for-an-organization)||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Add comments when dismissing alerts](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)|||✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Code scanning alert comments in the pull request conversation tab](https://github.blog/changelog/2022-06-02-users-can-view-and-comment-on-code-scanning-alerts-on-the-conversation-tab-in-a-pull-request/)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Users can publish CodeQL packs to the container registry](https://docs.github.com/en/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[CodeQL query filters to exclude individual queries](https://github.blog/changelog/2022-08-31-code-scanning-customize-your-codeql-analysis-using-query-filters/)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Enterprise-wide code scanning alerts via the REST API](https://docs.github.com/en/enterprise-server/rest/code-scanning?apiVersion=2022-11-28#list-code-scanning-alerts-for-an-enterprise)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Filter API results by severity](https://github.blog/changelog/2022-11-25-filter-code-scanning-api-results-by-alert-severity/)|||||✅|✅|✅|✅|✅|✅|✅|
+|[Kotlin language support](https://github.blog/changelog/2022-11-28-codeql-code-scanning-launches-kotlin-analysis-support-beta/)|||||☑️|☑️|☑️|☑️|☑️|☑️|☑️|
+|[Default CodeQL setup](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)||||||✅|✅|✅|✅|✅|✅|
+|[Default CodeQL setup via API](https://docs.github.com/en/enterprise-server/rest/code-scanning#update-a-code-scanning-default-setup-configuration)||||||✅|✅|✅|✅|✅|✅|
+|["Enable all" functionality at the org level (API and UI)](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)||||||✅|✅|✅|✅|✅|✅|
+|[Tool status page](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)||||||✅|✅|✅|✅|✅|✅|
+|[View org-level enablement status via the API ](https://docs.github.com/en/enterprise-server/rest/repos/repos?apiVersion=2022-11-28#list-organization-repositories)||||||✅|✅|✅|✅|✅|✅|
+|[CodeQL default setup supports compiled languages](https://docs.github.com/en/enterprise-server@3.10/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages)|||||||✅|✅|✅|✅|✅|
+|[Choose which language to enable or disable in CodeQL default setup](https://docs.github.com/en/enterprise-server@3.10/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning)|||||||✅|✅|✅|✅|✅|
+|[Filter code scanning alerts by `path` and `language`](https://docs.github.com/en/enterprise-server@3.10/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)|||||||✅|✅|✅|✅|✅|
+|[CodeQL supports C# 11](https://github.com/github/roadmap/issues/598)|||||||✅|✅|✅|✅|✅|
+|[CodeQL supports Swift programming language](https://github.blog/changelog/2023-06-01-codeql-code-scanning-now-supports-swift-beta/)|||||||☑️|☑️|☑️|☑️|☑️|
+|[Default setup automatically adds new repo languages](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|✅|✅|
+|[Choose query suite with default setup](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|✅|✅|
+|[Weekly scan with default setup](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|✅|✅|
+|[CodeQL supports custom model packs](https://codeql.github.com/docs/codeql-for-visual-studio-code/using-the-codeql-model-editor/)||||||||✅|✅|✅|✅|
+|[CodeQL supports Java code using Project Lombok ](https://docs.github.com/en/enterprise-server@3.11/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)||||||||✅|✅|✅|✅|
+|[Default setup automatically includes all CodeQL supported languages](https://github.blog/changelog/2023-10-23-code-scanning-default-setup-automatically-includes-all-codeql-supported-languages/)|||||||||✅|✅|✅|
+|[CodeQL threat models for detecting relevant alerts](hhttps://docs.github.com/en/enterprise-server@3.13/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-threat-models)||||||||||☑️|☑️|
+|[Code Scanning merge protection rulesets](https://docs.github.com/en/enterprise-server@3.14/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection)|||||||||||☑️|
+|[CodeQL threat models for default setup](https://docs.github.com/en/enterprise-server@3.14/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#including-local-sources-of-tainted-data-in-default-setup)|||||||||||☑️|
+| [CodeQL model packs for organization/repo](https://docs.github.com/en/enterprise-server@3.14/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)|||||||||||☑️|
+| [CodeQL can scan Java projects without a build](https://docs.github.com/en/enterprise-server@3.14/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)|||||||||||☑️|
 
 
 ## Supply-chain security
