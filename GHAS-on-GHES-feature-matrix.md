@@ -132,7 +132,7 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 |[View Dependabot enablement status via org-level API](https://github.blog/changelog/2023-02-28-dependabot-alerts-enterprise-enablement-and-status-checking/)||||✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Receive alerts for vulnerable GitHub Actions](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)||||✅|✅|✅|✅|✅|✅|✅|✅|
 |[Dependabot alert webhooks](https://github.blog/changelog/2022-10-06-new-dependabot-alerts-webhook/)||||✅|✅|✅|✅|✅|✅|✅|✅|
-|[Dependabot alerts REST API endpoint for repository org and enterprise](https://docs.github.com/en/rest/dependabot/alerts?apiVersion=2022-11-28)|||||☑️|✅|✅✅||✅|✅|✅|
+|[Dependabot alerts REST API endpoint for repository org and enterprise](https://docs.github.com/en/rest/dependabot/alerts?apiVersion=2022-11-28)|||||☑️|✅|✅|✅|✅|✅|✅|
 |[Export SBOM from dependency graph](https://docs.github.com/en/enterprise-server/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)||||||✅|✅|✅|✅|✅|✅|
 |[Dependabot can parse and update Gradle version catalogs in `settings.gradle`](https://docs.github.com/en/enterprise-server/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)||||||✅|✅|✅|✅|✅|✅|
 |[Dependabot has full support for pnpm](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot)||||||||✅|✅|✅|✅|
