@@ -117,53 +117,57 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 * [Dependabot alerts documentation](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
 * [Dependabot alerts API](https://docs.github.com/en/enterprise-server/rest/dependabot/alerts?apiVersion=2022-11-28)
 
-|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12 |3.13|
-|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|----|
-|[Dependabot Alerts](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Go modules support](https://docs.github.com/en/enterprise-server/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12 |3.13|3.14|
+|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|----|----|
+|[Dependabot Alerts](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Go modules support](https://docs.github.com/en/enterprise-server/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Poetry support](https://docs.github.com/en/enterprise-server/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Cargo support](https://docs.github.com/en/enterprise-server/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|||✅|✅|✅|✅|✅|✅|✅|✅|
-|[Reopen dismissed alerts](https://github.blog/changelog/2022-03-07-reopen-dismissed-dependabot-alerts/)|||✅|✅|✅|✅|✅|✅|✅|✅|
-|[Dependabot alerts show vulnerable function calls](https://github.blog/2022-04-14-dependabot-alerts-now-surface-if-code-is-calling-vulnerability/)|||☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|
-|[Dependabot Alert timeline](https://github.blog/changelog/2022-07-28-dependabot-alerts-timeline-of-events-on-the-alert-details-page/)||||✅|✅|✅|✅|✅|✅|✅|
-|[Bulk Editing of Alerts](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)||||✅|✅|✅|✅|✅|✅|✅|
-|[Add comment when dismissing dependabot alert](https://github.blog/changelog/2022-08-22-dependabot-alerts-optional-dismissal-comment-2/)||||✅|✅|✅|✅|✅|✅|✅|
-|[Dev Dependencies label](https://github.blog/2023-05-02-dependabot-relieves-alert-fatigue-from-npm-devdependencies/)	||||✅|✅|✅|✅|✅|✅|✅|
-|[View Dependabot enablement status via org-level API](https://github.blog/changelog/2023-02-28-dependabot-alerts-enterprise-enablement-and-status-checking/)||||✅|✅|✅|✅|✅|✅|✅|
-|[Receive alerts for vulnerable GitHub Actions](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)||||✅|✅|✅|✅|✅|✅|✅|
-|[Dependabot alert webhooks](https://github.blog/changelog/2022-10-06-new-dependabot-alerts-webhook/)||||✅|✅|✅|✅|✅|✅|✅|
-|[Dependabot alerts REST API endpoint for repository org and enterprise](https://docs.github.com/en/rest/dependabot/alerts?apiVersion=2022-11-28)|||||☑️|✅|✅|✅|✅|✅|
-|[Export SBOM from dependency graph](https://docs.github.com/en/enterprise-server/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)||||||✅|✅|✅|✅|✅|
-|[Dependabot can parse and update Gradle version catalogs in `settings.gradle`](https://docs.github.com/en/enterprise-server/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)||||||✅|✅|✅|✅|✅|
-|[Dependabot has full support for pnpm](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot)||||||||✅|✅|✅|
-|[Dependabot auto-triage rules](https://docs.github.com/en/enterprise-server@3.12/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules)|||||||||✅|✅|
-|[Viewing Dependabot job logs](https://docs.github.com/en/enterprise-server@3.12/code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs)|||||||||✅|✅|
+|[Cargo support](https://docs.github.com/en/enterprise-server/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|||✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Reopen dismissed alerts](https://github.blog/changelog/2022-03-07-reopen-dismissed-dependabot-alerts/)|||✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Dependabot alerts show vulnerable function calls](https://github.blog/2022-04-14-dependabot-alerts-now-surface-if-code-is-calling-vulnerability/)|||☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|
+|[Dependabot Alert timeline](https://github.blog/changelog/2022-07-28-dependabot-alerts-timeline-of-events-on-the-alert-details-page/)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Bulk Editing of Alerts](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Add comment when dismissing dependabot alert](https://github.blog/changelog/2022-08-22-dependabot-alerts-optional-dismissal-comment-2/)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Dev Dependencies label](https://github.blog/2023-05-02-dependabot-relieves-alert-fatigue-from-npm-devdependencies/)	||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[View Dependabot enablement status via org-level API](https://github.blog/changelog/2023-02-28-dependabot-alerts-enterprise-enablement-and-status-checking/)||||✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Receive alerts for vulnerable GitHub Actions](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Dependabot alert webhooks](https://github.blog/changelog/2022-10-06-new-dependabot-alerts-webhook/)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Dependabot alerts REST API endpoint for repository org and enterprise](https://docs.github.com/en/rest/dependabot/alerts?apiVersion=2022-11-28)|||||☑️|✅|✅✅||✅|✅|✅|
+|[Export SBOM from dependency graph](https://docs.github.com/en/enterprise-server/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)||||||✅|✅|✅|✅|✅|✅|
+|[Dependabot can parse and update Gradle version catalogs in `settings.gradle`](https://docs.github.com/en/enterprise-server/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)||||||✅|✅|✅|✅|✅|✅|
+|[Dependabot has full support for pnpm](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot)||||||||✅|✅|✅|✅|
+|[Dependabot auto-triage rules](https://docs.github.com/en/enterprise-server@3.12/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules)|||||||||✅|✅|✅|
 
 
 #### Dependabot Updates
-|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.11 |3.12|3.13|
-|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|----|----|
-|[Dependabot Updates](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)|☑️|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|Actions authors can automatically update dependencies within workflow files|||||✅|✅|✅|✅|✅|✅|✅|
-|Dart and Flutter (using Pub) support for updates|||||✅|✅|✅|✅|✅|✅|✅|
-|[Automatically pause pull request activity after 90 days of inactivity](https://docs.github.com/en/enterprise-server/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)||||||✅|✅|✅|✅|✅|✅|
-|[Grouped updates](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)|||||||✅|✅|✅|✅|✅|
-|[Open pull requests for Swift and Gradle dependencies](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)||||||||✅|✅|✅|✅|
-|[REST API displays enablement status for Dependabot updates](https://docs.github.com/en/enterprise-server@3.11/rest/repos/repos)||||||||✅|✅|✅|✅|
-|[Dependabot supports `devcontainer.json` files](https://docs.github.com/en/enterprise-server@3.13/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#dev-containers)|||||||||||✅|
+|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.11 |3.12|3.13|3.14|
+|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|----|----|----|
+|[Dependabot Updates](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)|☑️|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|Actions authors can automatically update dependencies within workflow files|||||✅|✅|✅|✅|✅|✅|✅|✅|
+|Dart and Flutter (using Pub) support for updates|||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Automatically pause pull request activity after 90 days of inactivity](https://docs.github.com/en/enterprise-server/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)||||||✅|✅|✅|✅|✅|✅|✅|
+|[Grouped updates](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)|||||||✅|✅|✅|✅|✅|✅|
+|[Open pull requests for Swift and Gradle dependencies](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)||||||||✅|✅|✅|✅|✅|
+|[REST API displays enablement status for Dependabot updates](https://docs.github.com/en/enterprise-server@3.11/rest/repos/repos)||||||||✅|✅|✅|✅|✅|
+|[Dependabot supports `devcontainer.json` files](https://docs.github.com/en/enterprise-server@3.13/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#dev-containers)|||||||||||✅|✅|
+|[Viewing Dependabot job logs](https://docs.github.com/en/enterprise-server@3.12/code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs)|||||||||✅|✅|✅|
+|[Dependabot access to Cargo private registries](https://docs.github.com/en/enterprise-server@3.14/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot#about-configuring-private-registries-for-dependabot)|||||||||||✅|
+|Dependabot pauses scheduled jobs after 15 failures.|||||||||||✅|
+|[Dependabot grouped security updates](https://docs.github.com/en/enterprise-server@3.14/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)||||||||||||✅|
+|[Private registry support for target-branch configuration](https://docs.github.com/en/enterprise-server@3.14/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)||||||||||||✅|
 
 #### Dependency Review and submission API
 Dependency review helps you understand dependency changes and the security impact of these changes at every pull request.
 * [Dependency review docs](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)
 * [Dependency review API docs](https://docs.github.com/en/rest/dependency-graph/dependency-review?apiVersion=2022-11-28)
 
-|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12|3.13|
-|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|----|
-|[Dependency Review](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Enforcement Action](https://github.blog/changelog/2022-04-06-github-action-for-dependency-review-enforcement/)|||✅|✅|✅|✅|✅|✅|✅|✅|
-|[Dependency Submission API](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)||||✅|✅|✅|✅|✅|✅|✅|
-|[Dependency Review supports transitive dependencies](https://docs.github.com/en/enterprise-server@3.11/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#best-practices-for-using-the-dependency-review-api-and-the-dependency-submission-api-together)||||||||✅|✅|✅|
-|[Dependency Review supports dependencies from Dependency Submission API](https://docs.github.com/en/enterprise-server@3.11/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)||||||||✅|✅|✅|
+|Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12|3.13|3.14|
+|------------------------------------------------------------|-----|-----|-----|-----|-----|-----|-----|----|----|----|----|
+|[Dependency Review](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Enforcement Action](https://github.blog/changelog/2022-04-06-github-action-for-dependency-review-enforcement/)|||✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|[Dependency Submission API](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)||||✅|✅|✅|✅|✅|✅|✅|✅|
+|[Dependency Review supports transitive dependencies](https://docs.github.com/en/enterprise-server@3.11/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#best-practices-for-using-the-dependency-review-api-and-the-dependency-submission-api-together)||||||||✅|✅|✅|✅|
+|[Dependency Review supports dependencies from Dependency Submission API](https://docs.github.com/en/enterprise-server@3.11/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)||||||||✅|✅|✅|✅|
 
 ## Security Overview
 Security overview provides high-level summaries of the security status of an organization or enterprise and makes it easy to identify repositories that require intervention.
