@@ -238,11 +238,11 @@ Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en
 
 
 ## Optimization - Removing Code From Scans
- Consider excluding any code you do not wish to include in a security scan to speed up and remove noise from this process. This is commonly employed for unit tests, demo code, or code that would not benefit from being scanned (ex: DacPacs).
+ Consider removing any code you do not wish to include in a security scan to both speed up and remove noise from this process. This is commonly employed for unit tests, demo code, and code that would not benefit from being scanned (ex: DacPacs).
 
 ### `build-mode: none`
 
-[Build-mode none](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes) has added support for CodeQL [configuration paths filters](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#specifying-directories-to-scan) for this compiled language.  Since this mode only will recursively look for `.cs` files throughout the codebase to scan, we can be a bit more prescriptive in our config:
+[Build-mode none](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes) has added support for CodeQL [configuration paths filters](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#specifying-directories-to-scan) for this compiled language.  This mode  will recursively walk the filesystem to look for `.cs` files throughout the codebase to scan.  We can be a bit more prescriptive in our configuration instructing the enginge to include/exclude by `paths` / `paths-ignore` globs:
 
 ```yaml
 - uses: github/codeql-action/init@v3
@@ -262,7 +262,7 @@ Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en
 
 Tip: ensure credentials to your private registries listed in your `nuget.config` are available/injected so that `none` mode does not attempt to hit a registry that will fail for every dependency. 
 
-Alternatively, you might consider breaking up code into smaller chunks to scan.  In a monorepo with many microservices, it might make sense to only scan dependent code together.  CodeQL has natural boundaries at the network layer - if a direct method call is not invoked then there is little value in scanning the code together.  Consider specifying a folder to scan (vs ignore)
+Alternatively, you might consider breaking up code into smaller chunks to scan.  For example, a monorepo with many microservices would be a prime candidate to scan only the dependent code together.  CodeQL has natural boundaries at the network layer - if a direct method call is not invoked then there is reduced value in scanning the code together.  Consider specifying services by folder to scan together (vs ignore):
 
 ```yaml
 - uses: github/codeql-action/init@v3
@@ -270,7 +270,7 @@ Alternatively, you might consider breaking up code into smaller chunks to scan. 
     languages: ${{ matrix.language }}
     build-mode: none
     config: |
-      paths-ignore:
+      paths:
         - '**/MicroserviceA/**'
         - '**/Framework/**'
 
@@ -280,6 +280,26 @@ Alternatively, you might consider breaking up code into smaller chunks to scan. 
   with:
     category: "/language:${{matrix.language}}/MicroserviceA"
 ```
++
+
+```yaml
+- uses: github/codeql-action/init@v3
+  with:
+    languages: ${{ matrix.language }}
+    build-mode: none
+    config: |
+      paths:
+        - '**/MicroserviceB/**'
+        - '**/Framework/**'
+
+# If scanning more than one analysis per repo - ensure you upload results with a unique category
+- name: Perform CodeQL Analysis
+  uses: github/codeql-action/analyze@v3
+  with:
+    category: "/language:${{matrix.language}}/MicroserviceB"
+```
+
+
 
 ### `build-mode: autobuild` or `build-mode: manual`
 
