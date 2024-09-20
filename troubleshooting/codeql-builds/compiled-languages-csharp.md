@@ -238,9 +238,52 @@ Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en
 
 
 ## Optimization - Removing Code From Scans
-CodeQL will extract and analyze any code that is passed through the compiler.  Consider excluding any code you do not wish to include in a security scan to speed up and remove noise from this process. This is commonly employed for unit tests, demo code, or code that would not benefit from being scanned (ex: DacPacs).
+ Consider excluding any code you do not wish to include in a security scan to speed up and remove noise from this process. This is commonly employed for unit tests, demo code, or code that would not benefit from being scanned (ex: DacPacs).
 
-With .NET we can employ a few mechanisms to remove code from CodeQL scans (e.g. you would want to run your unit test in another workflow ):
+### `build-mode: none`
+
+[Build-mode none](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes) has added support for CodeQL [configuration paths filters](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#specifying-directories-to-scan) for this compiled language.  Since this mode only will recursively look for `.cs` files throughout the codebase to scan, we can be a bit more prescriptive in our config:
+
+```yaml
+- uses: github/codeql-action/init@v3
+  with:
+    languages: ${{ matrix.language }}
+    build-mode: none
+    config: |
+      paths-ignore:
+        - **/*.tests/**
+        - '**/*.test.cs'
+        - '**/*.tests.cs'
+        - '**/examples/**'
+        - '**/samples/**'
+        - '**/demo/**'
+        - '**/docs/**'
+```
+
+Tip: ensure credentials to your private registries listed in your `nuget.config` are available/injected so that `none` mode does not attempt to hit a registry that will fail for every dependency. 
+
+Alternatively, you might consider breaking up code into smaller chunks to scan.  In a monorepo with many microservices, it might make sense to only scan dependent code together.  CodeQL has natural boundaries at the network layer - if a direct method call is not invoked then there is little value in scanning the code together.  Consider specifying a folder to scan (vs ignore)
+
+```yaml
+- uses: github/codeql-action/init@v3
+  with:
+    languages: ${{ matrix.language }}
+    build-mode: none
+    config: |
+      paths-ignore:
+        - '**/MicroserviceA/**'
+        - '**/Framework/**'
+
+# If scanning more than one analysis per repo - ensure you upload results with a unique category
+- name: Perform CodeQL Analysis
+  uses: github/codeql-action/analyze@v3
+  with:
+    category: "/language:${{matrix.language}}/MicroserviceA"
+```
+
+### `build-mode: autobuild` or `build-mode: manual`
+
+CodeQL will extract and analyze any code that is passed through the compiler.  With .NET builds, we can employ a few mechanisms to exclude code from being captured by the CodeQL Csharp tracer/extractor (e.g. you would want to run your unit test in another workflow ):
 - A [solution filter](https://docs.microsoft.com/en-us/visualstudio/msbuild/solution-filters?view=vs-2019) to only build required projects
 - An explicit [solution file that excludes projects](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-exclude-projects-from-a-build?view=vs-2022)
    - example from the Open Source project: [Identity Server](https://github.com/DuendeSoftware/IdentityServer/)
@@ -250,6 +293,7 @@ With .NET we can employ a few mechanisms to remove code from CodeQL scans (e.g. 
 - Build in release mode - exclude test projects from that [build configuration](https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/ide/how-to-create-and-edit-configurations?view=vs-2015&redirectedfrom=MSDN#to-modify-a-solution-wide-build-configuration)
 
 ## Optimizations - CodeQL Engine
+- NOTE: [as of CodeQL 2.15.3 - this is now disabled by default.](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.15.3/#c)
 - CodeQL will (by default) pull in source code from your dependencies using CIL extraction to assist in mapping out your data flows. While this can  improve the precision of the results, this can also lead to a large increase in database size.  You might consider disabling this feature for a quick scan but running a cron based scan with the option enabled.
 
 ### GitHub Actions
