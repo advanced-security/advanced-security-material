@@ -8,7 +8,7 @@ There are two options when it comes to private repositories:
 - Vendor the dependencies
 
 Setting up the Go environment can be done by adding a Actions step to update the [Go settings](https://go.dev/ref/mod#private-modules) pointing them to use a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with the corresponding access to the private repository.
-The example below shows how this can be done using a single step beforet the CodeQL Initize step and stores the GitHub PAT in Secrets.
+The example below shows how this can be done using a single step before the CodeQL Initize step - storing the GitHub PAT in an Actions Secret.
 
 **Example:**
 
