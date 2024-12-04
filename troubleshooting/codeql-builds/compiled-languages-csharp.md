@@ -234,7 +234,9 @@ Recommendations:
 
 # Speed up C# Analysis
 
-Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#the-build-takes-too-long).
+Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/troubleshooting-code-scanning/analysis-takes-too-long).
+- notable to ensure you are using appropriately sized [hardware](https://gh.io/codeql-hardware)
+- are you scanning in a container or on a VM - [note these antipatterns](https://some-natalie.dev/blog/codeql-container-builds/#anti-patterns-to-avoid)
 
 
 ## Optimization - Removing Code From Scans
@@ -264,6 +266,8 @@ Tip: ensure credentials to your private registries listed in your `nuget.config`
 
 Alternatively, you might consider breaking up code into smaller chunks to scan.  For example, a monorepo with many microservices would be a prime candidate to scan only the dependent code together.  CodeQL has natural boundaries at the network layer - if a direct method call is not invoked then there is reduced value in scanning the code together.  Consider specifying services by folder to scan together (vs ignore):
 
+Microservice A config:
+
 ```yaml
 - uses: github/codeql-action/init@v3
   with:
@@ -280,7 +284,7 @@ Alternatively, you might consider breaking up code into smaller chunks to scan. 
   with:
     category: "/language:${{matrix.language}}/MicroserviceA"
 ```
-+
+Microservice B config:
 
 ```yaml
 - uses: github/codeql-action/init@v3
@@ -299,7 +303,7 @@ Alternatively, you might consider breaking up code into smaller chunks to scan. 
     category: "/language:${{matrix.language}}/MicroserviceB"
 ```
 
-
+- Consider using this pre-built action to scan individual apps inside your monorepo: https://github.com/advanced-security/monorepo-code-scanning-action
 
 ### `build-mode: autobuild` or `build-mode: manual`
 
