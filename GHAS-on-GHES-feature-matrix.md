@@ -167,7 +167,6 @@ Dependency review helps you understand dependency changes and the security impac
 |[Enforcement Action](https://github.blog/changelog/2022-04-06-github-action-for-dependency-review-enforcement/)|||✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Dependency Submission API](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)||||✅|✅|✅|✅|✅|✅|✅|✅|
 |[Dependency Review supports transitive dependencies](https://docs.github.com/en/enterprise-server@3.11/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#best-practices-for-using-the-dependency-review-api-and-the-dependency-submission-api-together)||||||||✅|✅|✅|✅|
-|[Dependency Review supports dependencies from Dependency Submission API](https://docs.github.com/en/enterprise-server@3.11/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)||||||||✅|✅|✅|✅|
 |SBOM generated for a package now includes the package URL for more packages|||||||||||✅|
 
 ## Security Overview
