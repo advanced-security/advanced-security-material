@@ -40,7 +40,7 @@ Secret scanning identifies plain text credentials inside your code repository.  
 
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 | 3.10 | 3.11 | 3.12 |3.13| 3.14|3.15|
 |------------------------------------------------------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|[Partner pattern count](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/secret-scanning-patterns)|155|169|173|173|183|200|218|233|249|274|274|274|274|
+|[Partner pattern count](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/secret-scanning-patterns)|155|169|173|173|183|200|218|233|249|274|274|274|286|
 |[User defined (custom) patterns](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Enterprise level API for secret scanning](https://docs.github.com/en/enterprise-server/rest/secret-scanning?apiVersion=2022-11-28#list-secret-scanning-alerts-for-an-enterprise)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Secret scanning push protection](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/protecting-pushes-with-secret-scanning)||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
@@ -64,12 +64,11 @@ Secret scanning identifies plain text credentials inside your code repository.  
 |[Non-provider patterns](https://github.blog/changelog/2023-11-06-secret-scanning-expands-detection-to-include-non-provider-patterns-beta/)|||||||||☑️|☑️|☑️|☑️|☑️|
 | [User-space secret scanning](https://docs.github.com/en/enterprise-server@3.13/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)||||||||||✅|✅|✅|
 | [Push Protection Bypass](https://docs.github.com/en/enterprise-server@3.14/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection) |||||||||||☑️|☑️|
-| [Detect secrets leaked in discussions and in pull request titles, bodies, and comments](https://docs.github.com/en/enterprise-server@3.14/code-security/secret-scanning/about-secret-scanning) |||||||||||☑️|☑️|
+| [Detect secrets leaked in discussions and in pull request titles, bodies, and comments](https://docs.github.com/en/enterprise-server@3.14/code-security/secret-scanning/about-secret-scanning) |||||||||||☑️|✅|
 | Push protection on file upload |||||||||||☑️|☑️|
 | Audit log events for non-provider patterns |||||||||||✅|✅|
-| [Secret scanning for discussions, issues, and pull request titles, bodies, and comments](https://docs.github.com/en/enterprise-server@3.15/code-security/secret-scanning/introduction/about-secret-scanning) |||||||||||||✅|
-| [Create a push protection bypass API endpoint](https://github.blog/changelog/2024-08-13-secret-scanning-push-protection-is-supported-for-content-upload-rest-api-endpoints/) |||||||||||||✅|
-| [Enabling detection of non-provider patterns for an organization](https://docs.github.com/en/enterprise-server@3.15/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns#enabling-detection-of-non-provider-patterns-for-an-organization) |||||||||||||☑️|
+| [Create a push protection bypass API endpoint](https://github.blog/changelog/2024-08-13-secret-scanning-push-protection-is-supported-for-content-upload-rest-api-endpoints/) ||||||||||||✅|
+| [Enabling detection of non-provider patterns for an organization](https://docs.github.com/en/enterprise-server@3.15/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns#enabling-detection-of-non-provider-patterns-for-an-organization) ||||||||||||☑️|
 
 ## Code scanning
 Code scanning is a feature that you use to analyze the code in a GitHub repository to find security vulnerabilities and coding errors. Any problems identified by the analysis are shown in GitHub.
@@ -89,7 +88,7 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 |[CodeQL query filters to exclude individual queries](https://github.blog/changelog/2022-08-31-code-scanning-customize-your-codeql-analysis-using-query-filters/)||||✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Enterprise-wide code scanning alerts via the REST API](https://docs.github.com/en/enterprise-server/rest/code-scanning?apiVersion=2022-11-28#list-code-scanning-alerts-for-an-enterprise)||||✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Filter API results by severity](https://github.blog/changelog/2022-11-25-filter-code-scanning-api-results-by-alert-severity/)|||||✅|✅|✅|✅|✅|✅|✅|✅|
-|[Kotlin language support](https://github.blog/changelog/2022-11-28-codeql-code-scanning-launches-kotlin-analysis-support-beta/)|||||☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|
+|[Kotlin language support](https://github.blog/changelog/2022-11-28-codeql-code-scanning-launches-kotlin-analysis-support-beta/)|||||☑️|☑️|☑️|☑️|☑️|☑️|☑️|✅|
 |[Default CodeQL setup](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)||||||✅|✅|✅|✅|✅|✅|✅|
 |[Default CodeQL setup via API](https://docs.github.com/en/enterprise-server/rest/code-scanning#update-a-code-scanning-default-setup-configuration)||||||✅|✅|✅|✅|✅|✅|✅|
 |["Enable all" functionality at the org level (API and UI)](https://docs.github.com/en/enterprise-server/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)||||||✅|✅|✅|✅|✅|✅|✅|
@@ -99,7 +98,7 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 |[Choose which language to enable or disable in CodeQL default setup](https://docs.github.com/en/enterprise-server@3.10/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning)|||||||✅|✅|✅|✅|✅|✅|
 |[Filter code scanning alerts by `path` and `language`](https://docs.github.com/en/enterprise-server@3.10/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)|||||||✅|✅|✅|✅|✅|✅|
 |[CodeQL supports C# 11](https://github.com/github/roadmap/issues/598)|||||||✅|✅|✅|✅|✅|✅|
-|[CodeQL supports Swift programming language](https://github.blog/changelog/2023-06-01-codeql-code-scanning-now-supports-swift-beta/)|||||||☑️|☑️|☑️|☑️|☑️|☑️|
+|[CodeQL supports Swift programming language](https://github.blog/changelog/2023-06-01-codeql-code-scanning-now-supports-swift-beta/)|||||||☑️|☑️|☑️|☑️|☑️|✅|
 |[Default setup automatically adds new repo languages](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|✅|✅|✅|
 |[Choose query suite with default setup](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|✅|✅|✅|
 |[Weekly scan with default setup](https://docs.github.com/en/enterprise-server@3.11/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)||||||||✅|✅|✅|✅|✅|
@@ -109,9 +108,9 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 |[CodeQL threat models for detecting relevant alerts](hhttps://docs.github.com/en/enterprise-server@3.13/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-threat-models)||||||||||☑️|☑️|☑️|
 |[Code Scanning merge protection rulesets](https://docs.github.com/en/enterprise-server@3.14/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection)|||||||||||☑️|☑️|
 |[CodeQL threat models for default setup](https://docs.github.com/en/enterprise-server@3.14/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#including-local-sources-of-tainted-data-in-default-setup)|||||||||||☑️|☑️|
-| [CodeQL model packs for organization/repo](https://docs.github.com/en/enterprise-server@3.14/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)|||||||||||☑️|☑️|
-| [CodeQL can scan Java projects without a build](https://docs.github.com/en/enterprise-server@3.14/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)|||||||||||☑️|☑️|
-| [CodeQL can scan C# projects without a build](https://docs.github.com/en/enterprise-server@3.15/admin/release-notes#code-scanning) ||||||||||||☑️|
+|[CodeQL model packs for organization/repo](https://docs.github.com/en/enterprise-server@3.14/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)|||||||||||☑️|☑️|
+|[CodeQL can scan Java projects without a build](https://docs.github.com/en/enterprise-server@3.15/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)|||||||||||☑️|☑️|
+|[CodeQL can scan C# projects without a build](https://docs.github.com/en/enterprise-server@3.15/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)  ||||||||||||☑️|
 
 
 ## Supply-chain security
@@ -150,9 +149,9 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 |Dart and Flutter (using Pub) support for updates|||||✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Automatically pause pull request activity after 90 days of inactivity](https://docs.github.com/en/enterprise-server/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)||||||✅|✅|✅|✅|✅|✅|✅|✅|
 |[Grouped version updates](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)|||||||✅|✅|✅|✅|✅|✅|✅|
-|[Open pull requests for Swift and Gradle dependencies](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)||||||||✅|✅|✅|✅|✅|
-|[REST API displays enablement status for Dependabot updates](https://docs.github.com/en/enterprise-server@3.11/rest/repos/repos)||||||||✅|✅|✅|✅|✅|
-|[Dependabot supports `devcontainer.json` files](https://docs.github.com/en/enterprise-server@3.13/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#dev-containers)||||||||||✅|✅|✅|✅|
+|[Open pull requests for Swift and Gradle dependencies](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)||||||||✅|✅|✅|✅|✅|✅|
+|[REST API displays enablement status for Dependabot updates](https://docs.github.com/en/enterprise-server@3.11/rest/repos/repos)||||||||✅|✅|✅|✅|✅|✅|
+|[Dependabot supports `devcontainer.json` files](https://docs.github.com/en/enterprise-server@3.13/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#dev-containers)|||||||||✅|✅|✅|✅|✅|✅|
 |[Viewing Dependabot job logs](https://docs.github.com/en/enterprise-server@3.12/code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs)||||||||||✅|✅|✅|✅|
 |[Dependabot access to Cargo private registries](https://docs.github.com/en/enterprise-server@3.14/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot#about-configuring-private-registries-for-dependabot)||||||||||||✅|✅|
 |Dependabot pauses scheduled jobs after 15 failures.||||||||||||✅|✅|
@@ -195,6 +194,8 @@ Security overview provides high-level summaries of the security status of an org
 |[Enterprise level secret scanning metrics and enablement trend dashboards](https://docs.github.com/en/enterprise-server@3.14/code-security/security-overview/viewing-security-insights)|||||||||||✅|✅|
 |[Security overview dashboard group by tool](https://docs.github.com/en/enterprise-server@3.14/code-security/security-overview/viewing-security-insights#viewing-the-security-overview-dashboard-for-your-organization)|||||||||||✅|✅|
 |Security overview dashboard filter by security tool|||||||||||☑️|☑️|
+|[CodeQL pull request alerts view](https://docs.github.com/en/enterprise-server@3.15/code-security/security-overview/viewing-metrics-for-pull-request-alerts)||||||||||||✅|
+
 
 ## Administration
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12 |3.13|3.14|3.15|
@@ -203,7 +204,6 @@ Security overview provides high-level summaries of the security status of an org
 |[Manage Security Managers role via the API](https://docs.github.com/en/enterprise-server/rest/orgs/security-managers?apiVersion=2022-11-28)||||✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Licensing for committers only after the migration date](https://docs.github.com/en/enterprise-server@3.12/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security) |||||||||✅|✅|✅|✅|
 |[Create and assign custom organization roles](https://docs.github.com/en/enterprise-server@3.14/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles)|||||||||||✅|✅|
-|[CodeQL pull request alerts view](https://docs.github.com/en/enterprise-server@3.15/code-security/security-overview/viewing-metrics-for-pull-request-alerts)|||||||||||||✅|
 
 # Dependencies
 This section calls out the dependencies required to enable GitHub Advanced Security on GitHub Enterprise Server.
