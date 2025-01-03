@@ -61,7 +61,7 @@ Secret scanning identifies plain text credentials inside your code repository.  
 |[Validity checks for GitHub Tokens](https://docs.github.com/en/enterprise-server@3.12/code-security/secret-scanning/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)||||||||✅|✅|✅|✅|✅|
 |[Secret scanning scans issues](https://docs.github.com/en/enterprise-server@3.12/code-security/secret-scanning/about-secret-scanning#about-secret-scanning)||||||||✅|✅|✅|✅|✅|
 |[Push protection metrics in security overview](https://docs.github.com/en/enterprise-server@3.12/code-security/security-overview/assessing-code-security-risk)||||||||✅|✅|✅|✅|✅|
-|[Non-provider patterns](https://github.blog/changelog/2023-11-06-secret-scanning-expands-detection-to-include-non-provider-patterns-beta/)|||||||||☑️|☑️|☑️|☑️|☑️|
+|[Non-provider patterns](https://github.blog/changelog/2023-11-06-secret-scanning-expands-detection-to-include-non-provider-patterns-beta/)|||||||||☑️|☑️|☑️|☑️|
 | [User-space secret scanning](https://docs.github.com/en/enterprise-server@3.13/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)||||||||||✅|✅|✅|
 | [Push Protection Bypass](https://docs.github.com/en/enterprise-server@3.14/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-delegated-bypass-for-push-protection) |||||||||||☑️|☑️|
 | [Detect secrets leaked in discussions and in pull request titles, bodies, and comments](https://docs.github.com/en/enterprise-server@3.14/code-security/secret-scanning/about-secret-scanning) |||||||||||☑️|✅|
