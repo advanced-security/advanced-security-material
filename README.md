@@ -39,8 +39,8 @@ New to GitHub Advanced Security?  Start with [GitHub security features](https://
 ### Other Resources
 - [SARIF Tutorials](https://github.com/microsoft/sarif-tutorials)
 - [GitHub Advanced Security Learning Path](https://docs.microsoft.com/en-us/users/githubtraining/collections/rqymc6yw8q5rey)
-- [Scaling GHAS in Your Organization](https://resources.github.com/downloads/Whitepaper-Scaling-GHAS-in-an-Enterprise.pdf)
 - [The Complete Guide to Developer-first Security](https://resources.github.com/downloads/GitHubAdvanced%20SecurityEbook.pdf)
 - [GitHub Checkout - Code Scanning (video)](https://www.youtube.com/watch?v=z0wvGf3O69E)
 - [GitHub Checkout - Secret Scanning (video)](https://www.youtube.com/watch?v=aoL7pDrXt74)
 - [GitHub Checkout - Viewing and Managing your Dependencies (video)](https://www.youtube.com/watch?v=gNd_TGdZ1xc)
+- [GitHub Well-architected - Application security](https://wellarchitected.github.com/library/application-security/)
