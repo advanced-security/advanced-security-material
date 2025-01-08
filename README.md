@@ -44,3 +44,4 @@ New to GitHub Advanced Security?  Start with [GitHub security features](https://
 - [GitHub Checkout - Code Scanning (video)](https://www.youtube.com/watch?v=z0wvGf3O69E)
 - [GitHub Checkout - Secret Scanning (video)](https://www.youtube.com/watch?v=aoL7pDrXt74)
 - [GitHub Checkout - Viewing and Managing your Dependencies (video)](https://www.youtube.com/watch?v=gNd_TGdZ1xc)
+- [GitHub Well-architected - Application security](https://wellarchitected.github.com/library/application-security/)
