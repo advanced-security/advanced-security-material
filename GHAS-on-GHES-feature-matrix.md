@@ -204,6 +204,8 @@ Security overview provides high-level summaries of the security status of an org
 |[Manage Security Managers role via the API](https://docs.github.com/en/enterprise-server/rest/orgs/security-managers?apiVersion=2022-11-28)||||✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Licensing for committers only after the migration date](https://docs.github.com/en/enterprise-server@3.12/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security) |||||||||✅|✅|✅|✅|
 |[Create and assign custom organization roles](https://docs.github.com/en/enterprise-server@3.14/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles)|||||||||||✅|✅|
+|[Enable at scale - security configurations](https://docs.github.com/en/enterprise-server@3.15/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)
+||||||||||||✅|
 
 # Dependencies
 This section calls out the dependencies required to enable GitHub Advanced Security on GitHub Enterprise Server.
