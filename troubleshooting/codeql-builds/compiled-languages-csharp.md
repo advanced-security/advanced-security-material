@@ -70,7 +70,7 @@ If you wish to update exisitng feeds in a `nuget.config` with a credential
 ```yml
 # Updating MY_ADO_FEED credentials
   - name: update nuget to add auth
-    run: dotnet nuget update source MY_ADO_FEED1 -u NOTUSED -p "${{ secrets.ADO_TOKEN }}" --store-password-in-clear-text
+    run: dotnet nuget update source MY_ADO_FEED -u NOTUSED -p "${{ secrets.ADO_TOKEN }}" --store-password-in-clear-text
 ```
 
 Alternatively, consider adding a GitHub Packages hosted NuGet feed using the nuget CLI tooling.  
