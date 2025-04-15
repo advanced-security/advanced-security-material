@@ -34,12 +34,12 @@ jobs:
     steps:
     # ...
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
+      uses: github/codeql-action/init@v4
       with:
         languages: java
     # ...
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+      uses: github/codeql-action/analyze@v3
 ```
 
 ### Step 0: Enabling for the CLI
@@ -89,17 +89,20 @@ In a lot of cases JSP isn't pre-compiled by Jasper compiler so we have to get th
 ```yaml
 # Initializes the CodeQL tools for scanning.
 - name: Initialize CodeQL
-  uses: github/codeql-action/init@v2
+  uses: github/codeql-action/init@v3
   with:
     languages: ${{ matrix.language }}
-    queries: +advanced-security/codeql-queries/java/CWE-079/XSSJSP.ql@main
-    # Or other addition query with extract taint steps
-    # queries: +advanced-security/codeql-queries/java/CWE-079/XSSJSPLenient.ql@main
+    # https://github.com/GitHubSecurityLab/CodeQL-Community-Packs/tree/main/java/src/security/CWE-079
+    queries: +githubsecuritylab/CodeQL-Community-Packs/java/src/security/CWE-079/XSSJSP.ql@main
+    # [optional] Or add the Community Pack
+    packs: githubsecuritylab/codeql-java-queries
 # ...
 - name: Perform CodeQL Analysis
-  uses: github/codeql-action/analyze@v2
+  uses: github/codeql-action/analyze@v3
   with:
     # To help with mapping files
+    # [note]: This will be depricated in the future
+    # https://github.com/github/codeql-action/blob/4c3e5362829f0b0bb62ff5f6c938d7f95574c306/analyze/action.yml#L33-L41
     add-snippets: true
 ```
 
