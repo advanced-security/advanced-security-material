@@ -142,6 +142,9 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 |[Dependabot can parse and update Gradle version catalogs in `settings.gradle`](https://docs.github.com/en/enterprise-server/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)||||||✅|✅|✅|✅|✅|✅|✅|✅|
 |[Dependabot has full support for pnpm](https://docs.github.com/en/enterprise-server@3.11/code-security/dependabot)||||||||✅|✅|✅|✅|✅|✅|
 |[Dependabot auto-triage rules](https://docs.github.com/en/enterprise-server@3.12/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules)|||||||||✅|✅|✅|✅|✅|
+|[Security advisories can use the new CVSS 4.0 schema to calculate a base vulnerability score](https://docs.github.com/en/enterprise-server@3.16/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-cvss-levels)|||||||||||||✅|
+|[Added Exploit Prediction Scoring System (EPSS) to advisories to show estimated probability that a vulnerability will be exploited over the next 30 days](https://docs.github.com/en/enterprise-server@3.16/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-epss-scores)|||||||||||||✅|
+
 
 #### Dependabot Updates
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12|3.13|3.14|3.15|3.16|
