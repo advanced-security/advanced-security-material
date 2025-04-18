@@ -69,8 +69,7 @@ Secret scanning identifies plain text credentials inside your code repository.  
 | Audit log events for non-provider patterns |||||||||||✅|✅|✅|
 | [Create a push protection bypass API endpoint](https://github.blog/changelog/2024-08-13-secret-scanning-push-protection-is-supported-for-content-upload-rest-api-endpoints/) ||||||||||||✅|✅|
 | [Enabling detection of non-provider patterns for an organization](https://docs.github.com/en/enterprise-server@3.15/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns#enabling-detection-of-non-provider-patterns-for-an-organization) ||||||||||||☑️|✅|
-| [Add comment when reopening a secret scanning alert](https://docs.github.com/en/enterprise-server@3.16/code-security/secret-scanning/managing-alerts-from-secret-scanning) |||||||||||||✅|
-| [REST API endpoint for secret scanning scan history](https://docs.github.com/en/enterprise-server@3.16/rest/secret-scanning/repository-scanningv) |||||||||||||✅|
+| [REST API endpoint for secret scanning scan history](https://docs.github.com/en/enterprise-server@3.16/rest/secret-scanning/secret-scanning?apiVersion=2022-11-28#get-secret-scanning-scan-history-for-a-repository) |||||||||||||✅|
 
 ## Code scanning
 Code scanning is a feature that you use to analyze the code in a GitHub repository to find security vulnerabilities and coding errors. Any problems identified by the analysis are shown in GitHub.
@@ -113,8 +112,8 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 |[CodeQL model packs for organization/repo](https://docs.github.com/en/enterprise-server@3.14/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)|||||||||||☑️|☑️|☑️|
 |[CodeQL can scan Java projects without a build](https://docs.github.com/en/enterprise-server@3.15/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)|||||||||||☑️|☑️|☑️|
 |[CodeQL can scan C# projects without a build](https://docs.github.com/en/enterprise-server@3.15/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)  ||||||||||||☑️|☑️|
-|[CodeQL dependency caching for advanced setup](https://docs.github.com/en/enterprise-server@3.16/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages) |||||||||||||✅|
-|[Zstandard archive for CodeQL tools](https://docs.github.com/en/enterprise-server@3.16/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#provisioning-the-actions-for-code-scanning) |||||||||||||✅|
+|[CodeQL dependency caching for advanced setup](https://docs.github.com/en/enterprise-server@3.16/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-dependency-caching-for-codeql) |||||||||||||✅|
+|[Zstandard archive for CodeQL tools](https://docs.github.com/en/enterprise-server@3.16/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli#1-download-the-codeql-cli-tar-archive) |||||||||||||✅|
 
 ## Supply-chain security
 
@@ -160,6 +159,8 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 |Dependabot pauses scheduled jobs after 15 failures.|||||||||||✅|✅|✅|
 |[Dependabot grouped security updates](https://docs.github.com/en/enterprise-server@3.14/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)|||||||||||✅|✅|✅|
 |[Private registry support for target-branch configuration](https://docs.github.com/en/enterprise-server@3.14/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)|||||||||||✅|✅|✅|
+|[Updates support pnpm workspace catalogs](https://github.blog/changelog/2025-02-04-dependabot-now-supports-pnpm-workspace-catalogs-ga/)|||||||||||||✅|
+|[Verson updates support .NET SDK in global.json](https://docs.github.com/en/enterprise-server@3.16/admin/release-notes#dependabot)|||||||||||||✅|
 
 #### Dependency Graph, Dependency Review and snapshot submission API
 Dependency review helps you understand dependency changes and the security impact of these changes at every pull request.
@@ -198,6 +199,11 @@ Security overview provides high-level summaries of the security status of an org
 |[Security overview dashboard group by tool](https://docs.github.com/en/enterprise-server@3.14/code-security/security-overview/viewing-security-insights#viewing-the-security-overview-dashboard-for-your-organization)|||||||||||✅|✅|✅|
 |Security overview dashboard filter by security tool|||||||||||☑️|✅|✅|
 |[CodeQL pull request alerts view](https://docs.github.com/en/enterprise-server@3.15/code-security/security-overview/viewing-metrics-for-pull-request-alerts)||||||||||||✅|✅|
+|[Security overview dashboard adds SAST vulnerabilities summary table](https://docs.github.com/en/enterprise-server@3.16/code-security/security-overview/viewing-security-insights)|||||||||||||✅|
+|[Security overview dashboard adds Prevention metrics alongside Detection and Remediation metrics at both the organization and enterprise levels](https://github.blog/changelog/2024-09-19-enhanced-security-overview-dashboard-detection-remediation-and-prevention-at-the-forefront/)|||||||||||||✅|
+|[Export CSV data from the "CodeQL pull request alerts" view](https://docs.github.com/en/enterprise-server@3.16/code-security/security-overview/viewing-metrics-for-pull-request-alerts)|||||||||||||✅|
+|[Security overview dashboard accessibility enhancements](https://github.blog/changelog/2024-11-20-accessibility-improvements-for-security-overview/)|||||||||||||✅|
+
 
 ## Administration
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12 |3.13|3.14|3.15|3.16|
@@ -210,6 +216,7 @@ Security overview provides high-level summaries of the security status of an org
 |[Enterprise-level security configurations](https://docs.github.com/en/enterprise-server@3.16/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale#about-enterprise-level-security-configurations)|||||||||||||✅|
 |[Security configurations for archived repositories](https://docs.github.com/en/enterprise-server@3.16/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)|||||||||||||✅|
 |[Advanced filtering for repository selection by security feature status](https://docs.github.com/en/enterprise-server@3.16/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/creating-security-configurations-for-your-organization)|||||||||||||✅|
+|[Security manager role can be assigned directly to individual users(assignments are managed under Settings - Organization roles)](https://docs.github.com/en/enterprise-server@3.16/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)|||||||||||||✅|
 
 # Dependencies
 This section calls out the dependencies required to enable GitHub Advanced Security on GitHub Enterprise Server.
