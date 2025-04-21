@@ -189,9 +189,9 @@ Security overview provides high-level summaries of the security status of an org
 |Enterprise view||☑️|☑️|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |Organization-level Code Scanning Alert View||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |Organization-level Dependabot Alert View||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|Enterprse-level view of Dependabot alerts|||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|Enterprse-level view of code scanning alerts||||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|Enterprse-level view of secret scanning alerts||||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|Enterprise-level view of Dependabot alerts|||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|Enterprise-level view of code scanning alerts||||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|Enterprise-level view of secret scanning alerts||||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |Coverage and Risk Security Overview pages|||||☑️|☑️|✅|✅|✅|✅|✅|✅|✅|
 |[Filter alerts by repo topic](https://docs.github.com/en/enterprise-server/code-security/security-overview/filtering-alerts-in-security-overview)||||||✅|✅|✅|✅|✅|✅|✅|✅|
 |[Filter alerts by team](https://docs.github.com/en/enterprise-server/code-security/security-overview/filtering-alerts-in-security-overview)||||||✅|✅|✅|✅|✅|✅|✅|✅|
