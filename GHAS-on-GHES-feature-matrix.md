@@ -40,7 +40,7 @@ Secret scanning identifies plain text credentials inside your code repository.  
 
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 | 3.10 | 3.11 | 3.12 |3.13| 3.14|3.15|3.16|
 |------------------------------------------------------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|[Partner pattern count](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/secret-scanning-patterns)|155|169|173|173|183|200|218|233|249|274|274|274|286|286|
+|[Partner pattern count](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/secret-scanning-patterns)|155|169|173|173|183|200|218|233|249|274|274|274|286|289|
 |[User defined (custom) patterns](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Enterprise level API for secret scanning](https://docs.github.com/en/enterprise-server/rest/secret-scanning?apiVersion=2022-11-28#list-secret-scanning-alerts-for-an-enterprise)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Secret scanning push protection](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/protecting-pushes-with-secret-scanning)||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
@@ -78,7 +78,7 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 |3.10 |3.11 |3.12|3.13|3.14|3.15|3.16|
 |------------------------------------------------------------|-----|-----|-----|-----|-----|-----|----|----|----|----|----|----|-----|
-|[CodeQL "toolcache" Installed Version](https://docs.github.com/en/enterprise-server/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#provisioning-the-actions-for-code-scanning)|2.7.6|2.11.6|2.12.7|2.12.7|2.12.7|2.12.7|2.13.5|2.14.6|2.15.5|2.16.5|[2.17.6](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.17.6/)|[2.18.4](https://docs.github.com/en/enterprise-server@3.15/admin/release-notes#code-scanning)|[2.19.0](https://docs.github.com/en/enterprise-server@3.16/admin/release-notes#code-scanning)|
+|[CodeQL "toolcache" Installed Version](https://docs.github.com/en/enterprise-server/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#provisioning-the-actions-for-code-scanning)|2.7.6|2.11.6|2.12.7|2.12.7|2.12.7|2.12.7|2.13.5|2.14.6|2.15.5|2.16.5|[2.17.6](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.17.6/)|[2.18.4](https://docs.github.com/en/enterprise-server@3.15/admin/release-notes#code-scanning)|[2.20.3](https://docs.github.com/en/enterprise-server@3.16/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#provisioning-the-actions-for-code-scanning)|
 |[Language support: Python, Javascript, Java, Go, C/C++, C#, Typescript](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Ruby Support](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)|☑️|☑️|☑️|☑️|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Apple M1 support for CodeQL](https://github.blog/changelog/2021-11-10-codeql-now-supports-apple-silicon-m1/)|☑️|☑️|☑️|☑️|✅|✅|✅|✅|✅|✅|✅|✅|✅|
