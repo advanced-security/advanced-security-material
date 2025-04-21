@@ -163,7 +163,7 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 |[Dependabot grouped security updates](https://docs.github.com/en/enterprise-server@3.14/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)|||||||||||✅|✅|✅|
 |[Private registry support for target-branch configuration](https://docs.github.com/en/enterprise-server@3.14/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)|||||||||||✅|✅|✅|
 |[Updates support pnpm workspace catalogs](https://github.blog/changelog/2025-02-04-dependabot-now-supports-pnpm-workspace-catalogs-ga/)|||||||||||||✅|
-|[Verson updates support .NET SDK in global.json](https://docs.github.com/en/enterprise-server@3.16/admin/release-notes#dependabot)|||||||||||||✅|
+|[Version updates support .NET SDK in global.json](https://docs.github.com/en/enterprise-server@3.16/admin/release-notes#dependabot)|||||||||||||✅|
 
 #### Dependency Graph, Dependency Review and snapshot submission API
 Dependency review helps you understand dependency changes and the security impact of these changes at every pull request.
