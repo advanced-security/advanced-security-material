@@ -289,7 +289,7 @@ Microservice A config:
 - name: Perform CodeQL Analysis
   uses: github/codeql-action/analyze@v3
   with:
-    category: "/language:${{matrix.language}}/MicroserviceA"
+    category: "/language:${{matrix.language}}/app:MicroserviceA"
 ```
 Microservice B config:
 
@@ -307,7 +307,7 @@ Microservice B config:
 - name: Perform CodeQL Analysis
   uses: github/codeql-action/analyze@v3
   with:
-    category: "/language:${{matrix.language}}/MicroserviceB"
+    category: "/language:${{matrix.language}}/app:MicroserviceB"
 ```
 
 - Consider using this pre-built action to scan individual apps inside your monorepo: https://github.com/advanced-security/monorepo-code-scanning-action
