@@ -15,5 +15,5 @@ This will do the following:
 
 1. Enable additional queries to run
 2. Enable Local Threat Models 
-    - This will inclide `local` and `responses` threat models for the application testing
+    - This will include `local` and `responses` threat models for the application testing
 3. Ignore common paths with tests, samples, etc.
