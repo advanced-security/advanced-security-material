@@ -73,7 +73,6 @@ Secret scanning identifies plain text credentials inside your code repository.  
 | [Delegated alert dismissal for secret scanning](https://github.blog/changelog/2025-03-05-delegated-alert-dismissal-for-code-scanning-and-secret-scanning-now-available-in-public-preview/) ||||||||||||||☑️|
 | [Secret scanning scan events via audit log and webhooks](https://github.blog/changelog/2024-12-20-audit-log-and-webhook-events-for-secret-scan-completions/) ||||||||||||||✅|
 | [Base64-encoded GitHub tokens detection](https://github.blog/changelog/2025-02-14-secret-scanning-detects-base64-encoded-github-tokens/) ||||||||||||||✅|
-| [Secret scanning "Generic" alerts (renamed from "Experimental")](https://github.blog/changelog/2025-03-11-renaming-secret-scanning-experimental-alerts-to-generic-alerts/) ||||||||||||||✅|
 | [Push protection bypass requests management via REST API](https://github.blog/changelog/2025-02-27-manage-push-protection-bypass-requests-for-secret-scanning-with-the-rest-api/) ||||||||||||||✅|
 
 ## Code scanning
