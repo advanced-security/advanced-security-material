@@ -40,7 +40,7 @@ Secret scanning identifies plain text credentials inside your code repository.  
 
 |Feature  |3.4 |3.5 |3.6 |3.7 |3.8 |3.9 | 3.10 | 3.11 | 3.12 |3.13| 3.14|3.15|3.16|3.17|
 |------------------------------------------------------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|[Partner pattern count](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/secret-scanning-patterns)|155|169|173|173|183|200|218|233|249|274|274|274|286|289|321|
+|[Partner pattern count](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/secret-scanning-patterns)|155|169|173|173|183|200|218|233|249|274|274|286|289|321|
 |[User defined (custom) patterns](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Enterprise level API for secret scanning](https://docs.github.com/en/enterprise-server/rest/secret-scanning?apiVersion=2022-11-28#list-secret-scanning-alerts-for-an-enterprise)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Secret scanning push protection](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/protecting-pushes-with-secret-scanning)||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
