@@ -1,5 +1,67 @@
 Scanning a C# application with CodeQL
 
+# Dependencies
+
+## Global Private Registry (with default setup)
+
+Organization-level configuration of NuGet server credentials can significantly improve the precision of CodeQL default scans, particularly when using `build-mode: none`. When credentials are properly configured at the organization level, CodeQL can access and analyze dependencies from private registries during the scanning process.
+
+For default setup, ensure credentials to your private registries listed in your `nuget.config` are available/injected so that the analysis does not attempt to hit a registry that will fail for every dependency.  Even if not listed in a nuget.config, the global private registry server/credentials are injected into a proxy during default setup! Configuring registry auth is especially important for organizations using private NuGet feeds, as proper authentication allows CodeQL (and Dependabot) to:
+- Resolve dependency metadata more accurately - leading to a more precise CodeQL database
+- Analyze the complete dependency graph - instead of a loose detection on package versions
+- Provide more comprehensive security findings - helping to enusre data flows are more fully mapped 
+- Reduce false positives/false negatives in vulnerability detection - better detection of data types and call targets sourced from dependencies
+
+
+## NuGet Error NU1301
+This can indicate your custom package server is not configured which may fail the `dotnet restore` command.  For private package servers, the follwing guidance shows how to add package sources: [Setting up authentication for nuget feeds](https://github.com/actions/setup-dotnet#setting-up-authentication-for-nuget-feeds)
+
+## NuGet.targets(132,5): warning : Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured.
+
+The `actions/setup-dotnet` action supports [setting up authentication for nuget feeds](https://github.com/actions/setup-dotnet#setting-up-authentication-for-nuget-feeds). Add this before the `autobuild` / custom build steps in your workflow:
+```yml
+- uses: actions/setup-dotnet@v3
+  with:
+    source-url: https://nuget.pkg.github.com/<owner>/index.json
+  env:
+    NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+```
+
+If you wish to update exisitng feeds in a `nuget.config` with a credential
+```yml
+# Updating MY_ADO_FEED credentials
+  - name: update nuget to add auth
+    run: dotnet nuget update source MY_ADO_FEED -u NOTUSED -p "${{ secrets.ADO_TOKEN }}" --store-password-in-clear-text
+```
+
+Alternatively, consider adding a GitHub Packages hosted NuGet feed using the nuget CLI tooling.  
+
+```yml 
+  - name: add nuget auth
+    run: dotnet nuget add source https://nuget.pkg.github.com/<org-goes-here>/index.json -n "GitHub" -u USERNAME -p "${{ secrets.GH_PACKAGES_READ_ONLY }}" --store-password-in-clear-text
+ ```
+
+## .NET Framework NuGet Authentication
+Since you are unable to use the [nuget/setup-nuget](https://github.com/nuget/setup-nuget#basic) action to pass package key/source to nuget exe for restore, instead fallback to the nuget sources commands.
+
+You can update an existing source (by name - these might exist in a `nuget.config`) to include credentials via the `nuget sources Update` command 
+
+```yml
+      - name: NuGet Restore
+        run: |          
+          nuget sources Update -Name "SourceName" -UserName "any" -Password "${{ secrets.NUGET_PACKAGES_PAT }}"
+          nuget restore
+```
+
+Alternatively, add a new source with `nuget sources Add`
+
+```yml
+      - name: NuGet Restore
+        run: |
+          nuget sources Add -Name "SourceName" -Source "https://url.to.your/source" -UserName "any" -Password "${{ secrets.NUGET_PACKAGES_PAT }}"
+          nuget restore
+```
+
 # Build Failures
 
 ## [error]We were unable to automatically build your code. Please replace the call to the autobuild action with your custom build steps.
@@ -52,56 +114,7 @@ If any custom tooling is required, consider pulling into your action via [custom
 ### DotNet (.NET standard / core )
 Using `dotnet` is best documented at: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net.  The [actions/setup-dotnet](https://github.com/actions/setup-dotnet) action can assist in configuring proper build tools.
 
-#### NuGet Error NU1301
-This can indicate your custom package server is not configured which may fail the `dotnet restore` command.  For private package servers, the follwing guidance shows how to add package sources: [Setting up authentication for nuget feeds](https://github.com/actions/setup-dotnet#setting-up-authentication-for-nuget-feeds)
-
-#### NuGet.targets(132,5): warning : Your request could not be authenticated by the GitHub Packages service. Please ensure your access token is valid and has the appropriate scopes configured.
-
-The `actions/setup-dotnet` action supports [setting up authentication for nuget feeds](https://github.com/actions/setup-dotnet#setting-up-authentication-for-nuget-feeds). Add this before the `autobuild` / custom build steps in your workflow:
-```yml
-- uses: actions/setup-dotnet@v3
-  with:
-    source-url: https://nuget.pkg.github.com/<owner>/index.json
-  env:
-    NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-```
-
-If you wish to update exisitng feeds in a `nuget.config` with a credential
-```yml
-# Updating MY_ADO_FEED credentials
-  - name: update nuget to add auth
-    run: dotnet nuget update source MY_ADO_FEED -u NOTUSED -p "${{ secrets.ADO_TOKEN }}" --store-password-in-clear-text
-```
-
-Alternatively, consider adding a GitHub Packages hosted NuGet feed using the nuget CLI tooling.  
-
-```yml 
-  - name: add nuget auth
-    run: dotnet nuget add source https://nuget.pkg.github.com/<org-goes-here>/index.json -n "GitHub" -u USERNAME -p "${{ secrets.GH_PACKAGES_READ_ONLY }}" --store-password-in-clear-text
- ```
-
-### .NET Framework 
-
-#### NuGet Authentication
-Since you are unable to use the [nuget/setup-nuget](https://github.com/nuget/setup-nuget#basic) action to pass package key/source to nuget exe for restore, instead fallback to the nuget sources commands.
-
-You can update an existing source (by name - these might exist in a `nuget.config`) to include credentials via the `nuget sources Update` command 
-
-```yml
-      - name: NuGet Restore
-        run: |          
-          nuget sources Update -Name "SourceName" -UserName "any" -Password "${{ secrets.NUGET_PACKAGES_PAT }}"
-          nuget restore
-```
-
-Alternatively, add a new source with `nuget sources Add`
-
-```yml
-      - name: NuGet Restore
-        run: |
-          nuget sources Add -Name "SourceName" -Source "https://url.to.your/source" -UserName "any" -Password "${{ secrets.NUGET_PACKAGES_PAT }}"
-          nuget restore
-```
+### .NET Framework
 
 #### Manual Build Steps on Windows Runners
 NOTE: if you require windows OS to build, ensure you are using a windows runner. Otherwise it will attempt to use Mono [from the ubuntu image](https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md#language-and-runtime).
@@ -268,8 +281,6 @@ Start here: [CodeQL Docs -  The build takes too long](https://docs.github.com/en
         - '**/demo/**'
         - '**/docs/**'
 ```
-
-Tip: ensure credentials to your private registries listed in your `nuget.config` are available/injected so that `none` mode does not attempt to hit a registry that will fail for every dependency. 
 
 Alternatively, you might consider breaking up code into smaller chunks to scan.  For example, a monorepo with many microservices would be a prime candidate to scan only the dependent code together.  CodeQL has natural boundaries at the network layer - if a direct method call is not invoked then there is reduced value in scanning the code together.  Consider specifying services by folder to scan together (vs ignore):
 
