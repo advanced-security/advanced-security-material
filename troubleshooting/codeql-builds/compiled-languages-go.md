@@ -2,10 +2,12 @@
 
 Autobuild fails with error "Some packages could not be found"
 
-There are two options when it comes to private repositories:
-
-- Set-up the Go environment within the Actions workflow (not vendoring then)
+There are a few options when it comes to private repositories:
+- Default Setup [can take advantage of Global Private Registry configuration](https://github.blog/changelog/2025-06-10-private-registries-for-go-codeql-scans/) via `GOPROXY` 
+- Advanced setup via yaml configuration can initialize the Go environment within the Actions workflow
 - Vendor the dependencies
+
+### Advanced Setup
 
 Setting up the Go environment can be done by adding a Actions step to update the [Go settings](https://go.dev/ref/mod#private-modules) pointing them to use a [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with the corresponding access to the private repository.
 The example below shows how this can be done using a single step before the CodeQL Initize step - storing the GitHub PAT in an Actions Secret.
