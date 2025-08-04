@@ -2,6 +2,17 @@ Scanning a C# application with CodeQL
 
 # Dependencies
 
+## Global Private Registry (with default setup)
+
+Organization-level configuration of NuGet server credentials can significantly improve the precision of CodeQL default scans, particularly when using `build-mode: none`. When credentials are properly configured at the organization level, CodeQL can access and analyze dependencies from private registries during the scanning process.
+
+For default setup, ensure credentials to your private registries listed in your `nuget.config` are available/injected so that the analysis does not attempt to hit a registry that will fail for every dependency.  Even if not listed in a nuget.config, the global private registry server/credentials are injected into a proxy during default setup! Configuring registry auth is especially important for organizations using private NuGet feeds, as proper authentication allows CodeQL (and Dependabot) to:
+- Resolve dependency metadata more accurately - leading to a more precise CodeQL database
+- Analyze the complete dependency graph - instead of a loose detection on package versions
+- Provide more comprehensive security findings - helping to enusre data flows are more fully mapped 
+- Reduce false positives/false negatives in vulnerability detection - better detection of data types and call targets sourced from dependencies
+
+
 ## NuGet Error NU1301
 This can indicate your custom package server is not configured which may fail the `dotnet restore` command.  For private package servers, the follwing guidance shows how to add package sources: [Setting up authentication for nuget feeds](https://github.com/actions/setup-dotnet#setting-up-authentication-for-nuget-feeds)
 
@@ -50,24 +61,6 @@ Alternatively, add a new source with `nuget sources Add`
           nuget sources Add -Name "SourceName" -Source "https://url.to.your/source" -UserName "any" -Password "${{ secrets.NUGET_PACKAGES_PAT }}"
           nuget restore
 ```
-
-## Global Private Registry
-
-Organization-level configuration of NuGet server credentials can significantly improve the precision of CodeQL default scans, particularly when using `build-mode: none`. When credentials are properly configured at the organization level, CodeQL can access and analyze dependencies from private registries during the scanning process.
-
-For `build-mode: none`, ensure credentials to your private registries listed in your `nuget.config` are available/injected so that the analysis does not attempt to hit a registry that will fail for every dependency. This is especially important for organizations using private NuGet feeds, as proper authentication allows CodeQL to:
-
-- Resolve dependency metadata more accurately
-- Analyze the complete dependency graph
-- Provide more comprehensive security findings
-- Reduce false negatives in vulnerability detection
-
-Configure organization-level credentials through:
-- Organization secrets for NuGet authentication tokens
-- Properly configured `nuget.config` files in your repositories
-- Environment variables for package source authentication
-
-This configuration ensures that default scans have the necessary access to evaluate your complete codebase and its dependencies, leading to more accurate and comprehensive security analysis.
 
 # Build Failures
 
