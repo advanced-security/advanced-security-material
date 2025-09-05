@@ -2,6 +2,9 @@
 
 ## ERROR: In --require-hashes mode, all requirements must have their versions pinned with ==.
 
+> ⚠️ **Warning:** This error is no longer expected in CodeQL analysis as the dependency installation has been removed on new scan configs. See: [Code scanning with CodeQL no longer installs Python dependencies automatically for new users - GitHub Changelog](https://github.blog/changelog/2023-07-11-code-scanning-with-codeql-no-longer-installs-python-dependencies-automatically-for-new-users/)
+
+
 Error/Warning in the workflow logs like:
 
 ```yml
