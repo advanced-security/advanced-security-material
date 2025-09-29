@@ -36,7 +36,7 @@ jobs:
 Alternatively, pass the token into the CodeQL init action to allow it to be used for downstream git operations:
 
 ```yml
-- uses: github/codeql-action/init@v2
+- uses: github/codeql-action/init@v3
   with:
   external-repository-token: ${{ secrets.GOLANG_GITHUB_TOKEN }}
 ```
