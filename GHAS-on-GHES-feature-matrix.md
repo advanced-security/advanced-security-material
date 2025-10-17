@@ -74,6 +74,7 @@ Secret scanning identifies plain text credentials inside your code repository.  
 | [Secret scanning scan events via audit log and webhooks](https://github.blog/changelog/2024-12-20-audit-log-and-webhook-events-for-secret-scan-completions/) ||||||||||||||✅|✅|
 | [Base64-encoded GitHub tokens detection](https://github.blog/changelog/2025-02-14-secret-scanning-detects-base64-encoded-github-tokens/) ||||||||||||||✅|✅|
 | [Push protection bypass requests management via REST API](https://github.blog/changelog/2025-02-27-manage-push-protection-bypass-requests-for-secret-scanning-with-the-rest-api/) ||||||||||||||✅|✅|
+| [Free secret risk assessment for organization and security admins](https://docs.github.com/en/enterprise-server@3.18/code-security/secret-scanning/managing-alerts-from-secret-scanning) |||||||||||||||✅|
 
 ## Code scanning
 Code scanning is a feature that you use to analyze the code in a GitHub repository to find security vulnerabilities and coding errors. Any problems identified by the analysis are shown in GitHub.
@@ -120,6 +121,8 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 |[Zstandard archive for CodeQL tools](https://docs.github.com/en/enterprise-server@3.16/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli#1-download-the-codeql-cli-tar-archive) |||||||||||||✅|✅|✅|
 | [Delegated alert dismissal for code scanning](https://github.blog/changelog/2025-03-05-delegated-alert-dismissal-for-code-scanning-and-secret-scanning-now-available-in-public-preview/) ||||||||||||||☑️|✅|
 | [Code scanning alert-related events in audit log](https://github.blog/changelog/2024-12-03-code-scanning-now-creates-alert-related-events-in-audit-log/) ||||||||||||||✅|✅|
+| [Development section to track code scanning alert resolution progress](https://docs.github.com/en/enterprise-server@3.18/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository) |||||||||||||||✅|
+| [CodeQL code scanning to detect security vulnerabilities in GitHub Actions workflows](https://docs.github.com/en/enterprise-server@3.18/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages) |||||||||||||||✅|
 
 ## Supply-chain security
 
@@ -174,6 +177,9 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 | [Dependabot version updates support for bun dependencies](https://docs.github.com/en/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories#supported-ecosystems-and-repositories) ||||||||||||||✅|✅|
 | [Dependabot version updates support for Docker Compose dependencies](https://docs.github.com/en/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories#supported-ecosystems-and-repositories) ||||||||||||||✅|✅|
 | [Dependabot version updates support for uv dependencies](https://docs.github.com/en/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories#supported-ecosystems-and-repositories) ||||||||||||||✅|✅|
+| [Organization administrators can grant Dependabot access to repositories at scale](https://docs.github.com/en/enterprise-server@3.18/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners) |||||||||||||||✅|
+| [Dependabot version updates support for Helm dependencies](https://docs.github.com/en/enterprise-server@3.18/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates) |||||||||||||||✅|
+| [Custom update frequencies for Dependabot using cron expressions](https://docs.github.com/en/enterprise-server@3.18/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#scheduleinterval) |||||||||||||||✅|
 
 #### Dependency Graph, Dependency Review and snapshot submission API
 Dependency review helps you understand dependency changes and the security impact of these changes at every pull request.
@@ -230,6 +236,8 @@ Security overview provides high-level summaries of the security status of an org
 |[Security configurations for archived repositories](https://docs.github.com/en/enterprise-server@3.16/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)|||||||||||||✅|✅|✅|
 |[Advanced filtering for repository selection by security feature status](https://docs.github.com/en/enterprise-server@3.16/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/creating-security-configurations-for-your-organization)|||||||||||||✅|✅|✅|
 |[Security manager role can be assigned directly to individual users](https://docs.github.com/en/enterprise-server@3.16/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)|||||||||||||✅|✅|✅|
+| [Enterprise-level rulesets and pull request merge methods using rules](https://docs.github.com/en/enterprise-server@3.18/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-rulesets-for-repositories-in-your-enterprise) |||||||||||||||✅|
+| [Delegated bypass process for push rules with email notifications](https://docs.github.com/en/enterprise-server@3.18/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets) |||||||||||||||✅|
 
 # Dependencies
 This section calls out the dependencies required to enable GitHub Advanced Security on GitHub Enterprise Server.
