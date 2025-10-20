@@ -138,7 +138,7 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 |[Poetry support](https://docs.github.com/en/enterprise-server/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Cargo support](https://docs.github.com/en/enterprise-server/get-started/learning-about-github/github-language-support#core-languages-supported-by-github-features)|||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Reopen dismissed alerts](https://github.blog/changelog/2022-03-07-reopen-dismissed-dependabot-alerts/)|||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
-|[Dependabot alerts show vulnerable function calls](https://github.blog/2022-04-14-dependabot-alerts-now-surface-if-code-is-calling-vulnerability/)|||☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|
+|[Dependabot alerts show vulnerable function calls](https://github.blog/2022-04-14-dependabot-alerts-now-surface-if-code-is-calling-vulnerability/)|||☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|☑️|||
 |[Dependabot Alert timeline](https://github.blog/changelog/2022-07-28-dependabot-alerts-timeline-of-events-on-the-alert-details-page/)||||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Bulk Editing of Alerts](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)||||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Add comment when dismissing dependabot alert](https://github.blog/changelog/2022-08-22-dependabot-alerts-optional-dismissal-comment-2/)||||✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|✅|
