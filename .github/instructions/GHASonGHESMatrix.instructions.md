@@ -28,7 +28,7 @@ When asked to update this Advanced Security feature matrix for a new GHES versio
   - Explicitly check if existing features have moved from Preview to GA in this release.
 - **Significance Filter:**
   - **INCLUDE:** New functionality, major gaps addressed, major architectural changes, new versions, counts.
-  - **EXCLUDE:** Minor bug fixes, simple renames (e.g., "Generic" -> "Experimental"), or UI tweaks without functional impact.
+  - **EXCLUDE:** Minor bug fixes, new versions of existing langagues/framework support added (ex: Go 1.25 or Swift 6.1.2), simple renames (e.g., "Generic" -> "Experimental"), or UI tweaks without functional impact.
 
 ## 3. Matrix Update Rules
 - **New Column:** Always add a new column for the new version in *every* table, even if there are no specific changes for that table.
