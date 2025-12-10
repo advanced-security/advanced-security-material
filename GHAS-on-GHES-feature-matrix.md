@@ -85,11 +85,6 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 | [Development section to track code scanning alert resolution progress](https://docs.github.com/en/enterprise-server@3.18/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository) |||||||✅|✅|
 | [CodeQL code scanning to detect security vulnerabilities in GitHub Actions workflows](https://docs.github.com/en/enterprise-server@3.18/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages) |||||||✅|✅|
 | [CodeQL Rust language support](https://github.blog/changelog/2025-07-03-codeql-2-22-1-bring-rust-support-to-public-preview/) ||||||||☑️|
-| [Improved Go generics and dataflow analysis](https://github.blog/changelog/2025-06-12-codeql-2-22-0-improves-coverage-for-go-and-adds-support-for-swift-6-1-2/) ||||||||✅|
-| [CodeQL supports Swift 6.1.2](https://github.blog/changelog/2025-06-12-codeql-2-22-0-improves-coverage-for-go-and-adds-support-for-swift-6-1-2/) ||||||||✅|
-| [CodeQL supports Go 1.25](https://github.blog/changelog/2025-09-03-codeql-2-22-4-adds-support-for-go-1-25-and-accuracy-improvements/) ||||||||✅|
-| [Multiple SARIF runs processed as separate scans](https://github.blog/changelog/2025-07-21-code-scanning-will-stop-combining-multiple-sarif-runs-uploaded-in-the-same-sarif-file/) ||||||||✅|
-| [Security configurations support default or advanced CodeQL setup](https://github.blog/changelog/2025-07-15-security-configurations-support-for-running-codeql-in-either-default-or-advanced-setup/) ||||||||✅|
 
 ## Supply-chain security
 
@@ -160,6 +155,7 @@ Security overview provides high-level summaries of the security status of an org
 
 
 ## Administration
+Security Configurations and Global Settings for Advanced Security configuration and policy enforcement at scale!
 |Feature  |3.12 |3.13|3.14|3.15|3.16|3.17|3.18|3.19|
 |------------------------------------------------------------|----|----|----|----|-----|-----|-----|-----|
 |[Enable at scale - security configurations](https://docs.github.com/en/enterprise-server@3.15/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)||||✅|✅|✅|✅|✅|
@@ -168,6 +164,7 @@ Security overview provides high-level summaries of the security status of an org
 |[Advanced filtering for repository selection by security feature status](https://docs.github.com/en/enterprise-server@3.16/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/creating-security-configurations-for-your-organization)|||||✅|✅|✅|✅|
 |[Security manager role can be assigned directly to individual users](https://docs.github.com/en/enterprise-server@3.16/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)|||||✅|✅|✅|✅|
 | ["Not set" option for security configurations](https://docs.github.com/en/enterprise-server@3.19/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration) ||||||||✅|
+| [Security configurations support default or advanced CodeQL setup](https://github.blog/changelog/2025-07-15-security-configurations-support-for-running-codeql-in-either-default-or-advanced-setup/) ||||||||✅|
 
 # Dependencies
 This section calls out the dependencies required to enable GitHub Advanced Security on GitHub Enterprise Server.
