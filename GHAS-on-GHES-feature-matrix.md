@@ -24,6 +24,9 @@ Each section of this document represents a different capability of the GitHub se
 
 Cells with ☑️ indicate beta support. ✅ indicates full support.
 
+#### End of life Archive
+- [2022 / 2023 GHES 3.4 - GHES 3.11](./advanced-security/archive/GHAS-on-GHES-feature-matrix-2025.md)
+
 ## Release notes
 * [Releases of GitHub Enterprise Server](https://docs.github.com/en/enterprise-server/admin/all-releases#releases-of-github-enterprise-server)
 
