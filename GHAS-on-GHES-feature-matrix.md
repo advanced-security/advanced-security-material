@@ -163,13 +163,14 @@ Security Configurations and Global Settings for Advanced Security configuration 
 |[Security configurations for archived repositories](https://docs.github.com/en/enterprise-server@3.16/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)|||||✅|✅|✅|✅|
 |[Advanced filtering for repository selection by security feature status](https://docs.github.com/en/enterprise-server@3.16/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/creating-security-configurations-for-your-organization)|||||✅|✅|✅|✅|
 |[Security manager role can be assigned directly to individual users](https://docs.github.com/en/enterprise-server@3.16/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)|||||✅|✅|✅|✅|
+|[Standalone SKUs for Code Security and Secret Protection](https://github.blog/changelog/2025-04-01-github-secret-protection-and-github-code-security-for-github-enterprise/#when-will-the-standalone-plans-be-available-for-enterprise-server)||||||✅|✅|✅|
 | ["Not set" option for security configurations](https://docs.github.com/en/enterprise-server@3.19/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration) ||||||||✅|
 | [Security configurations support default or advanced CodeQL setup](https://github.blog/changelog/2025-07-15-security-configurations-support-for-running-codeql-in-either-default-or-advanced-setup/) ||||||||✅|
 
 # Dependencies
 This section calls out the dependencies required to enable GitHub Advanced Security on GitHub Enterprise Server.
 
-| Feature | GHAS license<br>required? | GitHub Actions<br>required? | GitHub Connect<br>required? | Documentation | Notes |
+| Feature | GHAS license <br>required? | GitHub Actions<br>required? | GitHub Connect<br>required? | Documentation | Notes |
 |---|---|---|---|---|---|
 | Security Overview<br><br><details><summary>Description</summary>Know what needs attention throughout the entire SDLC</details> | No * | No | No | [Feature Docs](https://docs.github.com/en/enterprise-server@latest/code-security/security-overview/about-the-security-overview) | * Features not needing a GHAS license will still show up |
 | Dependency Graph<br><br><details><summary>Description</summary>Parse manifest and lock files in your repository</details> | No | No | No | [Feature Docs](https://docs.github.com/en/enterprise-server@latest/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise) | Enabling this feature will reload some services on the appliance. |
