@@ -19,7 +19,8 @@ When asked to update this Advanced Security feature matrix for a new GHES versio
   - Code Scanning
   - Supply Chain (Dependabot Alerts, Updates, Dependency Graph)
   - Security Overview
-  - Administration (only advanced security features or features with major security implications only)
+  - Administration (Security Configurations - only advanced security features or features with major security implications only)
+    - do not put security configuration setup for specific features under the feature section - keep the security configuration under Administration!
 - **Check Dependencies:** Note any changes to setup requirements (Actions, Connect, etc.) for the Dependencies section.
 
 ## 2. Analysis Guidelines
