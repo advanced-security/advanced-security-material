@@ -36,7 +36,7 @@ Cells with ☑️ indicate beta support. ✅ indicates full support.
 |Deprecation date | 2025-03-05| 2025-07-18 | 2025-08-27 | 2025-12-19 | 2026-03-11 | 2026-06-03 | 2026-08-25| 2026-12-09|
 || [Notes](https://docs.github.com/en/enterprise-server@3.12/admin/release-notes) | [Notes](https://docs.github.com/en/enterprise-server@3.13/admin/release-notes)| [Notes](https://docs.github.com/en/enterprise-server@3.14/admin/release-notes#3.14.0) | [Notes](https://docs.github.com/en/enterprise-server@3.15/admin/release-notes#3.15.0) | [Notes](https://docs.github.com/en/enterprise-server@3.16/admin/release-notes) | [Notes](https://docs.github.com/en/enterprise-server@3.17/admin/release-notes) | [Notes](https://docs.github.com/en/enterprise-server@3.18/admin/release-notes)| [Notes](https://docs.github.com/en/enterprise-server@3.19/admin/release-notes)|
 
-## Secret scanning
+## Secret Protection
 Secret scanning identifies plain text credentials inside your code repository.  Learn more about secret scanning
 * [Secret scanning documentation](https://docs.github.com/en/enterprise-server/code-security/secret-scanning/about-secret-scanning)
 * [Secret scanning API documentation](https://docs.github.com/en/enterprise-server/rest/secret-scanning?apiVersion=2022-11-28)
@@ -62,7 +62,9 @@ Secret scanning identifies plain text credentials inside your code repository.  
 | [Secret scanning in GitHub wikis](https://docs.github.com/en/enterprise-server@3.19/code-security/secret-scanning/about-secret-scanning) ||||||||✅|
 | [REST API first_location_detected and has_more_locations fields](https://docs.github.com/en/enterprise-server@3.19/rest/secret-scanning) ||||||||✅|
 
-## Code scanning
+## Code Security
+
+### Code Scanning
 Code scanning is a feature that you use to analyze the code in a GitHub repository to find security vulnerabilities and coding errors. Any problems identified by the analysis are shown in GitHub.
 * [Code scanning documentation](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)
 * [Code scanning API documentation](https://docs.github.com/en/rest/code-scanning?apiVersion=2022-11-28)
@@ -86,9 +88,7 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
 | [CodeQL code scanning to detect security vulnerabilities in GitHub Actions workflows](https://docs.github.com/en/enterprise-server@3.18/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages) |||||||✅|✅|
 | [CodeQL Rust language support](https://github.blog/changelog/2025-07-03-codeql-2-22-1-bring-rust-support-to-public-preview/) ||||||||☑️|
 
-## Supply-chain security
-
-#### Dependabot Alerts
+### Dependabot Alerts
 Dependabot alerts tell you that your code depends on a package that is insecure.
 * [Dependabot alerts documentation](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
 * [Dependabot alerts API](https://docs.github.com/en/enterprise-server/rest/dependabot/alerts?apiVersion=2022-11-28)
@@ -103,7 +103,7 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 | [Dependabot metrics page for prioritizing security fixes](https://docs.github.com/en/enterprise-server@3.19/code-security/dependabot/working-with-dependabot/viewing-and-updating-dependabot-alerts) ||||||||✅|
 
 
-#### Dependabot Updates
+### Dependabot Updates
 |Feature  |3.12|3.13|3.14|3.15|3.16|3.17|3.18|3.19|
 |------------------------------------------------------------|----|----|----|----|-----|-----|-----|-----|
 |[Dependabot supports `devcontainer.json` files](https://docs.github.com/en/enterprise-server@3.13/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#dev-containers)||✅|✅|✅|✅|✅|✅|✅|
@@ -128,7 +128,7 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 | [Exclude automatic PRs for manifests in selected subdirectories](https://github.blog/changelog/2025-08-26-dependabot-can-now-exclude-automatic-pull-requests-for-manifests-in-selected-subdirectories/) ||||||||✅|
 | [Dependabot can update private Go modules](https://docs.github.com/en/enterprise-server@3.19/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot) ||||||||✅|
 
-#### Dependency Graph, Dependency Review and snapshot submission API
+### Dependency Graph, Dependency Review and snapshot submission API
 Dependency review helps you understand dependency changes and the security impact of these changes at every pull request.
 * [Dependency review docs](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)
 * [Dependency review API docs](https://docs.github.com/en/rest/dependency-graph/dependency-review?apiVersion=2022-11-28)
