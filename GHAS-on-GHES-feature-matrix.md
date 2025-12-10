@@ -119,13 +119,11 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 | [Organization administrators can grant Dependabot access to repositories at scale](https://docs.github.com/en/enterprise-server@3.18/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners) |||||||✅|✅|
 | [Dependabot version updates support for Helm dependencies](https://docs.github.com/en/enterprise-server@3.18/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates) |||||||✅|✅|
 | [Custom update frequencies for Dependabot using cron expressions](https://docs.github.com/en/enterprise-server@3.18/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#scheduleinterval) |||||||✅|✅|
-| [Dependabot supports Gradle lockfiles](https://docs.github.com/en/enterprise-server@3.19/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates) ||||||||✅|
+| [Dependabot supports Gradle lockfiles](https://github.blog/changelog/2025-06-24-dependabot-support-for-gradle-lockfiles-is-now-generally-available/) ||||||||✅|
 | [Minimum package age configuration](https://docs.github.com/en/enterprise-server@3.19/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file) ||||||||✅|
 | [Cross-ecosystem grouped pull requests](https://docs.github.com/en/enterprise-server@3.19/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file) ||||||||✅|
 | [Central management of private registry configurations](https://docs.github.com/en/enterprise-server@3.19/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot) ||||||||✅|
-| [Dependabot version updates support for vcpkg dependencies](https://github.blog/changelog/2025-08-12-dependabot-version-updates-now-support-vcpkg/) ||||||||✅|
-| [Dependabot version updates support for Rust toolchain](https://github.blog/changelog/2025-08-19-dependabot-now-supports-rust-toolchain-updates/) ||||||||✅|
-| [Exclude automatic PRs for manifests in selected subdirectories](https://github.blog/changelog/2025-08-26-dependabot-can-now-exclude-automatic-pull-requests-for-manifests-in-selected-subdirectories/) ||||||||✅|
+| Dependabot version updates support for [vcpkg dependencies](https://github.blog/changelog/2025-08-12-dependabot-version-updates-now-support-vcpkg/) and [Rust toolchain](https://github.blog/changelog/2025-08-19-dependabot-now-supports-rust-toolchain-updates/) ||||||||✅|
 | [Dependabot can update private Go modules](https://docs.github.com/en/enterprise-server@3.19/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot) ||||||||✅|
 
 ### Dependency Graph, Dependency Review and snapshot submission API
