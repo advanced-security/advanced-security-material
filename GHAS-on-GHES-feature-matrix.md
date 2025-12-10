@@ -162,21 +162,12 @@ Security overview provides high-level summaries of the security status of an org
 ## Administration
 |Feature  |3.12 |3.13|3.14|3.15|3.16|3.17|3.18|3.19|
 |------------------------------------------------------------|----|----|----|----|-----|-----|-----|-----|
-|[Create and assign custom organization roles](https://docs.github.com/en/enterprise-server@3.14/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles)|||✅|✅|✅|✅|✅|✅|
 |[Enable at scale - security configurations](https://docs.github.com/en/enterprise-server@3.15/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)||||✅|✅|✅|✅|✅|
 |[Enterprise-level security configurations](https://docs.github.com/en/enterprise-server@3.16/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale#about-enterprise-level-security-configurations)|||||✅|✅|✅|✅|
 |[Security configurations for archived repositories](https://docs.github.com/en/enterprise-server@3.16/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)|||||✅|✅|✅|✅|
 |[Advanced filtering for repository selection by security feature status](https://docs.github.com/en/enterprise-server@3.16/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/creating-security-configurations-for-your-organization)|||||✅|✅|✅|✅|
 |[Security manager role can be assigned directly to individual users](https://docs.github.com/en/enterprise-server@3.16/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)|||||✅|✅|✅|✅|
-| [Enterprise-level rulesets and pull request merge methods using rules](https://docs.github.com/en/enterprise-server@3.18/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-rulesets-for-repositories-in-your-enterprise) |||||||✅|✅|
-| [Delegated bypass process for push rules with email notifications](https://docs.github.com/en/enterprise-server@3.18/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets) |||||||✅|✅|
 | ["Not set" option for security configurations](https://docs.github.com/en/enterprise-server@3.19/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration) ||||||||✅|
-| [Enterprise-level custom organization roles](https://docs.github.com/en/enterprise-server@3.19/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-organization-roles-in-your-enterprise) ||||||||✅|
-| [Increased limit to 20 custom roles per type and owner](https://docs.github.com/en/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles) ||||||||✅|
-| [Ruleset history, import, and export](https://github.com/github/ruleset-recipes) ||||||||✅|
-| [Fine-grained GitHub Actions permissions via custom repository roles](https://docs.github.com/en/enterprise-server@3.19/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization) ||||||||✅|
-| [GitHub Apps installable on enterprise account](https://docs.github.com/en/enterprise-server@3.19/apps/maintaining-github-apps/about-github-app-managers) ||||||||✅|
-| [GitHub App managers using roles platform](https://docs.github.com/en/enterprise-server@3.19/apps/maintaining-github-apps/about-github-app-managers) ||||||||✅|
 
 # Dependencies
 This section calls out the dependencies required to enable GitHub Advanced Security on GitHub Enterprise Server.
