@@ -22,7 +22,7 @@ The following tables include notable feature releases for GitHub Advanced Securi
 #### How do I read this document?
 Each section of this document represents a different capability of the GitHub security features.  Each row in the tables represent a different feature of GHAS.  The columns indicate if that feature is available in each version of GitHub Enterprise Server.  
 
-Cells with ☑️ indicate beta support. ✅ indicates full support.
+Cells with ☑️ indicate [Public Preview](https://github.blog/changelog/2024-10-18-new-terminology-for-github-previews/) support. ✅ indicates General Availability.
 
 #### End of life Archive
 - [2022 / 2023 GHES 3.4 - GHES 3.11](./advanced-security/archive/GHAS-on-GHES-feature-matrix-2025.md)
