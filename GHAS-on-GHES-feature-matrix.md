@@ -95,7 +95,7 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 
 |Feature  |3.12|3.13|3.14|3.15|3.16|3.17|3.18|3.19|
 |------------------------------------------------------------|----|----|----|----|-----|-----|-----|-----|
-|[Dependabot alerts show vulnerable function calls](https://github.blog/2022-04-14-dependabot-alerts-now-surface-if-code-is-calling-vulnerability/)|☑️|☑️|☑️|☑️|☑️||||
+|[Dependabot alerts show vulnerable function calls](https://web.archive.org/web/20230922181508/https://github.blog/2022-04-14-dependabot-alerts-now-surface-if-code-is-calling-vulnerability/)|☑️|☑️|☑️|☑️|☑️||||
 |[Dependabot auto-triage rules](https://docs.github.com/en/enterprise-server@3.12/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules)|✅|✅|✅|✅|✅|✅|✅|✅|
 |[Security advisories can use the new CVSS 4.0 schema to calculate a base vulnerability score](https://docs.github.com/en/enterprise-server@3.16/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-cvss-levels)|||||✅|✅|✅|✅|
 |[Added Exploit Prediction Scoring System (EPSS) to advisories to show estimated probability that a vulnerability will be exploited over the next 30 days](https://docs.github.com/en/enterprise-server@3.16/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-epss-scores)|||||✅|✅|✅|✅|
