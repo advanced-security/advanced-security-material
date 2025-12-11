@@ -14,7 +14,7 @@ The following tables include notable feature releases for GitHub Advanced Securi
       - [Code scanning](#code-scanning)
       - [Dependabot Alerts](#dependabot-alerts)
       - [Dependabot Updates](#dependabot-updates)
-      - [Dependency Review and submission API](#dependency-review-and-submission-api)
+      - [Dependency Review and submission API](#dependency-graph-dependency-review-and-snapshot-submission-api)
   - [Security Overview](#security-overview)
   - [Administration](#administration)
 - [Dependencies](#dependencies)
