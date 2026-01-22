@@ -1107,24 +1107,6 @@ This document provides a mapping between the OWASP Top 10 2025 vulnerabilities a
 
 ---
 
-## Usage Notes
-
-1. **Language Support**: Not all queries are available for all languages. Check the [CodeQL documentation](https://codeql.github.com/codeql-query-help/full-cwe/) for language-specific availability.
-
-2. **Custom Queries**: Some OWASP vulnerabilities may require custom CodeQL queries if specific CWEs aren't covered.
-
-3. **Query Suites**: Consider using CodeQL security query suites that include multiple related queries:
-   - `security-extended`: Comprehensive security analysis
-   - `security-and-quality`: Security plus code quality checks
-   - `security-experimental`: Includes experimental security queries
-
-4. **Running Scans**: Example command for running CodeQL security analysis:
-   ```bash
-   codeql database analyze <database> \
-     --format=sarif-latest \
-     --output=results.sarif \
-     <language>-security-extended.qls
-   ```
 
 ## Summary Statistics
 
