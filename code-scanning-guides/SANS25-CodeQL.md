@@ -567,7 +567,7 @@ This document provides a mapping between the [SANS Top 25 Software Errors](https
 | Go | `go/request-forgery` |
 | Go | `go/ssrf` |
 | Java/Kotlin | `java/ssrf` |
-| JavaScript/TypeScript | `javascript/ssrf` |
+| JavaScript/TypeScript | `js/ssrf` |
 | JavaScript/TypeScript | `js/client-side-request-forgery` |
 | JavaScript/TypeScript | `js/request-forgery` |
 | Python | `py/full-ssrf` |
