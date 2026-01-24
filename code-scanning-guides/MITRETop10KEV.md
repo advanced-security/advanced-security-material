@@ -4,7 +4,7 @@
 
 This document provides a mapping between the MITRE Top 10 Known Exploited Vulnerabilities (KEV) weaknesses and available CodeQL queries through their Common Weakness Enumeration (CWE) identifiers.
 
-The query mappings below are derived from [codeql_cwe_coverage.md](codeql_cwe_coverage.md).
+The query mappings below are manually curated to show how CodeQL queries relate to the listed CWE identifiers.
 
 ## MITRE Top 10 KEV Weaknesses
 
