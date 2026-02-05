@@ -6,6 +6,7 @@ This directory contains comprehensive guides and resources for GitHub Advanced S
 
 ### 📊 [CodeQL Mappings](./codeql-mappings/)
 Security framework and vulnerability catalog mappings for CodeQL queries:
+- **[codeql/actions](https://github.com/github/codeql/actions/workflows/query-list.yml?query=branch%3Acodeql-cli%2Flatest)** - GitHub full built-in CodeQL query list / CWE / CVSS  Severity Mapping - download the attached code-scanning-query-list.csv artifact from the latest workflow run.
 - **[OWASP Top 10 2025](./codeql-mappings/OWASP2025-CodeQL.md)** - Mapping between OWASP Top 10 2025 vulnerabilities and CodeQL queries via CWE identifiers
 - **[MITRE Top 10 KEV](./codeql-mappings/MITRETop10KEV.md)** - Mapping between MITRE Top 10 Known Exploited Vulnerabilities and CodeQL queries
 - **[SANS Top 25](./codeql-mappings/SANS25-CodeQL.md)** - Mapping between SANS Top 25 Software Errors and CodeQL queries
