@@ -3,7 +3,7 @@
 Autobuild fails with error "Some packages could not be found"
 
 There are a few options when it comes to private repositories:
-- Default Setup [can take advantage of Global Private Registry configuration](https://github.blog/changelog/2025-06-10-private-registries-for-go-codeql-scans/) via `GOPROXY` 
+- Default Setup can take advantage of Global Private Registry configuration via `GOPROXY` ([see announcement](https://github.blog/changelog/2025-06-10-private-registries-for-go-codeql-scans/)) or via `Git Source` ([see announcement](https://github.blog/changelog/2025-10-09-codeql-2-23-2-adds-additional-detections-for-rust-and-improves-accuracy-across-languages/))
 - Advanced setup via yaml configuration can initialize the Go environment within the Actions workflow
 - Vendor the dependencies
 
