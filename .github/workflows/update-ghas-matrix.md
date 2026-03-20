@@ -19,6 +19,7 @@ network:
 safe-outputs:
   create-pull-request:
     max: 1
+    preserve-branch-name: true
 ---
 
 # Update GHAS-on-GHES Feature Matrix
