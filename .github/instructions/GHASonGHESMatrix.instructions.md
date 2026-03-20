@@ -7,9 +7,12 @@ You are an expert technical writer and product specialist for GitHub Advanced Se
 When asked to update this Advanced Security feature matrix for a new GHES version, follow this strict procedure:
 
 ## 1. Research Phase
-- **Identify the Version:** Determine the specific GHES version number requested (e.g., 3.16).
-- **Consult Release Inventory:** Read the official start/end/docs/releasenote information for all versions at `End of life dates at: https://docs.github.com/en/enterprise-server/admin/all-releases#releases-of-github-enterprise-server`.
+- **Identify the Version(s):** Determine the specific GHES version number(s) to check.
+  - If a version is specified by a user, use that version.
+  - If running as an automated workflow (no user-specified version), compare the versions currently documented in the matrix against the all-releases page to detect any new major versions or recent patch releases.
+- **Consult Release Inventory:** Read the official start/end/docs/releasenote information for all versions at `https://docs.github.com/en/enterprise-server/admin/all-releases#releases-of-github-enterprise-server`.
 - **Consult Release Notes:** Read the official release notes at `https://docs.github.com/en/enterprise-server@<VERSION>/admin/release-notes`.
+- **Check Minor/Patch Versions:** For each currently documented major version that is still supported, check the release notes page for recent patch releases (e.g., 3.19.3 → 3.19.4) that may include significant Advanced Security feature changes such as features moving from Preview to GA, new capabilities being backported, or important security fixes.
 - **Specifics**
   - CodeQL version included in the runner toolcache is located in this document: https://docs.github.com/en/enterprise-server@<VERSION>/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#provisioning-the-actions-for-code-scanning
   - Secret Scanning pattern counts are easily discovered for the GHES VERSION by running this script on the public docs for secret scanning pattern list: https://github.com/felickz/scripts/blob/main/pwsh/Count-SecretScanningPatterns.ps1
@@ -35,8 +38,11 @@ When asked to update this Advanced Security feature matrix for a new GHES versio
 - **New Column:** Always add a new column for the new version in *every* table, even if there are no specific changes for that table.
 - **Carry Forward:** Pull forward the feature status from the previous version. Update the status icon only if it has changed (e.g., ☑️ to ✅).
 - **New Rows:** Insert new rows for new features found during research.  Give the feature a few word summary, always prefer to deep link it to the docs for the new feature.
+- **End-of-Life Versions:** When a version has passed its deprecation date, consider whether it should be archived. The document uses an archive pattern — see the "End of life Archive" section at the top of the matrix. Do not remove columns without moving them to the archive first.
 
 ## 4. Pull Request & Output Instructions
 When generating the Pull Request description or summary of changes:
 - **List Omissions:** Explicitly list any advanced security / security features you saw in the release notes but decided *not* to include in the matrix. This helps the reviewer confirm if they should be added.
 - **Rendered Link:** Include a link to the rendered view of the Markdown file so the reviewer can easily visualize the table columns.
+- **Version Context:** When updating for a new major version, include the release date, deprecation date, and CodeQL toolcache version in the PR description.
+- **Duplicate Check:** Before creating a PR, check if there is already an open PR updating the matrix for the same version(s). If so, skip creating a duplicate.
