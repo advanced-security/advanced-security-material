@@ -11,6 +11,7 @@ tools:
   github:
     toolsets: [default]
   web-fetch:
+  cache-memory:
 network:
   allowed:
     - github
@@ -30,31 +31,43 @@ Before making any changes, read the copilot instructions file at `.github/instru
 
 ## Your Task
 
-### Step 1: Determine Current State
+### Step 1: Load Previous State from Cache
+
+Check cache-memory for a file named `ghas-matrix-state.json`. If it exists, read it. This file tracks:
+- `last_checked`: Timestamp of the last run (use filesystem-safe format `YYYY-MM-DD-HH-MM-SS`)
+- `latest_major_version`: The highest major GHES version already documented in the matrix
+- `checked_patch_versions`: Object mapping each major version to the latest patch version already reviewed (e.g., `{"3.19": "3.19.4", "3.18": "3.18.6"}`)
+- `omitted_features`: List of features previously seen but intentionally excluded (to avoid re-evaluation)
+
+If the file does not exist, this is the first run — proceed without prior state.
+
+### Step 2: Determine Current State
 
 Read `GHAS-on-GHES-feature-matrix.md` and identify:
 - The **latest major GHES version** currently documented (look at the column headers in the Release Notes table)
 - The **oldest version** still in the matrix
 - Any versions that have passed their deprecation date
 
-### Step 2: Check for New GHES Versions
+### Step 3: Check for New GHES Versions
 
 Fetch the all-releases page to discover if any new GHES versions exist beyond what's documented:
 - URL: `https://docs.github.com/en/enterprise-server/admin/all-releases`
 
 Compare the versions listed on that page against the columns in the current matrix. If a new major version exists (e.g., 3.20 when the matrix only goes to 3.19), this is a **new version update**.
 
-### Step 3: Check Minor/Patch Version Release Notes
+### Step 4: Check Minor/Patch Version Release Notes
 
 For each currently supported major version in the matrix, check the release notes for significant Advanced Security changes in recent patch releases:
 - URL pattern: `https://docs.github.com/en/enterprise-server@<VERSION>/admin/release-notes`
+
+If you have cache state from Step 1, only check patch versions **newer** than what was previously reviewed (e.g., if `checked_patch_versions["3.19"]` is `"3.19.4"`, only look at 3.19.5+). Also skip any features listed in `omitted_features` from cache — they were already evaluated and excluded.
 
 Look specifically for:
 - Features moving from Public Preview (☑️) to General Availability (✅)
 - New Advanced Security capabilities being backported to existing versions
 - Important deprecations or breaking changes
 
-### Step 4: Evaluate Significance
+### Step 5: Evaluate Significance
 
 Apply the significance filter from the instructions file:
 - **INCLUDE:** New functionality, major gaps addressed, Preview→GA transitions, new CodeQL toolcache versions, partner pattern count changes, new versions, counts
@@ -62,7 +75,7 @@ Apply the significance filter from the instructions file:
 
 If there are no significant changes found, **do not create a PR**. Simply note that the matrix is up to date and exit.
 
-### Step 5: Make Updates
+### Step 6: Make Updates
 
 If significant changes were found, follow the matrix update rules from the instructions:
 
@@ -74,7 +87,15 @@ For CodeQL toolcache versions, check: `https://docs.github.com/en/enterprise-ser
 
 For secret scanning partner pattern counts, check: `https://docs.github.com/en/enterprise-server@<VERSION>/code-security/secret-scanning/introduction/supported-secret-scanning-patterns`
 
-### Step 6: Create Pull Request
+### Step 7: Save State to Cache
+
+Before finishing (whether or not a PR was created), write the updated state to cache-memory as `ghas-matrix-state.json`:
+- `last_checked`: Current timestamp in `YYYY-MM-DD-HH-MM-SS` format (no colons, no T, no Z)
+- `latest_major_version`: The highest major GHES version now documented
+- `checked_patch_versions`: Updated with the latest patch version reviewed for each major version
+- `omitted_features`: Merge any newly omitted features with the previous list
+
+### Step 8: Create Pull Request
 
 Create a pull request with:
 - **Title:** "Update GHAS feature matrix for GHES <version(s)>"
