@@ -35,12 +35,29 @@ When asked to update this Advanced Security feature matrix for a new GHES versio
   - **EXCLUDE:** Minor bug fixes, new versions of existing langagues/framework support added (ex: Go 1.25 or Swift 6.1.2), simple renames (e.g., "Generic" -> "Experimental"), or UI tweaks without functional impact.
 
 ## 3. Matrix Update Rules
-- **New Column:** Always add a new column for the new version in *every* table, even if there are no specific changes for that table.
+- **New Column:** Always add a new column for the new version in *every* feature table, even if there are no specific changes for that table.
 - **Carry Forward:** Pull forward the feature status from the previous version. Update the status icon only if it has changed (e.g., ☑️ to ✅).
 - **New Rows:** Insert new rows for new features found during research.  Give the feature a few word summary, always prefer to deep link it to the docs for the new feature.
 - **End-of-Life Versions:** When a version has passed its deprecation date, consider whether it should be archived. The document uses an archive pattern — see the "End of life Archive" section at the top of the matrix. Do not remove columns without moving them to the archive first.
+- **Dependencies Table:** The Dependencies table at the bottom of the document has a **different column structure** (Feature, GHAS license, Actions, Connect, Documentation, Notes). Do **NOT** add GHES version columns to it. Only modify the Dependencies table if there are actual dependency requirement changes.
 
-## 4. Pull Request & Output Instructions
+## 4. Table Formatting Validation
+**CRITICAL:** After making any edits, you MUST validate that all markdown tables still render correctly. Broken tables are the most common mistake when editing this file.
+
+**Validation rules:**
+1. Every row in a table must have the **same number of pipe (`|`) characters** as the header row of that table.
+2. The separator row (`|---|---|...`) must have exactly as many column separators as the header.
+3. The document contains **multiple independent tables** with different column counts — verify each table independently.
+4. Do not add or remove pipe characters from any table row without updating the entire table to match.
+
+**To validate,** count the pipes in each row and confirm consistency within each table. You can run this check with:
+```bash
+awk '/^\|/ { n=gsub(/\|/,"&"); if (prev>0 && n!=prev) printf "ERROR line %d: expected %d pipes, got %d: %s\n", NR, prev, n, $0; prev=n } /^[^|]/ { prev=0 }' GHAS-on-GHES-feature-matrix.md
+```
+
+If any table has inconsistent column counts, fix them before committing or creating a PR.
+
+## 5. Pull Request & Output Instructions
 When generating the Pull Request description or summary of changes:
 - **List Omissions:** Explicitly list any advanced security / security features you saw in the release notes but decided *not* to include in the matrix. This helps the reviewer confirm if they should be added.
 - **Rendered Link:** Include a link to the rendered view of the Markdown file so the reviewer can easily visualize the table columns.
