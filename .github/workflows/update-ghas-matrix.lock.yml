@@ -23,7 +23,7 @@
 #
 # Weekly check for GHES Advanced Security release note updates to keep the GHAS feature matrix documentation current
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"ad1c503116f63b846681c6225331f8cd973b1f3deb5bab9360da04257c0d7e85","compiler_version":"v0.60.0","strict":true}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"f160c744a6592463f82de0eccdfacdde80dd310df0f88aaa8a91a523884bed29","compiler_version":"v0.60.0","strict":true}
 
 name: "Update GHAS-on-GHES Feature Matrix"
 "on":
@@ -571,7 +571,7 @@ jobs:
       - name: Execute GitHub Copilot CLI
         id: agentic_execution
         # Copilot CLI tool arguments (sorted):
-        timeout-minutes: 20
+        timeout-minutes: 45
         run: |
           set -o pipefail
           touch /tmp/gh-aw/agent-step-summary.md
@@ -945,7 +945,7 @@ jobs:
           GH_AW_CODE_PUSH_FAILURE_COUNT: ${{ needs.safe_outputs.outputs.code_push_failure_count }}
           GH_AW_GROUP_REPORTS: "false"
           GH_AW_FAILURE_REPORT_AS_ISSUE: "true"
-          GH_AW_TIMEOUT_MINUTES: "20"
+          GH_AW_TIMEOUT_MINUTES: "45"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
