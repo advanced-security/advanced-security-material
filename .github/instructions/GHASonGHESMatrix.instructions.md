@@ -12,13 +12,15 @@ When asked to update this Advanced Security feature matrix for a new GHES versio
   - If running as an automated workflow (no user-specified version), compare the versions currently documented in the matrix against the all-releases page to detect any new major versions or recent patch releases.
 - **Consult Release Inventory:** Read the official start/end/docs/releasenote information for all versions at `https://docs.github.com/en/enterprise-server/admin/all-releases#releases-of-github-enterprise-server`.
 - **Consult Release Notes:** Read the official release notes at `https://docs.github.com/en/enterprise-server@<VERSION>/admin/release-notes`.
+- **Consult the GHES GA announcement blog post:** Check `https://github.blog/changelog/` for a post titled "GitHub Enterprise Server X.XX is now generally available" — this often summarizes the most notable GHAS features in plain language and may highlight items not obvious from the structured release notes.
+- **Consult the GitHub community discussion:** Check `https://github.com/orgs/community/discussions` for the GHES X.XX GA announcement thread, which typically lists key highlights including security features.
 - **Check Minor/Patch Versions:** For each currently documented major version that is still supported, check the release notes page for recent patch releases (e.g., 3.19.3 → 3.19.4) that may include significant Advanced Security feature changes such as features moving from Preview to GA, new capabilities being backported, or important security fixes.
 - **Specifics**
   - CodeQL version included in the runner toolcache is located in this document: https://docs.github.com/en/enterprise-server@<VERSION>/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#provisioning-the-actions-for-code-scanning
   - Secret Scanning pattern counts are easily discovered for the GHES VERSION by running this script on the public docs for secret scanning pattern list: https://github.com/felickz/scripts/blob/main/pwsh/Count-SecretScanningPatterns.ps1
 
 - **Inventory Features:** Look for changes in these specific areas relating to GitHub Advanced Security:
-  - Secret Scanning
+  - Secret Scanning — including but not limited to: validity checks, enterprise-level push protection bypass controls, new detector types, expanded push protection coverage, alert management improvements
   - Code Scanning
   - Supply Chain (Dependabot Alerts, Updates, Dependency Graph)
   - Security Overview

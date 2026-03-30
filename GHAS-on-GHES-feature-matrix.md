@@ -62,6 +62,8 @@ Secret scanning identifies plain text credentials inside your code repository.  
 | [Secret scanning in GitHub wikis](https://docs.github.com/en/enterprise-server@3.19/code-security/secret-scanning/about-secret-scanning) ||||||✅|✅|
 | [REST API first_location_detected and has_more_locations fields](https://docs.github.com/en/enterprise-server@3.19/rest/secret-scanning) ||||||✅|✅|
 | [Secret scanning alert assignees](https://docs.github.com/en/enterprise-server@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning) |||||||✅|
+| [Secret scanning validity checks](https://docs.github.com/en/enterprise-server@3.20/code-security/concepts/secret-security/about-validity-checks) |||||||✅|
+| [Enterprise-level delegated bypass for push protection](https://docs.github.com/en/enterprise-server@3.20/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enabling-delegated-bypass-for-push-protection#enabling-delegated-bypass-for-an-enterprise) |||||||✅|
 
 ## Code Security
 
