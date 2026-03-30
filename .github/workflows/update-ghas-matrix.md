@@ -111,6 +111,7 @@ Create a pull request with:
 - **Branch name:** Use a descriptive branch name like `update-ghas-matrix-<version>`
 - **Body:** Include:
   - Summary of what changed and why
+  - Link to the release-notes
   - Release metadata (release date, deprecation date, CodeQL toolcache version) for any new major versions
   - List of features added or updated, grouped by section (Secret Protection, Code Scanning, etc.)
   - **Omissions:** Explicitly list features seen in release notes but excluded per the significance filter
