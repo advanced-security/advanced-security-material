@@ -75,6 +75,11 @@ Apply the significance filter from the instructions file:
 - **INCLUDE:** New functionality, major gaps addressed, Preview→GA transitions, new CodeQL toolcache versions, partner pattern count changes, new versions, counts
 - **EXCLUDE:** Minor bug fixes, new language/framework version support (e.g., Go 1.25, Swift 6.2), simple renames, UI tweaks without functional impact
 
+Significant updates get a new row in the appropriate feature matrix.  The description should link to details when possible:
+-  Favor a specific docs page (in case furture content is moved - https://docs.github.com/en/enterprise-server@latest is favored over a specific version to future proof EOL server versions in docs).  Review the https://docs.github.com/en/enterprise-server docs for that the given update to ensure the link is taking you a page where the appropriate feature is described. 
+- Otherwise, point to a specific changelog link (under https://github.blog/changelog/) that lists out which version of GHES the feature will belong to.
+- Finally, if there is no appropriate link that mentions the feature, then fallback to just a text description without a hyperlink.
+
 If there are no significant changes found, **do not create a PR**. Simply note that the matrix is up to date and exit.
 
 ### Step 6: Make Updates
