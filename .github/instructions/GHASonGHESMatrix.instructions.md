@@ -12,6 +12,7 @@ When asked to update this Advanced Security feature matrix for a new GHES versio
   - If running as an automated workflow (no user-specified version), compare the versions currently documented in the matrix against the all-releases page to detect any new major versions or recent patch releases.
 - **Consult Release Inventory:** Read the official start/end/docs/releasenote information for all versions at `https://docs.github.com/en/enterprise-server/admin/all-releases#releases-of-github-enterprise-server`.
 - **Consult Release Notes:** Read the official release notes at `https://docs.github.com/en/enterprise-server@<VERSION>/admin/release-notes`.
+- **Deeper dive into changelog:** Changelog feature release announcements often mention preview/GA and target GHES versions - page through results here `https://github.blog/changelog/?label=application-security%2Csupply-chain-security&opened-months=12`
 - **Check Minor/Patch Versions:** For each currently documented major version that is still supported, check the release notes page for recent patch releases (e.g., 3.19.3 → 3.19.4) that may include significant Advanced Security feature changes such as features moving from Preview to GA, new capabilities being backported, or important security fixes.
 - **Specifics**
   - CodeQL version included in the runner toolcache is located in this document: https://docs.github.com/en/enterprise-server@<VERSION>/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#provisioning-the-actions-for-code-scanning
@@ -37,7 +38,8 @@ When asked to update this Advanced Security feature matrix for a new GHES versio
 ## 3. Matrix Update Rules
 - **New Column:** Always add a new column for the new version in *every* feature table, even if there are no specific changes for that table.
 - **Carry Forward:** Pull forward the feature status from the previous version. Update the status icon only if it has changed (e.g., ☑️ to ✅).
-- **New Rows:** Insert new rows for new features found during research.  Give the feature a few word summary, always prefer to deep link it to the docs for the new feature.
+- **New Rows:** Insert new rows for new features found during research.  Give the feature a concisce few word `Feature` summary description.
+  -  prefer to hyperlink the feature summary text to a changelog post, if not available - the best server version docs, OR if no docs cover this feature leave it unlinked.
 - **End-of-Life Versions:** When a version has passed its deprecation date, consider whether it should be archived. The document uses an archive pattern — see the "End of life Archive" section at the top of the matrix. Do not remove columns without moving them to the archive first.
 - **Dependencies Table:** The Dependencies table at the bottom of the document has a **different column structure** (Feature, GHAS license, Actions, Connect, Documentation, Notes). Do **NOT** add GHES version columns to it. Only modify the Dependencies table if there are actual dependency requirement changes.
 
