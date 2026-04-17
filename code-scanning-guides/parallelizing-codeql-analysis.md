@@ -107,7 +107,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: codeql-db
-          path: /home/runner/work/_temp/codeql_databases/
+          path: ${{ runner.temp }}/codeql_databases/
           retention-days: 1
           compression-level: 6
 
