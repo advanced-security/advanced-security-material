@@ -3,6 +3,7 @@ description: Weekly tracker that maps CodeQL bundle versions to language-specifi
 on:
   schedule: weekly
   workflow_dispatch:
+  skip-if-match: "is:pr is:open Update CodeQL version tracker in:title"
 permissions:
   contents: read
   pull-requests: read
@@ -59,17 +60,19 @@ Check cache-memory for a file named `codeql-version-tracker-state.json`. If it e
 - `last_checked`: Timestamp of the last run (use filesystem-safe format `YYYY-MM-DD-HH-MM-SS`)
 - `processed_releases`: Array of CodeQL bundle version strings already processed (e.g., `["2.25.2", "2.25.1", "2.25.0"]`)
 
-If the file does not exist, this is the first run — you will need to process ALL historical releases.
+If the file does not exist, this is the first run — see Step 2 for how to handle this case.
 
 ### Step 2: Discover CodeQL Bundle Releases
 
 Use GitHub tools to list releases from `github/codeql-action`. Filter to releases where the tag name starts with `codeql-bundle-v`. These are the bundle releases.
 
-Paginate through ALL releases (there are many pages). Collect every `codeql-bundle-v*` tagged release.
+**First Run (no previous cache state):** Limit processing to the **30 most recent** `codeql-bundle-v*` releases only. Do NOT attempt to process all historical releases — there are too many to process in a single run. The tracker will be seeded with the most recent data; older historical releases are not needed.
+
+**Subsequent Runs:** Only paginate as needed to find releases newer than the most recent entry in `processed_releases`. Stop paginating once you reach already-processed versions.
 
 Compare against the `processed_releases` list from cache. Identify which releases are **new** (not yet processed).
 
-If there are no new releases, skip to Step 5 (save state) and exit without creating a PR.
+If there are no new releases, call `noop` with the message "CodeQL version tracker is up to date — no new releases found." Do NOT create a PR.
 
 ### Step 3: Extract Pack Versions for Each New Release
 
@@ -82,10 +85,11 @@ For each new CodeQL bundle release (e.g., `codeql-bundle-v2.25.2`):
    - **Library pack**: `<language>/ql/lib/qlpack.yml` — extract the `version:` field
 4. If the file doesn't exist at that tag (404), the language was not yet supported — record as "N/A"
 
-> **Rate Limiting**: There are many releases and many languages. To avoid hitting API rate limits:
-> - Process releases in batches
-> - If you encounter rate limit errors, pause and note which releases still need processing
-> - Prioritize newer releases first (process in reverse chronological order)
+> **Rate Limiting / Time Constraints**: There are many releases and many languages. To avoid hitting API rate limits or running out of time:
+> - Process releases in batches, prioritizing newer releases first (process in reverse chronological order)
+> - If you encounter rate limit errors, finish processing the releases you have and proceed to Step 4 with what you have
+> - If a `qlpack.yml` file cannot be fetched (404 or rate limit), record the language as "N/A" for that release and continue
+> - If you have processed at least some new releases, proceed to create the PR with what you have — do not wait for complete data
 
 ### Step 4: Update the Tracking Page
 
@@ -144,7 +148,7 @@ If new data was added, create a pull request with:
   - List of CodeQL versions that were added
   - A link to the rendered markdown: `https://github.com/${{ github.repository }}/blob/update-codeql-version-tracker/codeql/codeql-version-tracker.md`
 
-If no new releases were found, do NOT create a PR. Simply log that the tracker is up to date.
+If no new releases were found, call `noop` with the message "CodeQL version tracker is up to date — no new releases found." Do NOT create a PR.
 
 ## Important Notes
 
@@ -153,3 +157,4 @@ If no new releases were found, do NOT create a PR. Simply log that the tracker i
 - Some very old CodeQL versions may have different directory structures — if a language path doesn't exist, skip it
 - Ensure all three tables have consistent rows (same set of CodeQL versions in the same order)
 - Preserve the existing markdown formatting when updating
+- **Always call a safe output tool before finishing** — either `create_pull_request` (when new data was added) or `noop` (when no action is needed). Never finish without calling one of these.
