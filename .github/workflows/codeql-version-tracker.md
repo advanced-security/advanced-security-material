@@ -61,6 +61,12 @@ Check cache-memory for a file named `codeql-version-tracker-state.json`. If it e
 
 If the file does not exist, this is the first run. See the batch processing rules below for first-run behavior.
 
+#### Cache Validation
+
+After loading the cache, **verify that the output file `codeql/codeql-version-tracker.md` actually exists** in this repository. If the cache claims releases are processed but the tracking file does not exist, the cache is stale from a previous failed run that saved progress but never created the output. In this case:
+- **Reset the cache**: Treat all releases as unprocessed (same as first run behavior).
+- Log a message: "Cache state found but output file missing — resetting to first-run mode."
+
 ### Step 2: Discover CodeQL Bundle Releases
 
 Use GitHub tools to list releases from `github/codeql-action`. Filter to releases where the tag name starts with `codeql-bundle-v`. These are the bundle releases.
