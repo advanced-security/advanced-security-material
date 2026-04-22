@@ -152,7 +152,7 @@ Always save state, even if no new releases were found.
 
 If new data was added, create a pull request with:
 - **Title:** "Update CodeQL version tracker with <N> new release(s)"
-- **Branch name:** `update-codeql-version-tracker`
+- **Branch name:** You MUST specify the branch field as exactly `update-codeql-version-tracker` in your create-pull-request safe output. This is critical so the rendered preview link works.
 - **Body:** Include:
   - Summary of new releases added
   - List of CodeQL versions that were added
