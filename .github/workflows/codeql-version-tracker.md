@@ -7,7 +7,7 @@ permissions:
   contents: read
   pull-requests: read
   issues: read
-timeout-minutes: 45
+timeout-minutes: 60
 tools:
   github:
     toolsets: [default]
@@ -59,33 +59,40 @@ Check cache-memory for a file named `codeql-version-tracker-state.json`. If it e
 - `last_checked`: Timestamp of the last run (use filesystem-safe format `YYYY-MM-DD-HH-MM-SS`)
 - `processed_releases`: Array of CodeQL bundle version strings already processed (e.g., `["2.25.2", "2.25.1", "2.25.0"]`)
 
-If the file does not exist, this is the first run — you will need to process ALL historical releases.
+If the file does not exist, this is the first run. See the batch processing rules below for first-run behavior.
 
 ### Step 2: Discover CodeQL Bundle Releases
 
 Use GitHub tools to list releases from `github/codeql-action`. Filter to releases where the tag name starts with `codeql-bundle-v`. These are the bundle releases.
 
-Paginate through ALL releases (there are many pages). Collect every `codeql-bundle-v*` tagged release.
+> **Important — Do NOT paginate through all releases at once.** The `github/codeql-action` repository has hundreds of releases. Fetching all of them in a single run will exhaust your token budget. Instead, use the batch processing approach below.
 
-Compare against the `processed_releases` list from cache. Identify which releases are **new** (not yet processed).
+List releases page by page (newest first). On each page, collect `codeql-bundle-v*` tagged releases and check them against `processed_releases` from cache. **Stop paginating** once you have collected enough unprocessed releases to fill the batch (see limits below), or once you reach releases that are already processed.
 
-If there are no new releases, skip to Step 5 (save state) and exit without creating a PR.
+Compare against the `processed_releases` list from cache. Identify which releases are **unprocessed** (not yet in the list).
+
+#### Batch Processing Limits
+
+- **First run** (no cache state): Process only the **10 most recent** CodeQL bundle releases. Do not attempt to process the entire history — older releases will be backfilled in subsequent runs.
+- **Subsequent runs**: Process up to **5 new releases** (releases newer than any in `processed_releases`) **plus** up to **5 backfill releases** (older releases not yet in `processed_releases`) per run, for a maximum of **10 releases per run**.
+- **Backfill strategy**: After processing new releases, continue paginating backwards from the oldest release in `processed_releases` to find up to 5 more unprocessed historical releases. This ensures the tracker progressively fills in older versions over multiple scheduled runs.
+- **When more remain**: If there are still unprocessed releases after hitting the batch limit, save your progress to cache-memory (Step 5) and call `noop` with a message like: "Processed N releases this run. M older releases remain for backfill in future runs." Do NOT create a PR with partial data if you haven't finished the current batch — only create a PR if you successfully processed all releases in this batch.
+
+If there are no new or backfill releases to process, skip to Step 5 (save state) and exit without creating a PR.
 
 ### Step 3: Extract Pack Versions for Each New Release
 
 For each new CodeQL bundle release (e.g., `codeql-bundle-v2.25.2`):
 
 1. Extract the version number from the tag (e.g., `2.25.2`)
-2. The corresponding tag in the `github/codeql` repository is `codeql-cli/v<VERSION>` (e.g., `codeql-cli/v2.25.2`)
-3. For each language listed above, read the `qlpack.yml` file from `github/codeql` at that tag:
+2. **Optimization — Check the bundle release body first.** Each `codeql-bundle-v*` release body on `github/codeql-action` lists all included packs with links to their source and changelogs. While the release body does not contain version numbers directly, it confirms which languages are included in that bundle (helping you skip 404s for unsupported languages).
+3. The corresponding tag in the `github/codeql` repository is `codeql-cli/v<VERSION>` (e.g., `codeql-cli/v2.25.2`)
+4. For each language listed above, read the `qlpack.yml` file from `github/codeql` at that tag:
    - **Queries pack**: `<language>/ql/src/qlpack.yml` — extract the `version:` field
    - **Library pack**: `<language>/ql/lib/qlpack.yml` — extract the `version:` field
-4. If the file doesn't exist at that tag (404), the language was not yet supported — record as "N/A"
+5. If the file doesn't exist at that tag (404), the language was not yet supported — record as "N/A"
 
-> **Rate Limiting**: There are many releases and many languages. To avoid hitting API rate limits:
-> - Process releases in batches
-> - If you encounter rate limit errors, pause and note which releases still need processing
-> - Prioritize newer releases first (process in reverse chronological order)
+> **Rate Limiting**: With batch limits in place, each run processes at most 10 releases × 20 files = 200 file reads, which is well within API limits. If you still encounter rate limit errors, save progress to cache and call `noop`.
 
 ### Step 4: Update the Tracking Page
 
@@ -131,6 +138,8 @@ When updating, merge new release rows into the existing tables. Keep existing da
 Write the updated state to cache-memory as `codeql-version-tracker-state.json`:
 - `last_checked`: Current timestamp in `YYYY-MM-DD-HH-MM-SS` format (no colons, no T, no Z)
 - `processed_releases`: Full list of all processed release versions (merge new with existing)
+- `oldest_processed`: The oldest CodeQL version string that has been processed (e.g., `"2.20.0"`). This helps the backfill step know where to resume paginating from.
+- `backfill_complete`: Boolean. Set to `true` once a run finds no more unprocessed releases older than `oldest_processed`. This tells future runs to skip backfill pagination entirely.
 
 Always save state, even if no new releases were found.
 
