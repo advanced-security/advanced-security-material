@@ -129,11 +129,10 @@ This page tracks the mapping between CodeQL bundle versions and the language-spe
 - Pack versions are plain version strings (e.g., `1.2.3`)
 - Use "N/A" for languages not available in that version
 
-Because there are many languages (10) with 2 packs each (20 columns + 2 = 22 columns), split into multiple tables for readability:
+Because there are many languages (10) with 2 packs each (20 columns + 2 = 22 columns), split into two tables for readability:
 
-1. **Core Languages Table**: CodeQL Version, Release Date, cpp-queries, cpp-all, csharp-queries, csharp-all, go-queries, go-all, java-queries, java-all
-2. **Scripting Languages Table**: CodeQL Version, Release Date, javascript-queries, javascript-all, python-queries, python-all, ruby-queries, ruby-all
-3. **Additional Languages Table**: CodeQL Version, Release Date, actions-queries, actions-all, rust-queries, rust-all, swift-queries, swift-all
+1. **Compiled Languages Table**: CodeQL Version, Release Date, cpp-queries, cpp-all, csharp-queries, csharp-all, go-queries, go-all, java-queries, java-all, rust-queries, rust-all, swift-queries, swift-all
+2. **Scripting Languages Table**: CodeQL Version, Release Date, actions-queries, actions-all, javascript-queries, javascript-all, python-queries, python-all, ruby-queries, ruby-all
 
 Each table should have the same rows (all CodeQL versions), just different language columns.
 
@@ -166,5 +165,5 @@ If no new releases were found, do NOT create a PR. Simply log that the tracker i
 - The `github/codeql` repo tags use format `codeql-cli/v<VERSION>` (with a slash), not `codeql-bundle-v<VERSION>`
 - Parse `qlpack.yml` files as YAML — the `version:` field is what you need
 - Some very old CodeQL versions may have different directory structures — if a language path doesn't exist, skip it
-- Ensure all three tables have consistent rows (same set of CodeQL versions in the same order)
+- Ensure both tables have consistent rows (same set of CodeQL versions in the same order)
 - Preserve the existing markdown formatting when updating

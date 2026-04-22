@@ -48,7 +48,7 @@
 #   - ghcr.io/github/github-mcp-server:v0.32.0
 #   - node:lts-alpine
 
-name: "AW: CodeQL Version Tracker"
+name: "CodeQL Version Tracker"
 "on":
   schedule:
   - cron: "34 20 * * 6"
