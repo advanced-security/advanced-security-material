@@ -76,7 +76,7 @@ Apply the significance filter from the instructions file:
 - **EXCLUDE:** Minor bug fixes, new language/framework version support (e.g., Go 1.25, Swift 6.2), simple renames, UI tweaks without functional impact
 
 
-If there are no significant changes found, **do not create a PR**. Simply note that the matrix is up to date and exit.
+If there are no significant changes found, **do not create a PR**. Call `noop` with a message explaining that the matrix is already up to date and what was checked.
 
 ### Step 6: Make Updates
 
