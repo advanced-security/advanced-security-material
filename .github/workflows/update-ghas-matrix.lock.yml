@@ -25,7 +25,7 @@
 #
 # gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"f160c744a6592463f82de0eccdfacdde80dd310df0f88aaa8a91a523884bed29","compiler_version":"v0.60.0","strict":true}
 
-name: "Update GHAS-on-GHES Feature Matrix"
+name: "AW: Update GHAS-on-GHES Feature Matrix"
 "on":
   schedule:
   - cron: "0 18 * * 5"
