@@ -23,7 +23,7 @@ safe-outputs:
     preserve-branch-name: true
 ---
 
-# Update GHAS-on-GHES Feature Matrix
+# AW: Update GHAS-on-GHES Feature Matrix
 
 You are responsible for keeping the `GHAS-on-GHES-feature-matrix.md` document up to date with the latest GitHub Enterprise Server (GHES) Advanced Security features.
 
