@@ -76,9 +76,35 @@ Apply the significance filter from the instructions file:
 - **EXCLUDE:** Minor bug fixes, new language/framework version support (e.g., Go 1.25, Swift 6.2), simple renames, UI tweaks without functional impact
 
 
-If there are no significant changes found, **do not create a PR**. Call `noop` with a message explaining that the matrix is already up to date and what was checked.
+If there are no significant feature changes found **and** no versions are due to be archived (see Step 6), **do not create a PR**. Call `noop` with a message explaining that the matrix is already up to date and what was checked. Note: archiving an EOL version (Step 6) is itself a reason to open a PR even when no new features were found.
 
-### Step 6: Make Updates
+### Step 6: Archive End-of-Life Versions
+
+Before adding or updating any feature rows, deal with versions that have reached end of life (EOL).
+
+A version is EOL when its **Deprecation date** (see the Release notes table) is on or before today's date. Use the all-releases page to confirm dates if needed.
+
+**You must never delete a version column without first copying it into the archive.** Archiving is a two-part operation — write the archive file *and* remove the columns — and both parts must happen in the same PR.
+
+1. **Identify EOL versions.** From the Release notes table in `GHAS-on-GHES-feature-matrix.md`, collect every version whose Deprecation date has passed. If none have passed, skip this step entirely.
+
+2. **Choose the archive file.** Archives live in `advanced-security/archive/` and are named by the calendar year in which the versions are archived: `GHAS-on-GHES-feature-matrix-<YEAR>.md` (e.g. `GHAS-on-GHES-feature-matrix-2026.md`, where `<YEAR>` is the current year of this run).
+   - If that file does **not** exist yet, create it. Start it as a self-contained snapshot by copying the document title, intro, "How do I read this document?" legend, and the `## Release notes` heading from the active matrix.
+   - If that file **already** exists (a prior run this year already archived some versions), append the new columns to the existing tables in that file instead of creating a second file for the year.
+
+3. **Copy the EOL columns into the archive file.** For **every** table in the active matrix (Release Notes, Secret Protection, Code Scanning, Dependabot Alerts, Dependabot Updates, Dependency Graph, Security Overview, Administration), copy the columns for the EOL versions — including the Release date, Deprecation date, and Notes rows and every feature row's status icon — exactly as they appear in the active matrix. This preserves the historical data. Do **not** copy the Dependencies table (it has no version columns).
+
+4. **Remove the EOL columns from the active matrix.** Delete those version columns from ALL tables in `GHAS-on-GHES-feature-matrix.md`. After deletion, re-run the table-formatting validation from the instructions file to confirm every table still has consistent pipe counts.
+
+5. **Update the "End of life Archive" section** at the top of `GHAS-on-GHES-feature-matrix.md`. Add a new bullet linking to the archive file you wrote, with a label describing the year and version range, e.g.:
+   `- [2026 GHES 3.14 - GHES 3.16](./advanced-security/archive/GHAS-on-GHES-feature-matrix-2026.md)`
+   Keep the existing archive bullets — each archive file gets its own entry.
+
+6. **Confirm the archive folder change is staged.** The PR diff must include the new/updated file under `advanced-security/archive/`. If your changes only touch `GHAS-on-GHES-feature-matrix.md`, the archive step is incomplete — go back and write the archive file before opening the PR.
+
+Archiving on its own (with no new feature additions) is a valid, meaningful change and should result in a PR.
+
+### Step 7: Make Updates
 
 If significant changes were found, follow the matrix update rules from the instructions:
 
@@ -96,7 +122,7 @@ For CodeQL toolcache versions, check: `https://docs.github.com/en/enterprise-ser
 
 For secret scanning partner pattern counts, check: `https://docs.github.com/en/enterprise-server@<VERSION>/code-security/secret-scanning/introduction/supported-secret-scanning-patterns`
 
-### Step 7: Save State to Cache
+### Step 8: Save State to Cache
 
 Before finishing (whether or not a PR was created), write the updated state to cache-memory as `ghas-matrix-state.json`:
 - `last_checked`: Current timestamp in `YYYY-MM-DD-HH-MM-SS` format (no colons, no T, no Z)
@@ -104,13 +130,14 @@ Before finishing (whether or not a PR was created), write the updated state to c
 - `checked_patch_versions`: Updated with the latest patch version reviewed for each major version
 - `omitted_features`: Merge any newly omitted features with the previous list
 
-### Step 8: Create Pull Request
+### Step 9: Create Pull Request
 
 Create a pull request with:
 - **Title:** "Update GHAS feature matrix for GHES <version(s)>"
 - **Branch name:** Use a descriptive branch name like `update-ghas-matrix-<version>`
 - **Body:** Include:
   - Summary of what changed and why
+  - If versions were archived: list the archived versions, their deprecation dates, and link to the archive file that now holds them
   - Link to the release-notes
   - Release metadata (release date, deprecation date, CodeQL toolcache version) for any new major versions
   - List of features added or updated, grouped by section (Secret Protection, Code Scanning, etc.)
@@ -120,7 +147,8 @@ Create a pull request with:
 
 ### Important Notes
 
-- Only create a PR if there are actual meaningful changes to make. Do not create empty or trivial PRs.
+- Only create a PR if there are actual meaningful changes to make. Do not create empty or trivial PRs. (Archiving EOL versions counts as a meaningful change.)
+- **Never remove a version column without first copying it into the dated archive file under `advanced-security/archive/`.** A PR that deletes columns from `GHAS-on-GHES-feature-matrix.md` but does not add/update a file in the archive folder is incomplete.
 - When adding new columns, ensure you add the column to ALL tables in the document (Release Notes, Secret Protection, Code Scanning, Dependabot Alerts, Dependabot Updates, Dependency Graph, Security Overview, Administration).
 - Preserve the existing markdown table formatting and alignment.
 - Do not modify the Dependencies table at the bottom unless there are actual dependency requirement changes.
