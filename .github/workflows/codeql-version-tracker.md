@@ -21,6 +21,7 @@ safe-outputs:
   create-pull-request:
     max: 1
     preserve-branch-name: true
+    recreate-ref: true
 ---
 
 # AW: CodeQL Version Tracker
