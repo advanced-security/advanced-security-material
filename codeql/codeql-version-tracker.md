@@ -55,6 +55,11 @@ This page tracks the mapping between CodeQL bundle versions and the language-spe
 | [2.19.1](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.19.1) | 2024-10-02 | 1.2.4 | 2.0.1 | 1.0.9 | 3.0.0 | 1.1.0 | 2.1.0 | 1.1.6 | 4.1.0 | 0.1.0-dev | 0.1.0-dev | 1.0.9 | 2.0.1 |
 | [2.19.0](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.19.0) | 2024-09-16 | 1.2.3 | 2.0.0 | 1.0.8 | 2.0.0 | 1.0.8 | 2.0.0 | 1.1.5 | 4.0.0 | 0.1.0-dev | 0.1.0-dev | 1.0.8 | 2.0.0 |
 | [2.18.4](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.18.4) | 2024-09-10 | 1.2.2 | 1.4.2 | 1.0.7 | 1.2.0 | 1.0.7 | 1.2.0 | 1.1.4 | 3.0.2 | N/A | N/A | 1.0.7 | 1.1.3 |
+| [2.18.3](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.18.3) | 2024-08-27 | 1.2.1 | 1.4.1 | 1.0.6 | 1.1.0 | 1.0.6 | 1.1.5 | 1.1.3 | 3.0.1 | N/A | N/A | 1.0.6 | 1.1.2 |
+| [2.18.2](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.18.2) | 2024-08-08 | 1.2.0 | 1.4.0 | 1.0.5 | 1.0.5 | 1.0.5 | 1.1.4 | 1.1.2 | 3.0.0 | N/A | N/A | 1.0.5 | 1.1.1 |
+| [2.18.1](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.18.1) | 2024-07-23 | 1.1.0 | 1.3.0 | 1.0.4 | 1.0.4 | 1.0.4 | 1.1.3 | 1.1.1 | 2.0.0 | N/A | N/A | 1.0.4 | 1.1.0 |
+| [2.18.0](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.18.0) | 2024-07-08 | 1.0.3 | 1.2.0 | 1.0.3 | 1.0.3 | 1.0.3 | 1.1.2 | 1.1.0 | 1.1.2 | N/A | N/A | 1.0.3 | 1.0.3 |
+| [2.17.6](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.17.6) | 2024-06-25 | 1.0.2 | 1.1.1 | 1.0.2 | 1.0.2 | 1.0.2 | 1.1.1 | 1.0.2 | 1.1.1 | N/A | N/A | 1.0.2 | 1.0.2 |
 
 ### Scripting Languages
 
@@ -104,3 +109,8 @@ This page tracks the mapping between CodeQL bundle versions and the language-spe
 | [2.19.1](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.19.1) | 2024-10-02 | N/A | N/A | 1.2.1 | 2.0.1 | 1.3.0 | 2.1.0 | 1.1.4 | 2.0.1 |
 | [2.19.0](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.19.0) | 2024-09-16 | N/A | N/A | 1.2.0 | 2.0.0 | 1.2.2 | 2.0.0 | 1.1.3 | 2.0.0 |
 | [2.18.4](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.18.4) | 2024-09-10 | N/A | N/A | 1.1.3 | 1.1.4 | 1.2.1 | 1.0.7 | 1.1.2 | 1.0.7 |
+| [2.18.3](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.18.3) | 2024-08-27 | N/A | N/A | 1.1.2 | 1.1.3 | 1.2.0 | 1.0.6 | 1.1.1 | 1.0.6 |
+| [2.18.2](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.18.2) | 2024-08-08 | N/A | N/A | 1.1.1 | 1.1.2 | 1.1.0 | 1.0.5 | 1.1.0 | 1.0.5 |
+| [2.18.1](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.18.1) | 2024-07-23 | N/A | N/A | 1.1.0 | 1.1.1 | 1.0.4 | 1.0.4 | 1.0.4 | 1.0.4 |
+| [2.18.0](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.18.0) | 2024-07-08 | N/A | N/A | 1.0.3 | 1.1.0 | 1.0.3 | 1.0.3 | 1.0.3 | 1.0.3 |
+| [2.17.6](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.17.6) | 2024-06-25 | N/A | N/A | 1.0.2 | 1.0.2 | 1.0.2 | 1.0.2 | 1.0.2 | 1.0.2 |
