@@ -38,5 +38,5 @@ Alternatively, pass the token into the CodeQL init action to allow it to be used
 ```yml
 - uses: github/codeql-action/init@v3
   with:
-  external-repository-token: ${{ secrets.GOLANG_GITHUB_TOKEN }}
+    external-repository-token: ${{ secrets.GOLANG_GITHUB_TOKEN }}
 ```
