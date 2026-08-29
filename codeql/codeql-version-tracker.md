@@ -3,7 +3,7 @@
 This page tracks the mapping between CodeQL bundle versions and the language-specific query and library pack versions included in each bundle.
 
 > **Auto-generated** — This file is maintained by an automated workflow. Do not edit manually.
-> Last updated: 2026-08-15
+> Last updated: 2026-08-29
 
 ## Version Matrix
 
@@ -11,6 +11,7 @@ This page tracks the mapping between CodeQL bundle versions and the language-spe
 
 | CodeQL Version | Release Date | cpp-queries | cpp-all | csharp-queries | csharp-all | go-queries | go-all | java-queries | java-all | rust-queries | rust-all | swift-queries | swift-all |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| [2.26.4](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.26.4) | 2026-08-26 | 1.8.2 | 12.0.3 | 1.9.2 | 7.2.0 | 1.6.9 | 7.3.0 | 1.11.9 | 9.2.4 | 0.1.41 | 0.2.20 | 1.3.9 | 6.8.2 |
 | [2.26.3](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.26.3) | 2026-08-12 | 1.8.1 | 12.0.2 | 1.9.1 | 7.1.2 | 1.6.8 | 7.2.3 | 1.11.8 | 9.2.3 | 0.1.40 | 0.2.19 | 1.3.8 | 6.8.1 |
 | [2.26.2](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.26.2) | 2026-07-29 | 1.8.0 | 12.0.1 | 1.9.0 | 7.1.1 | 1.6.7 | 7.2.2 | 1.11.7 | 9.2.2 | 0.1.39 | 0.2.18 | 1.3.7 | 6.8.0 |
 | [2.26.1](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.26.1) | 2026-07-16 | 1.7.0 | 12.0.0 | 1.8.0 | 7.1.0 | 1.6.6 | 7.2.1 | 1.11.6 | 9.2.1 | 0.1.38 | 0.2.17 | 1.3.6 | 6.7.2 |
@@ -97,6 +98,7 @@ This page tracks the mapping between CodeQL bundle versions and the language-spe
 
 | CodeQL Version | Release Date | actions-queries | actions-all | javascript-queries | javascript-all | python-queries | python-all | ruby-queries | ruby-all |
 |---|---|---|---|---|---|---|---|---|---|
+| [2.26.4](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.26.4) | 2026-08-26 | 0.6.34 | 0.6.0 | 2.4.4 | 2.10.0 | 1.8.9 | 7.2.4 | 1.6.9 | 6.0.4 |
 | [2.26.3](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.26.3) | 2026-08-12 | 0.6.33 | 0.5.0 | 2.4.3 | 2.9.0 | 1.8.8 | 7.2.3 | 1.6.8 | 6.0.3 |
 | [2.26.2](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.26.2) | 2026-07-29 | 0.6.32 | 0.4.40 | 2.4.2 | 2.8.2 | 1.8.7 | 7.2.2 | 1.6.7 | 6.0.2 |
 | [2.26.1](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.26.1) | 2026-07-16 | 0.6.31 | 0.4.39 | 2.4.1 | 2.8.1 | 1.8.6 | 7.2.1 | 1.6.6 | 6.0.1 |
