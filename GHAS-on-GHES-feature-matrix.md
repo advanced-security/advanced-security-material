@@ -120,7 +120,6 @@ Dependabot alerts tell you that your code depends on a package that is insecure.
 | [Dependabot metrics page for prioritizing security fixes](https://docs.github.com/en/enterprise-server@3.19/code-security/dependabot/working-with-dependabot/viewing-and-updating-dependabot-alerts) |||✅|✅|✅|✅|
 | [Dependabot alert assignment](https://docs.github.com/en/enterprise-server@3.21/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts) |||||✅|✅|
 | [Delegated alert dismissal for Dependabot](https://github.blog/changelog/2025-12-19-you-can-now-require-reviews-before-closing-dependabot-alerts-with-delegated-alert-dismissal/) |||||✅|✅|
-
 | [Dependabot alerts for known malicious package versions](https://github.blog/changelog/2026-03-17-dependabot-now-detects-malware-in-npm-dependencies/) |  |  |  |  |  | ✅ |
 
 
