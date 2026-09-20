@@ -3,6 +3,7 @@ description: Weekly tracker that maps CodeQL bundle versions to language-specifi
 on:
   schedule: weekly
   workflow_dispatch:
+model: auto
 permissions:
   contents: read
   pull-requests: read
