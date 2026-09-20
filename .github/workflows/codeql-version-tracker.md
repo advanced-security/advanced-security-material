@@ -22,6 +22,8 @@ safe-outputs:
     max: 1
     preserve-branch-name: true
     recreate-ref: true
+  noop:
+    report-as-issue: false
 ---
 
 # AW: CodeQL Version Tracker
