@@ -5,7 +5,9 @@ This document provides a mapping between the SANS Top 25 Most Dangerous Software
 
 The ranking below preserves the 25 CWEs supplied in the original request; the filename does not indicate a verified 2025 ranking. Query mappings were checked against the [CodeQL full CWE coverage index](https://codeql.github.com/codeql-query-help/full-cwe/) on 2026-09-21.
 
-Each table includes every language/query ID pair listed under that exact CWE in the index, including experimental, diagnostic, and model-generation queries where listed. Related CWEs are not treated as interchangeable. Language labels follow the index, including combined Java/Kotlin and JavaScript/TypeScript labels and GitHub Actions.
+Each table includes every language/query ID pair listed under that CWE in the index, including experimental, diagnostic, and model-generation queries where listed. Language labels follow the index, including combined Java/Kotlin and JavaScript/TypeScript labels and GitHub Actions.
+
+The index is not a list of explicit query metadata tags only. The [CodeQL CWE coverage methodology](https://codeql.github.com/codeql-query-help/codeql-cwe-coverage/) includes both the most precise CWEs associated with a query and their ancestors in the CWE Research View. For example, [`cpp/toctou-race-condition`](https://codeql.github.com/codeql-query-help/cpp/cpp-toctou-race-condition/) explicitly tags CWE-367 and appears here under its ancestor CWE-362; [`java/unsafe-cert-trust`](https://codeql.github.com/codeql-query-help/java/java-unsafe-cert-trust/) explicitly tags CWE-273 and appears under CWE-269. These are indexed ancestor associations, not additional explicit tags or claims that the CWEs are interchangeable.
 
 This is an inventory of indexed mappings, not a guarantee of complete vulnerability detection or inclusion in a particular query suite. Query availability depends on the CodeQL version, installed query packs, and selected suite.
 
