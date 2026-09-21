@@ -4,6 +4,10 @@
 
 This document provides a mapping between the [SANS Top 25 Software Errors](https://www.sans.org/top25-software-errors) and available CodeQL queries.
 
+Mappings for the 25 CWEs below were verified against the [CodeQL full CWE coverage index](https://codeql.github.com/codeql-query-help/full-cwe/) on 2026-09-21. The index includes experimental, diagnostic, and model-generation queries as well as vulnerability-detection queries; inclusion does not guarantee availability in a particular query suite or complete vulnerability detection.
+
+The [CodeQL CWE coverage methodology](https://codeql.github.com/codeql-query-help/codeql-cwe-coverage/) includes both a query's most precise CWEs and their ancestors in the CWE Research View. An indexed association is therefore not necessarily an explicit query metadata tag. For example, [`cpp/toctou-race-condition`](https://codeql.github.com/codeql-query-help/cpp/cpp-toctou-race-condition/) tags CWE-367 and is also indexed under CWE-362.
+
 ## SANS Top 25 CWE List
 
 - **CWE-787**: Out-of-bounds Write
@@ -141,6 +145,7 @@ This document provides a mapping between the [SANS Top 25 Software Errors](https
 | ---------- | ------- |
 | C# | `cs/command-line-injection` |
 | C/C++ | `cpp/command-line-injection` |
+| C/C++ | `cpp/uncontrolled-process-operation` |
 | C/C++ | `cpp/wordexp-injection` |
 | GitHub Actions | `actions/command-injection/critical` |
 | GitHub Actions | `actions/command-injection/medium` |
@@ -171,6 +176,7 @@ This document provides a mapping between the [SANS Top 25 Software Errors](https
 | Ruby | `rb/kernel-open` |
 | Ruby | `rb/non-constant-kernel-open` |
 | Ruby | `rb/shell-command-constructed-from-input` |
+| Rust | `rust/command-line-injection` |
 | Swift | `swift/command-line-injection` |
 
 ### CWE-20: Improper Input Validation
@@ -452,6 +458,7 @@ This document provides a mapping between the [SANS Top 25 Software Errors](https
 | ---------- | ------- |
 | C# | `cs/command-line-injection` |
 | C/C++ | `cpp/command-line-injection` |
+| C/C++ | `cpp/uncontrolled-process-operation` |
 | C/C++ | `cpp/wordexp-injection` |
 | GitHub Actions | `actions/argument-injection/critical` |
 | GitHub Actions | `actions/argument-injection/medium` |
@@ -489,6 +496,7 @@ This document provides a mapping between the [SANS Top 25 Software Errors](https
 | Ruby | `rb/kernel-open` |
 | Ruby | `rb/non-constant-kernel-open` |
 | Ruby | `rb/shell-command-constructed-from-input` |
+| Rust | `rust/command-line-injection` |
 | Swift | `swift/command-line-injection` |
 
 ### CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer
@@ -567,7 +575,8 @@ This document provides a mapping between the [SANS Top 25 Software Errors](https
 | Go | `go/request-forgery` |
 | Go | `go/ssrf` |
 | Java/Kotlin | `java/ssrf` |
-| JavaScript/TypeScript | `js/ssrf` |
+| JavaScript/TypeScript | `javascript/ssrf` |
+| JavaScript/TypeScript | `javascript/ssrf-ipv6-transition-incomplete-guard` |
 | JavaScript/TypeScript | `js/client-side-request-forgery` |
 | JavaScript/TypeScript | `js/request-forgery` |
 | Python | `py/full-ssrf` |
@@ -577,7 +586,7 @@ This document provides a mapping between the [SANS Top 25 Software Errors](https
 
 ### CWE-306: Missing Authentication for Critical Function
 
-No direct CodeQL query mapping found in the repository list.
+No query is listed under this CWE in the CodeQL full CWE coverage index as of the verification date.
 
 ### CWE-362: Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')
 
@@ -659,4 +668,4 @@ No direct CodeQL query mapping found in the repository list.
 
 ### CWE-276: Incorrect Default Permissions
 
-No direct CodeQL query mapping found in the repository list.
+No query is listed under this CWE in the CodeQL full CWE coverage index as of the verification date.
