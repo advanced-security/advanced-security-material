@@ -4,7 +4,7 @@
 
 By default, the CodeQL Action builds a database and runs queries sequentially in a single job. 
 
-We will use an example safety-critical codebases that must comply with **MISRA C** and **MISRA C++** standards, running both rule sets sequentially can result in long-running workflows. You can **decouple database creation from query execution** using the [`skip-queries`](https://github.com/github/codeql-action/blob/main/analyze/action.yml#L39-L40) input, then fan out MISRA analysis across parallel jobs using GitHub Actions artifacts.
+We will use an example of a safety-critical codebase that must comply with **MISRA C** and **MISRA C++** standards. Running both rule sets sequentially can result in long-running workflows. You can **decouple database creation from query execution** using the [`skip-queries`](https://github.com/github/codeql-action/blob/main/analyze/action.yml#L39-L40) input, then fan out MISRA analysis across parallel jobs using GitHub Actions artifacts.
 
 ## Why Parallelize MISRA Analysis?
 
