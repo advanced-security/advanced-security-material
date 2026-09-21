@@ -9,6 +9,9 @@ permissions:
   issues: read
   copilot-requests: write
 timeout-minutes: 60
+engine:
+  id: copilot
+  model: auto
 tools:
   github:
     toolsets: [default]
