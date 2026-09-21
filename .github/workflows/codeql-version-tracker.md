@@ -4,7 +4,6 @@ on:
   schedule: weekly
   workflow_dispatch:
 engine:
-  id: copilot
   model: auto
 permissions:
   contents: read
