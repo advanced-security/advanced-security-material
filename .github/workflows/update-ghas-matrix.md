@@ -22,6 +22,8 @@ safe-outputs:
   create-pull-request:
     max: 1
     preserve-branch-name: true
+  noop:
+    report-as-issue: false
 ---
 
 # AW: Update GHAS-on-GHES Feature Matrix
