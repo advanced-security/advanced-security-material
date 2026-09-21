@@ -79,8 +79,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       security-events: write
-    outputs:
-      db-locations: ${{ steps.analyze.outputs.db-locations }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -89,6 +87,7 @@ jobs:
         uses: github/codeql-action/init@v4
         with:
           languages: cpp
+          tools: linked
 
       # Replace with your project's build commands if autobuild is insufficient.
       # For embedded/automotive projects this is often a cross-compilation step.
@@ -123,6 +122,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Initialize CodeQL tools
+        uses: github/codeql-action/init@v4
+        with:
+          languages: cpp
+          tools: linked
 
       - name: Download CodeQL database
         uses: actions/download-artifact@v4
@@ -162,6 +167,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Initialize CodeQL tools
+        uses: github/codeql-action/init@v4
+        with:
+          languages: cpp
+          tools: linked
 
       - name: Download CodeQL database
         uses: actions/download-artifact@v4
@@ -225,7 +236,7 @@ This ensures **reproducible results** across runs. Without pinning, `codeql pack
 
 ### CodeQL CLI Availability
 
-The `codeql` CLI is pre-installed on all GitHub-hosted runners and is already on the `PATH`. You do not need to run the `init` action in the parallel jobs — just use `codeql` directly.
+Each parallel analysis job runs `github/codeql-action/init` with `tools: linked` before invoking the `codeql` CLI. This ensures the fan-out jobs use the same CodeQL tools bundle as the database build job, rather than depending on runner image defaults.
 
 ### Permissions
 
@@ -240,7 +251,7 @@ C/C++ CodeQL databases can be large (hundreds of MB to several GB). Consider:
 
 ### Using `if: always()` on SARIF Upload
 
-The `upload-sarif` step uses `if: always()` so that even if the analysis step finds violations and returns a non-zero exit code, the SARIF file is still uploaded. This ensures you always see results in Code Scanning.
+The `upload-sarif` step uses `if: always()` so that even if the analysis command fails (for example, due to an internal error or because you have configured it to fail on findings), the SARIF file is still uploaded. This ensures you always see results in Code Scanning.
 
 ## Extending: Adding Default Security Queries
 
