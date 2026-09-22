@@ -51,7 +51,7 @@ If the file does not exist, this is the first run — proceed without prior stat
 Read `GHAS-on-GHES-feature-matrix.md` and identify:
 - The **latest major GHES version** currently documented (look at the column headers in the Release Notes table)
 - The **oldest version** still in the matrix
-- Any versions that have passed their deprecation date
+- Any versions whose deprecation calendar year has already ended and are ready for year-end archive processing
 
 ### Step 3: Check for New GHES Versions
 
@@ -79,17 +79,17 @@ Apply the significance filter from the instructions file:
 - **EXCLUDE:** Minor bug fixes, new language/framework version support (e.g., Go 1.25, Swift 6.2), simple renames, UI tweaks without functional impact
 
 
-If there are no significant feature changes found **and** no versions are due to be archived (see Step 6), **do not create a PR**. Call `noop` with a message explaining that the matrix is already up to date and what was checked. Note: archiving an EOL version (Step 6) is itself a reason to open a PR even when no new features were found.
+If there are no significant feature changes found **and** no versions are due to be archived (see Step 6), **do not create a PR**. Call `noop` with a message explaining that the matrix is already up to date and what was checked. Note: archiving an EOL version that is ready for year-end archive processing (Step 6) is itself a reason to open a PR even when no new features were found.
 
 ### Step 6: Archive End-of-Life Versions
 
-Before adding or updating any feature rows, deal with versions that have reached end of life (EOL).
+Before adding or updating any feature rows, deal with versions that reached end of life (EOL) in a previous calendar year.
 
-A version is EOL when its **Deprecation date** (see the Release notes table) is on or before today's date. Use the all-releases page to confirm dates if needed.
+A version is ready for archive processing only when its **Deprecation date** (see the Release notes table) is in a calendar year earlier than the current calendar year. Use the all-releases page to confirm dates if needed. Do not archive versions during the same calendar year as their deprecation date; for example, versions with 2026 deprecation dates should remain in the active matrix until the first workflow run in 2027.
 
 **You must never delete a version column without first copying it into the archive.** Archiving is a two-part operation — write the archive file *and* remove the columns — and both parts must happen in the same PR.
 
-1. **Identify EOL versions.** From the Release notes table in `GHAS-on-GHES-feature-matrix.md`, collect every version whose Deprecation date has passed. If none have passed, skip this step entirely.
+1. **Identify archive-ready EOL versions.** From the Release notes table in `GHAS-on-GHES-feature-matrix.md`, collect every version whose Deprecation date is in a calendar year earlier than the current calendar year. If none qualify, skip this step entirely, even if some versions have deprecation dates earlier than today's date in the current calendar year.
 
 2. **Choose the archive file.** Archives live in `advanced-security/archive/` and are named by the calendar year in which the versions are archived: `GHAS-on-GHES-feature-matrix-<YEAR>.md` (e.g. `GHAS-on-GHES-feature-matrix-2026.md`, where `<YEAR>` is the current year of this run).
    - If that file does **not** exist yet, create it. Start it as a self-contained snapshot by copying the document title, intro, "How do I read this document?" legend, and the `## Release notes` heading from the active matrix.
